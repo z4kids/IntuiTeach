@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+  overflow-y: hidden;
+}
+
+.side{
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+}
+
+.header{
+  position: absolute;
+  z-index:20;
+  top: 10%;
+  left: 3%;
+  font-family: 'Oxygen';
+  color: white;
+}
+.logo {
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  pointer-events: none;
+}
+.nav{
+  z-index: 100;
+}
+
+#home{
+  padding-left: 20px;
+}
+.App-header {
+  background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.students{
+  background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+body{
+  overflow-y: hidden;
+}
