@@ -46,4 +46,14 @@ router.post('/submit', async (req, res) => {
     //Send a boolean that's true if the student's answer matches the correct answer
     res.json(question.correct === response.value.answer)
 })
+/**
+ * Handles when a student is getting the question being asked by the teacher
+ */
+router.get('/question', async (req, res) => {
+    await client.connect();
+    const {name, meeting_id} = req.body;
+    const student = await client.db(DB_NAME).collection('student').findOne({name, meeting_id})
+    const teacher = await client.db(DB_NAME).collection('teacher').findOne({_id: student.teacher})
+    res.json(teacher.current_question)
+})
 module.exports = router
