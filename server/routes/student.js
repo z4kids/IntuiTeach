@@ -6,6 +6,9 @@ const router = express.Router()
 
 const DB_NAME = 'z4kidz'
 
+/**
+ * Handles when the student changes their answer (but not when the submit it)
+ */
 router.post('/answer', async (req, res) => {
     await client.connect()
     //Decontruct the request body
@@ -29,5 +32,18 @@ router.post('/answer', async (req, res) => {
     })
     res.sendStatus(200)
 })
-
+/**
+ * Handles when the student submits their answer, and tells them if they are right or not!
+ */
+router.post('/submit', async (req, res) => {
+    await client.connect()
+    //Deconstruct the request body
+    const {question_id, student_name, submit_time} = req.body;
+    //Get the question from the database (so that we can compare the correct answer)
+    const question = await client.db(DB_NAME).collection('question').findOne({_id: ObjectId(question_id)})
+    //Get the student's response from the database
+    const response = await client.db(DB_NAME).collection('response').findOneAndUpdate({question_id: ObjectId(question_id), student_name}, {$set: {submit_time}})
+    //Send a boolean that's true if the student's answer matches the correct answer
+    res.json(question.correct === response.value.answer)
+})
 module.exports = router
