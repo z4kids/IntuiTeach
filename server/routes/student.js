@@ -10,7 +10,7 @@ router.post('/answer', async (req, res) => {
     await client.connect()
     //Decontruct the request body
     const {question_id, student_name, answer, time_answer} = req.body
-    const previous = await client.db(DB_NAME).collection('response').findOne({question_id, student_name})
+    const previous = await client.db(DB_NAME).collection('response').findOne({question_id: ObjectId(question_id), student_name})
 
     //Create the user's new response
     const response = {
@@ -22,7 +22,7 @@ router.post('/answer', async (req, res) => {
         time_submit: 0
     }
     //Get the student with the name specified in the request
-    const result = await client.db(DB_NAME).collection('response').updateOne({question_id, student_name}, {
+    const result = await client.db(DB_NAME).collection('response').updateOne({question_id: ObjectId(question_id), student_name}, {
         $set: response
     }, {
         upsert: true
