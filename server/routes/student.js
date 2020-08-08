@@ -6,6 +6,19 @@ const router = express.Router()
 
 const DB_NAME = 'z4kidz'
 
+router.post('/join', async (req, res) => {
+    await client.connect()
+    const {name, meeting_id} = req.body
+    const teacher_zoom_id = "1" //TODO: get teacher id using zoom api after implementing oauth
+    const teacher = await client.db(DB_NAME).collection('teacher').findOne({zoom_id: teacher_zoom_id})
+    const result = await client.db(DB_NAME).collection('student').insertOne({
+        name,
+        teacher: teacher._id,
+        meeting_id,
+        points: 0
+    })
+    res.json(result.insertedId)
+})
 /**
  * Handles when the student changes their answer (but not when the submit it)
  */
@@ -54,6 +67,7 @@ router.get('/question', async (req, res) => {
     const {name, meeting_id} = req.body;
     const student = await client.db(DB_NAME).collection('student').findOne({name, meeting_id})
     const teacher = await client.db(DB_NAME).collection('teacher').findOne({_id: student.teacher})
-    res.json(teacher.current_question)
+    const question = await client.db(DB_NAME).collection('question').findOne({_id: teacher.current_question})
+    res.json(question)
 })
 module.exports = router
