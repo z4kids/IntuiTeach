@@ -1,0 +1,11 @@
+{
+  "name": "z4kids-api",
+  "version": "1.0.0",
+  "description": "The API/backend for our project",
+  "main": "index.js",
+  "repository": "https://github.com/z4kids/z4kids-webclient.git",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ."
+  }
+}
