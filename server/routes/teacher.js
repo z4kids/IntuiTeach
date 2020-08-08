@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const client = require('../db/connection.js')
-console.log("This is client: ", client)
+const {ObjectId} = require('mongodb')
 
 router.post('/new_question', async (req, res) => {
     await client.connect()
@@ -19,5 +19,20 @@ router.post('/new_question', async (req, res) => {
     console.log(`New question created with the following id: ${result.insertedId}`);
     res.sendStatus(200)
   })
+
+router.post('/delete_question', async (req, res) => {
+    await client.connect()
+    const {question_id} = req.body
+
+    const question_deleted = {
+      _id: ObjectId(question_id)
+    }
+
+    const result = await client.db("z4kidz").collection("question").deleteOne(question_deleted)
+
+    console.log(`${result.deletedCount} document(s) was/were deleted.`)
+    res.sendStatus(200)
+
+})
 
 module.exports = router;
