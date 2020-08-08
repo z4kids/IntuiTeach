@@ -9,7 +9,7 @@ import testTool from './tool.js'
 //Zoom Client Code
 console.log("checkSystemRequirements");
 console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
-
+const $ = window.$;
 // it's option if you want to change the WebSDK dependency link resources. setZoomJSLib must be run at first
 // if (!china) ZoomMtg.setZoomJSLib('https://source.zoom.us/1.7.10/lib', '/av'); // CDN version default
 // else ZoomMtg.setZoomJSLib('https://jssdk.zoomus.cn/1.7.10/lib', '/av'); // china cdn option
