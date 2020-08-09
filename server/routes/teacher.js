@@ -3,7 +3,7 @@ const router = express.Router();
 const client = require('../db/connection.js')
 const {ObjectId} = require('mongodb')
 
-DB_NAME = "z4kidz"
+const DB_NAME = "z4kidz"
 
 //API for teacher to add new exam
 router.post('/new_exam', async (req, res) => {

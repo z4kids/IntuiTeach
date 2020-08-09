@@ -1,5 +1,8 @@
 const express = require('express')
 const fetch = require('node-fetch')
+const client = require('../db/connection')
+
+const DB_NAME = "z4kidz"
 
 const router = express.Router()
 
@@ -7,6 +10,8 @@ router.get('/', (req, res) => {
     res.redirect(`https://zoom.us/oauth/authorize?response_type=code&client_id=${process.env.ZOOM_CLIENT_ID}&redirect_uri=${process.env.ZOOM_REDIRECT_URI}`)
 })
 router.get('/redirect', async (req, res) => {
+    await client.connect()
+
     const raw = await fetch(`https://zoom.us/oauth/token?grant_type=authorization_code&code=${req.query.code}&redirect_uri=${process.env.ZOOM_REDIRECT_URI}`, {
         method: 'POST',
         headers: {
@@ -21,8 +26,13 @@ router.get('/redirect', async (req, res) => {
         }
     })
     console.log(await user.json())
-    //TODO: Add new users to database, and determine their role
-    
+    //Add new users to database
+    let teacher = {
+        zoom_id: user.id,
+        first_name: user.first_name,
+        last_name: user.last_name
+    }
+    await client.db(DB_NAME).collection('teacher').updateOne({zoom_id: user.id}, teacher, {upsert: true})
     res.sendStatus(200)
 })
 module.exports = router

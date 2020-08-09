@@ -43,7 +43,7 @@ router.post('/join', async (req, res) => {
     }
     await client.db(DB_NAME).collection('teacher').updateOne({_id: teacher._id}, {$set: new_teacher})
     //Send the student's id relative to our database
-    res.json(student._id)
+    res.json({id: student._id})
 })
 /**
  * Handles when the student changes their answer (but not when the submit it)
