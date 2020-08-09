@@ -7,15 +7,47 @@ const router = express.Router()
 
 const DB_NAME = 'z4kidz'
 
+/**
+ * Handles when a student joins a meeting
+ */
 router.post('/join', async (req, res) => {
     await client.connect()
-    const {name} = req.body
-    await client.db(DB_NAME).collection('student').insertOne({name})
-    res.sendStatus(200)
+    const {name, student_zoom_id, teacher_zoom_id} = req.body
+    const old_student  = await client.db(DB_NAME).collection('student').findOne({zoom_id: student_zoom_id})
+    const teacher = await client.db(DB_NAME).collection('teacher').findOne({zoom_id: teacher_zoom_id})
+    let new_student = {}
+    //Check to see if there is already a record for this student
+    if (old_student) {
+        //Only add this teacher if the student doesn't have them
+        const hasTeacher = old_student.teachers.some(teach => {
+            return teach.equals(teacher._id);
+        });
+        new_student = {
+            teachers: (hasTeacher) ? old_student.teachers : [...old_student.teachers, teacher._id]
+        }
+    } else {
+        new_student = {
+            name,
+            zoom_id: student_zoom_id,
+            teachers: [teacher._id]
+        }
+    } 
+    await client.db(DB_NAME).collection('student').updateOne({zoom_id: student_zoom_id}, {$set: new_student}, {upsert: true})
+    const student = await client.db(DB_NAME).collection('student').findOne(new_student)
+    //Update the list of students for the teacher if the student isn't in the list
+    const hasStudent = teacher.students.length > 0 && teacher.students.some(stud => {
+        return stud.equals(student._id);
+    });
+    const new_teacher = {
+        students: (hasStudent) ? teacher.students : [...teacher.students, student._id]
+    }
+    await client.db(DB_NAME).collection('teacher').updateOne({_id: teacher._id}, {$set: new_teacher})
+    //Send the student's id relative to our database
+    res.json(student._id)
 })
 /**
  * Handles when the student changes their answer (but not when the submit it)
- * (As of now, not useful since we aren't tracking previous answers)
+ * (As of now, not useful AND OUT OF DATE since we aren't tracking previous answers)
  */
 router.post('/answer', async (req, res) => {
     await client.connect()
