@@ -14,6 +14,15 @@ router.get('/redirect', async (req, res) => {
         }
     })
     const response = await raw.json()
+    //Get the user's information
+    const user = await fetch('https://api.zoom.us/v2/users/me', {
+        headers: {
+            Authorization: `Bearer ${response.access_token}`
+        }
+    })
+    console.log(await user.json())
+    //TODO: Add new users to database, and determine their role
+    
     res.sendStatus(200)
 })
 module.exports = router
