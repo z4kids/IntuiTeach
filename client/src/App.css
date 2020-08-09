@@ -39,6 +39,13 @@
   width: 30px;
 }
 
+.side-home{
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
 #home{
   padding-left: 20px;
 }
@@ -116,5 +123,6 @@
 }
 
 body{
-  overflow-y: hidden;
+  overflow-x: hidden;
+
 }

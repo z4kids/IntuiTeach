@@ -1,8 +1,9 @@
 import React from 'react';
-import Side from './Side.svg';
-import logo from './logo.svg';
-import add_file from './add_file.svg';
-import r_side from './rside.svg';
+import Side from './images/Side.svg';
+import logo from './images/logo.svg';
+import add_file from './images/add_file.svg';
+import r_side from './images/rside.svg';
+import homeside from './images/home-side.svg';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col } from 'react-bootstrap';
@@ -58,7 +59,8 @@ const Students = () => (
 
 const Home = () => (
   <div className="home">
-    <h1 className="header">z4kids</h1>
+    <img src={homeside} className='side-home'/>
+    <img src={r_side} className='rside-home'/>
   </div>
 );
 
@@ -85,7 +87,7 @@ function ActionLink() {
 
 
 const Navigation = () => (
-  <Navbar className = "nav" bg="light" variant="light">
+  <Navbar className="nav" bg="light" variant="light" fixed="top">
     <Navbar.Brand as = {NavLink} to="/"> <img src={logo} className="logo" /></Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link as={NavLink} className = "navlink" id = "home" to='/'>Home</Nav.Link>
