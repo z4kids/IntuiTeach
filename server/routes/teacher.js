@@ -1,6 +1,8 @@
 const express = require('express')
+const url = require('url')
 const router = express.Router();
 const client = require('../db/connection.js')
+const fetch = require('node-fetch')
 const {ObjectId} = require('mongodb')
 
 const DB_NAME = "z4kidz"
@@ -90,5 +92,23 @@ router.post('/reward', async (req, res) => {
     console.log(`New reward created with the following id: ${result.insertedId}`);
     res.sendStatus(200)
 })
-
+router.get('/meeting', async (req, res) => {
+  const {exam_id} = req.body
+  console.log(req.session.access_token)
+  let meeting = await fetch(`https://api.zoom.us/v2/users/${req.session.user.id}/meetings`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${req.session.access_token}`
+    }
+  })
+  meeting = await meeting.json()
+  const join_url = url.parse(meeting.join_url)
+  const create_url = url.parse(meeting.start_url)
+  join_url.searchParams.append('exam', exam_id)
+  create_url.searchParams.append('exam', exam_id)
+  res.json({
+    join_url,
+    create_url
+  })
+})
 module.exports = router;

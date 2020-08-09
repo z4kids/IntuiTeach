@@ -20,19 +20,22 @@ router.get('/redirect', async (req, res) => {
     })
     const response = await raw.json()
     //Get the user's information
-    const user = await fetch('https://api.zoom.us/v2/users/me', {
+    let user = await fetch('https://api.zoom.us/v2/users/me', {
         headers: {
             Authorization: `Bearer ${response.access_token}`
         }
     })
-    console.log(await user.json())
+    user = await user.json()
+    req.session.access_token = response.access_token
+    console.log(req.session.access_token)
+    req.session.user = user
     //Add new users to database
     let teacher = {
         zoom_id: user.id,
         first_name: user.first_name,
         last_name: user.last_name
     }
-    await client.db(DB_NAME).collection('teacher').updateOne({zoom_id: user.id}, teacher, {upsert: true})
+    await client.db(DB_NAME).collection('teacher').updateOne({zoom_id: user.id}, {$set: teacher}, {upsert: true})
     res.sendStatus(200)
 })
 module.exports = router
