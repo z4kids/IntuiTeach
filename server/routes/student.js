@@ -110,12 +110,12 @@ router.post('/submit', async (req, res) => {
     //where is gets the number of points and compares it against its state.
     //If the number of points is greate than the number of points in the state,
     //the student must've gotten it correct
-    res.json(correct)
+    res.json({correct})
 })
 /**
  * Handles when a student is getting the question being asked by the teacher
  */
-router.get('/question', async (req, res) => {
+router.get('/questions', async (req, res) => {
     await client.connect();
     const {exam_id} = req.body;
     //Get the exam
@@ -129,6 +129,6 @@ router.get('/question', async (req, res) => {
         questions.push(question)
     }
     //Send the list of questions
-    res.json(questions)
+    res.json({questions})
 })
 module.exports = router
