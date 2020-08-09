@@ -84,7 +84,7 @@ function ActionLink() {
 
 
 const Navigation = () => (
-  <Navbar className = "nav" bg="light" variant="light">
+  <Navbar className="nav" bg="light" variant="light" fixed="top">
     <Navbar.Brand as = {NavLink} to="/"> <img src={logo} className="logo" /></Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link as={NavLink} className = "navlink" id = "home" to='/'>Home</Nav.Link>
