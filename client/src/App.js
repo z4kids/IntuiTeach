@@ -1,8 +1,9 @@
 import React from 'react';
-import Side from './Side.svg';
-import logo from './logo.svg';
-import add_file from './add_file.svg';
-import r_side from './rside.svg';
+import Side from './images/Side.svg';
+import logo from './images/logo.svg';
+import add_file from './images/add_file.svg';
+import r_side from './images/rside.svg';
+import homeside from './images/home-side.svg';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col } from 'react-bootstrap';
@@ -58,7 +59,8 @@ const Students = () => (
 
 const Home = () => (
   <div className="home">
-    <h1 className="header">z4kids</h1>
+    <img src={homeside} className='side-home'/>
+    <img src={r_side} className='rside-home'/>
   </div>
 );
 
@@ -68,7 +70,7 @@ const About = () => (
 
 const Educators = () => (
   <div className="educators">
-    <button><img src={add_file} alt="add question" onClick={ActionLink.handleClick}/></button>
+    <Button><img src={add_file} onClick={ActionLink.handleClick}/></Button>
   </div>
 )
 
