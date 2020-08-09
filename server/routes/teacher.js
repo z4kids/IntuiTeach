@@ -4,7 +4,26 @@ const client = require('../db/connection.js')
 const {ObjectId} = require('mongodb')
 
 DB_NAME = "z4kidz"
-// API for teacher to add new question
+
+//API for teacher to add new exam
+router.post('/new_exam', async (req, res) => {
+    await client.connect()
+
+    const {exam_name, teacher_id} = req.body
+
+    const exam = {
+        name:exam_name,
+        question: [],
+        teacher_id: ObjectId(teacher_id)
+
+    }
+
+    const result = await client.db(DB_NAME).collection("exam").insertOne(exam)
+
+    console.log(`New exam created with the following id: ${result.insertedId}`);
+    res.sendStatus(200)
+})
+// API for teacher to add new question to exam
 router.post('/new_question', async (req, res) => {
     await client.connect()
     // Deconstructs the prompt of the question, the list of the answers, the correct answer, and the max time to answer the question
@@ -54,6 +73,22 @@ router.post('/delete_question', async (req, res) => {
     console.log(`${result.deletedCount} document(s) was/were deleted.`)
     res.sendStatus(200)
 
+})
+
+router.post('/new_reward', async (req, res) => {
+    await client.connect()
+
+    const {reward_name, reward_cost} = req.body
+
+    const reward = {
+      name: reward_name,
+      cost: reward_cost
+    }
+
+    const result = await client.db(DB_NAME).collection("rewards").insertOne(reward)
+
+    console.log(`New reward created with the following id: ${result.insertedId}`);
+    res.sendStatus(200)
 })
 
 module.exports = router;
