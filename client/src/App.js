@@ -1,9 +1,11 @@
 import React from 'react';
 import Side from './Side.svg';
-import logo from './logo.svg'
+import logo from './logo.svg';
+import add_file from './add_file.svg';
+import r_side from './rside.svg';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav } from 'react-bootstrap';
 
 
 function App() {
@@ -12,10 +14,12 @@ function App() {
     <div className="App">
       <Navigation />
       <Main />
-      <img src={Side} className='side' />
-      <h1 className="header">z4kids</h1>
       <header className="App-header">
       </header>
+      <img src={Side} className='side' />
+      <img src={r_side} className='rside' />
+      <h1 className="header">z4kids</h1>
+      
     </div>
 
   );
@@ -40,8 +44,20 @@ const About = () => (
 )
 
 const Educators = () => (
-  <div className="educators"></div>
+  <div className="educators">
+    <button><img src={add_file} alt="add question" onClick={ActionLink.handleClick}/></button>
+  </div>
 )
+
+function ActionLink() {
+    function handleClick(e) {
+      e.preventDefault();
+      console.log('The link was clicked.');
+    }
+
+  }
+
+
 const Navigation = () => (
   <Navbar className = "nav" bg="light" variant="light">
     <Navbar.Brand as = {NavLink} to="/"> <img src={logo} className="logo" /></Navbar.Brand>
