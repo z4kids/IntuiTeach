@@ -78,7 +78,8 @@ router.post('/answer', async (req, res) => {
 router.post('/submit', async (req, res) => {
     await client.connect()
     //Deconstruct the request body
-    const {student_id, exam_id, question_index, answer, submit_time} = req.body;
+    const {student_id, exam_id, question_index, answer, submit_time, teacher_zoom_id} = req.body;
+    const teacher = await client.db(DB_NAME).collection('teacher').findOne({zoom_id: teacher_zoom_id})
     let stats = await client.db(DB_NAME).collection('stats').findOne({student_id: ObjectId(student_id), exam_id: ObjectId(exam_id)})
     //If the student already has a stats page for this exam 
     if (stats) {
@@ -90,6 +91,7 @@ router.post('/submit', async (req, res) => {
         stats = {
             student_id: ObjectId(student_id),
             exam_id: ObjectId(exam_id),
+            teacher_id: teacher._id,
             answers: [answer],
             times: [submit_time],
             points: 0
