@@ -29,8 +29,8 @@ function App() {
 const Students = () => (
   <div className="students">
     <img src={Side} className='side' />
-    <h1 className='student-page-header'>Students</h1>
-    <h2 className='student-header'>Enter the Zoom Meeting</h2>
+    <h1 className='page-header'>Students</h1>
+    <h2 className='enter-meeting-header'>Enter the Zoom Meeting</h2>
     <Form className='student-form'>
       <Row>
         <Col>
@@ -68,7 +68,10 @@ const About = () => (
 
 const Educators = () => (
   <div className="educators">
-    <button><img src={add_file} alt="add question" onClick={ActionLink.handleClick}/></button>
+    <h1 className='page-header'>Educators</h1>
+    <div className="educator-page-contents">
+      <p>test</p>
+    </div>
   </div>
 )
 

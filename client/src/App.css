@@ -53,11 +53,7 @@
   color: white;
 }
 
-.students{
-  background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
-}
-
-.student-page-header{
+.page-header{
   position: absolute;
   z-index: 20;
   top: 10%;
@@ -67,7 +63,11 @@
   font-size: 2em;
 }
 
-.student-header{
+.students{
+  background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
+}
+
+.enter-meeting-header{
   position: absolute;
   z-index: 20;
   top: 10%;
@@ -82,7 +82,7 @@
   position: absolute;
   top: 30%;
   left: 20%;
-  z-index: 20;
+  z-index: 30;
   width: 60%;
   text-align: left;
 }
@@ -100,6 +100,16 @@
 
 .educators{
   background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
+}
+
+.educator-page-contents{
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  z-index: 30;
+  display: flex;
+  background-color: dodgerblue;
+
 }
 .App-link {
   color: #61dafb;
