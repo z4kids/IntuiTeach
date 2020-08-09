@@ -5,7 +5,7 @@ import add_file from './add_file.svg';
 import r_side from './rside.svg';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Form, Button, Row, Col } from 'react-bootstrap';
 
 
 function App() {
@@ -27,11 +27,32 @@ function App() {
 
 }
 
-
 const Students = () => (
   <div className="students">
     <img src={Side} className='side' />
-  
+    <h2 className='student-header'>Enter the Zoom Meeting</h2>
+    <Form className='student-form'>
+      <Row>
+        <Col>
+          <Form.Group controlId="room-code">
+            <Form.Label className = "student-form-label">Enter Room Code:</Form.Label>
+            <div className = "student-form-text-padding">
+              <Form.Control size="lg" type="text" placeholder="Room Code"/>
+            </div>
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group controlId="room-password">
+            <Form.Label className = "student-form-label">Enter Room Password:</Form.Label>
+            <div className = "student-form-text-padding">
+              <Form.Control size="lg" type="text" placeholder="Room Password" />
+            </div>
+          </Form.Group>
+        </Col>
+      </Row>
+      
+      <Button variant = 'primary' type="submit" size='lg'>Submit</Button>
+    </Form>
   </div>
 );
 

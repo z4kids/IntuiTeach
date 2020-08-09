@@ -57,6 +57,35 @@
   background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
 }
 
+.student-header{
+  position: absolute;
+  z-index: 20;
+  top: 10%;
+  left: 20%;
+  font-family: 'Oxygen';
+  color: white;
+}
+
+.student-form{
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  z-index: 20;
+  width: 60%;
+  text-align: left;
+}
+
+.student-form-text-padding{
+  padding-top: 0%;
+  padding-bottom: 10%;
+}
+
+.student-form-label{
+  font-family: 'Oxygen';
+  font-size: x-large;
+  color: white;
+}
+
 .educators{
   background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
 }
