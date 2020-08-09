@@ -6,7 +6,7 @@ const {ObjectId} = require('mongodb')
 const DB_NAME = "z4kidz"
 
 //API for teacher to add new exam
-router.post('/new_exam', async (req, res) => {
+router.post('/exam', async (req, res) => {
     await client.connect()
 
     const {exam_name, teacher_id} = req.body
@@ -24,7 +24,7 @@ router.post('/new_exam', async (req, res) => {
     res.sendStatus(200)
 })
 // API for teacher to add new question to exam
-router.post('/new_question', async (req, res) => {
+router.post('/question', async (req, res) => {
     await client.connect()
     // Deconstructs the prompt of the question, the list of the answers, the correct answer, and the max time to answer the question
     const {prompt, list_of_answers, correct_answer, max_time, points, teacher_id, exam_id} = req.body
@@ -55,7 +55,7 @@ router.post('/new_question', async (req, res) => {
   })
 
 // API for teacher to delete a question 
-router.post('/delete_question', async (req, res) => {
+router.delete('/question', async (req, res) => {
     await client.connect()
     // Deconstructs the question id of the question the teacher wants deleted 
     const {question_id, exam_id} = req.body
@@ -75,7 +75,7 @@ router.post('/delete_question', async (req, res) => {
 
 })
 
-router.post('/new_reward', async (req, res) => {
+router.post('/reward', async (req, res) => {
     await client.connect()
 
     const {reward_name, reward_cost} = req.body
