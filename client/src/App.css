@@ -57,6 +57,16 @@
   background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
 }
 
+.student-page-header{
+  position: absolute;
+  z-index: 20;
+  top: 10%;
+  left: 3%;
+  font-family: 'Oxygen';
+  color: white;
+  font-size: 2em;
+}
+
 .student-header{
   position: absolute;
   z-index: 20;
@@ -64,6 +74,8 @@
   left: 20%;
   font-family: 'Oxygen';
   color: white;
+  font-size: 3em;
+  font-weight: 500;
 }
 
 .student-form{

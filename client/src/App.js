@@ -18,7 +18,6 @@ function App() {
       </header>
       <img src={Side} className='side' />
       <img src={r_side} className='rside' />
-      <h1 className="header">z4kids</h1>
       
     </div>
 
@@ -30,6 +29,7 @@ function App() {
 const Students = () => (
   <div className="students">
     <img src={Side} className='side' />
+    <h1 className='student-page-header'>Students</h1>
     <h2 className='student-header'>Enter the Zoom Meeting</h2>
     <Form className='student-form'>
       <Row>
@@ -57,7 +57,9 @@ const Students = () => (
 );
 
 const Home = () => (
-  <div className="home"></div>
+  <div className="home">
+    <h1 className="header">z4kids</h1>
+  </div>
 );
 
 const About = () => (
