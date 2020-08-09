@@ -8,6 +8,7 @@ The following environmental variables must be set\
 To start the API server
 ```
 cd server/
+npm install
 npm run start
 ```
 ## Endpoints
