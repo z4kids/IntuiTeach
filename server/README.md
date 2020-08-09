@@ -11,7 +11,7 @@ cd server/
 npm install
 npm run start
 ```
-## Endpoints
+## Endpoints for students
 ### POST /student/join
 #### Purpose
 Registers a student to a teacher when a student joins a meeting.
@@ -134,3 +134,128 @@ Reponse:
     ]
 }
 ```
+
+## Endpoints for teachers
+
+### POST /teacher/exam
+
+#### Purpose 
+Creates new exam 
+
+#### Usage
+Request body:
+```
+{
+    "exam_name": "Name of exam",
+    "teacher_id": "Teacher's internal id"
+}
+```
+Response:
+Generates new exam with its own internal id
+
+#### Example
+Request body:
+```
+{
+    "exam_name": "math",
+    "teacher_id": "5f3018874620ca4ab2b7a49e"
+}
+```
+Response:
+New exam generated with the following id: 5f30253fd2e184c09fef08a1
+
+### POST /teacher/question
+
+#### Purpose 
+Adds new question to exam
+
+#### Usage
+Request body:
+```
+{
+    "prompt": "Question prompt",
+    "list_of_answers": "array of answer choices", 
+    "correct_answer": "the correct answer", 
+    "max_time": "the max time allowed to answer the question, 
+    "points": "the point value of the question, 
+    "teacher_id": "the teacher's internal id", 
+    "exam_id": "the exam's internal id"
+}
+```
+Response:
+Generates new question with its internal id
+
+#### Example
+Request body:
+```
+{
+    "prompt": "What is 3*3",
+    "correct_answer": 9,
+    "list_of_answers": [1, 2, 9, 4],
+    "max_time": 10,
+    "points": 20,
+    "teacher_id":"5f2e15b1db60fd3013468aa7",
+    "exam_id":"5f30253fd2e184c09fef08a1"
+}
+```
+Response:
+New question generated with the following id: 5f2e1418db60fd3013468aa4
+
+### DELETE /teacher/question
+
+#### Purpose 
+Deletes a question from the specified exam
+
+#### Usage
+Request body: 
+```
+{
+    "question_id": "the interal id of the question", 
+    "exam_id": "the internal id of the exam where the question is"
+}
+```
+
+Response:
+Deletes the question with the specific id
+
+#### Example
+Request body:
+```
+{
+    "question_id": "5f2e1418db60fd3013468aa4", 
+    "exam_id": "5f30253fd2e184c09fef08a1"
+}
+```
+Response:
+Question deleted with the following id: 5f2e1418db60fd3013468aa4
+
+### POST /teacher/reward
+
+#### Purpose
+Adds new reward for students
+
+#### Usage
+Request body:
+```
+{
+    "reward_name": "the name of the reward", 
+    "reward_cost": "the cost of the reward that will be subtracted from the number of points the student has"
+}
+```
+Response:
+Addes reward with its own internal id
+
+#### Example
+Request body:
+```
+{
+    "reward_name": "extra credit",
+    "reward_cost": "20"
+}
+```
+
+Response:
+New reward generated with the following id: 5f2f439cc3cc88b62372c030
+
+
+
