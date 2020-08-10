@@ -17,10 +17,7 @@ function App() {
     <div className="App">
       <Navigation />
       <Main />
-      <header className="App-header">
-      </header>
-      
-      
+    
     </div>
 
   );
@@ -30,6 +27,7 @@ function App() {
 
 const Students = () => (
   <div className="students">
+    <header className='header'></header>
     <img src={Side} className='side' />
     <img src={r_side} className='rside' />
     <h1 className='page-header'>Students</h1>
@@ -60,18 +58,26 @@ const Students = () => (
 );
 
 const Home = () => (
+
+
   <div className="home">
+    <header className="home-header">
+    </header>
     <img src={homeside} className='side-home'/>
     <img src={r_side_home} className='rside-home'/>
   </div>
+
 );
 
 const About = () => (
-  <div className="about"></div>
+  <div className="about">
+    <header className='header'></header>
+  </div>
 )
 
 const Educators = () => (
   <div className="educators">
+    <header className='header'></header>
     <h1 className='page-header'>Educators</h1>
     <div className="educators-contents">
       <img src={statistics} alt='Statistics Icon'/>
@@ -86,13 +92,18 @@ const Educators = () => (
   </div>
 )
 
+const Dashboard = () => (
+  <div className="dashboard"></div>
+)
+
+//Test for buttons
 function ActionLink() {
     function handleClick(e) {
       e.preventDefault();
       console.log('The link was clicked.');
-    }
-
   }
+
+}
 
 
 const Navigation = () => (
@@ -103,6 +114,7 @@ const Navigation = () => (
       <Nav.Link as={NavLink} className="navlink" to='/about'>About</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/students'>Students</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/educators'>Educators</Nav.Link>
+      <Nav.Link as={NavLink} className="navlink" to='/dashboard'>Login</Nav.Link>
     </Nav>
   </Navbar>
 );
@@ -113,6 +125,7 @@ const Main = () => (
     <Route exact path='/about' component={About}></Route>
     <Route exact path='/students' component={Students}></Route>
     <Route exact path='/educators' component={Educators}></Route>
+    <Route exact path='/dashboard' component={Dashboard}></Route>
   </Switch>
 );
 
