@@ -8,7 +8,7 @@
  position: absolute;
  top: 0;
  left: 0;
- height: 105%;
+ height: 98%;
 }
 
 .home-org-header{
@@ -30,7 +30,7 @@
   z-index: 100;
 }
 .rside{
-  height: 100%;
+  height: 98%;
   position: absolute;
   left: calc(100% - 294px);
   top: 1%;
@@ -40,7 +40,6 @@
 .rside-home{
   position: absolute;
   left: calc(100% - 294px);
-  top: 1%;
 }
 .addfile{
   height: 30px;

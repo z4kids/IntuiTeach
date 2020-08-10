@@ -9,15 +9,16 @@ import r_side_home from './images/rside_home.svg';
 import purple_side from './images/purple-side.svg';
 import home_rotate from './images/home_rotate.svg';
 import student_stats from './images/student_stats.svg'
+import Quizmaker from './Quizmaker.js';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col, Container } from 'react-bootstrap';
-import Side from './sidebar.js'
+import Sidebar from './sidebar.js';
 
 function App() {
   
   return (
-    <div className="App">\
+    <div className="App">
       <Navigation />
       <Main />
     </div>
@@ -116,7 +117,7 @@ const Dashboard = () => (
     <Container fluid>
       <Row>
         <Col xs={2}>
-          <Side/>
+          <Sidebar/>
         </Col>
         <Col xs={10}>
 
@@ -156,6 +157,7 @@ const Main = () => (
     <Route exact path='/students' component={Students}></Route>
     <Route exact path='/educators' component={Educators}></Route>
     <Route exact path='/dashboard' component={Dashboard}></Route>
+    <Route exact path='/quizmaker' component={Quizmaker}></Route>
   </Switch>
 );
 
