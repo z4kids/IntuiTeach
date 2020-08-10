@@ -17,7 +17,7 @@ npm run start
 Registers a student to a teacher when a student joins a meeting.
 #### Usage
 Request body:
-```
+```JSON
 {
     "name": "Name of student",
     "student_zoom_id": "Student's zoom id", 
@@ -25,14 +25,14 @@ Request body:
 }
 ```
 Response:
-```
+```JSON
 {
     "id": "Generated id for student"
 }
 ```
 #### Example
 Request body:
-```
+```JSON
 {
     "name": "Bucky",
     "student_zoom_id": "3424fs344gfseh46",
@@ -40,7 +40,7 @@ Request body:
 }
 ```
 Response:
-```
+```JSON
 {
     "id": "5f3013cb0c40c90887be1f0c"
 }
@@ -50,25 +50,25 @@ Response:
 Submits an answer to question for an exam
 #### Usage
 Request body:
-```
+```JSON
 {
     "student_id": "Student's internal id",
     "exam_id": "Exam's internal id",
     "teacher_zoom_id": "Teacher's zoom id",
-    "question_index": Index of question for the exam,
+    "question_index": "Index of question for the exam",
     "answer": "The answer that the user gave",
-    "submit_time": How long it took the user to submit in seconds
+    "submit_time": "How long it took the user to submit in seconds"
 }
 ```
 Reponse:
-```
+```JSON
 {
-    "correct": true if the user got the question right
+    "correct": "true if the user got the question right"
 }
 ```
 #### Example
 Request body:
-```
+```JSON
 {
     "student_id": "5f3013cb0c40c90887be1f0c",
     "exam_id": "5f2f4270247649b5ed3a8b23",
@@ -79,7 +79,7 @@ Request body:
 }
 ```
 Response:
-```
+```JSON
 {
     "correct": true
 }
@@ -89,34 +89,34 @@ Response:
 Gets the list of questions for a specific exam
 #### Usage
 Request body:
-```
+```JSON
 {
     "exam_id": "The internal id of the exam"
 }
 ```
 Reponse:
-```
+```JSON
 {
     "questions": [
         {
             "_id": "The internal id of the question",
             "prompt": "The actual question",
-            "options": [An array of options],
-            "max_time": The maximum amount of time someone can take on the question,
-            "points": The number of points a question is worth
+            "options": ["An array of options"],
+            "max_time": "The maximum amount of time someone can take on the question",
+            "points": "The number of points a question is worth"
         },
     ]
 }
 ```
 #### Example
 Request body:
-```
+```JSON
 {
     "exam_id": "5f2f1e595982a2cd57b831a5"
 }
 ```
 Reponse:
-```
+```JSON
 {
     "questions": [
         {
@@ -144,7 +144,7 @@ Creates new exam
 
 #### Usage
 Request body:
-```
+```JSON
 {
     "exam_name": "Name of exam",
     "teacher_id": "Teacher's internal id"
@@ -155,7 +155,7 @@ Generates new exam with its own internal id
 
 #### Example
 Request body:
-```
+```JSON
 {
     "exam_name": "math",
     "teacher_id": "5f3018874620ca4ab2b7a49e"
@@ -171,13 +171,13 @@ Adds new question to exam
 
 #### Usage
 Request body:
-```
+```JSON
 {
     "prompt": "Question prompt",
     "list_of_answers": "array of answer choices", 
     "correct_answer": "the correct answer", 
-    "max_time": "the max time allowed to answer the question, 
-    "points": "the point value of the question, 
+    "max_time": "the max time allowed to answer the question", 
+    "points": "the point value of the question", 
     "teacher_id": "the teacher's internal id", 
     "exam_id": "the exam's internal id"
 }
@@ -187,7 +187,7 @@ Generates new question with its internal id
 
 #### Example
 Request body:
-```
+```JSON
 {
     "prompt": "What is 3*3",
     "correct_answer": 9,
@@ -208,7 +208,7 @@ Deletes a question from the specified exam
 
 #### Usage
 Request body: 
-```
+```JSON
 {
     "question_id": "the interal id of the question", 
     "exam_id": "the internal id of the exam where the question is"
@@ -220,7 +220,7 @@ Deletes the question with the specific id
 
 #### Example
 Request body:
-```
+```JSON
 {
     "question_id": "5f2e1418db60fd3013468aa4", 
     "exam_id": "5f30253fd2e184c09fef08a1"
@@ -236,7 +236,7 @@ Adds new reward for students
 
 #### Usage
 Request body:
-```
+```JSON
 {
     "reward_name": "the name of the reward", 
     "reward_cost": "the cost of the reward that will be subtracted from the number of points the student has"
@@ -247,7 +247,7 @@ Addes reward with its own internal id
 
 #### Example
 Request body:
-```
+```JSON
 {
     "reward_name": "extra credit",
     "reward_cost": "20"
@@ -256,6 +256,3 @@ Request body:
 
 Response:
 New reward generated with the following id: 5f2f439cc3cc88b62372c030
-
-
-
