@@ -1,5 +1,5 @@
 import React from 'react';
-import Side from './images/Side.svg';
+import lside from './images/Side.svg';
 import logo from './images/logo.svg';
 import add_file from './images/add_file.svg';
 import r_side from './images/rside.svg';
@@ -8,16 +8,15 @@ import statistics from './images/statistics.svg';
 import r_side_home from './images/rside_home.svg';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
-import { Navbar, Nav, Form, Button, Row, Col } from 'react-bootstrap';
-
+import { Navbar, Nav, Form, Button, Row, Col, Container } from 'react-bootstrap';
+import Side from './sidebar.js'
 
 function App() {
   
   return (
-    <div className="App">
+    <div className="App">\
       <Navigation />
       <Main />
-    
     </div>
 
   );
@@ -28,7 +27,7 @@ function App() {
 const Students = () => (
   <div className="students">
     <header className='header'></header>
-    <img src={Side} className='side' />
+    <img src={lside} className='side' />
     <img src={r_side} className='rside' />
     <h1 className='page-header'>Students</h1>
     <h2 className='enter-meeting-header'>Enter the Zoom Meeting</h2>
@@ -59,7 +58,7 @@ const Students = () => (
 
 const Home = () => (
 
-
+ 
   <div className="home">
     <header className="home-header">
     </header>
@@ -76,6 +75,7 @@ const About = () => (
 )
 
 const Educators = () => (
+
   <div className="educators">
     <header className='header'></header>
     <h1 className='page-header'>Educators</h1>
@@ -90,10 +90,22 @@ const Educators = () => (
       </div>
     </div>
   </div>
+
 )
 
 const Dashboard = () => (
-  <div className="dashboard"></div>
+  <div className="dashboard">
+    <Container fluid>
+      <Row>
+        <Col xs={2}>
+          <Side/>
+        </Col>
+        <Col xs={10}>
+
+        </Col>
+      </Row>
+    </Container>
+  </div>
 )
 
 //Test for buttons
