@@ -1,0 +1,30 @@
+.quiz-controls {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    width: 40%;
+}
+
+.quiz-controls > Button {
+    box-shadow: 0px 0px 6px grey;
+    margin-right: 2vw;
+}
+
+.question-form {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    width: 80%;
+    z-index: 30;
+    text-align: left;
+    padding: 1%;
+    box-shadow: 0px 5px 10px gray;
+}
+
+.question-form h2 {
+    font-family: 'Oxygen';
+    font-size: x-large;
+    font-weight: 600;
+    padding-bottom: 10px;
+    color: black;
+}

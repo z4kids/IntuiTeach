@@ -52,7 +52,7 @@ const Students = () => (
         </Col>
       </Row>
       
-      <Button variant='primary' type="submit" size='lg'>Submit</Button>
+      <Button className='main-btn' variant='primary' type="submit" size='lg'>Submit</Button>
     </Form>
   </div>
 );
@@ -68,8 +68,8 @@ const Home = () => (
       <div>
         <h2 className='home-feedback-h2'>Live feedback for live teaching</h2>
         <div className='home-feedback-button-container'>
-          <Button variant='primary' size='lg'>Students</Button>
-          <Button variant='primary' size='lg'>Educators</Button>
+          <Button className='main-btn' variant='primary' size='lg'>Students</Button>
+          <Button className='main-btn' variant='primary' size='lg'>Educators</Button>
         </div>
       </div>
     </div>
@@ -105,7 +105,7 @@ const Educators = () => (
         better understanding of students
         </h2>
         <p className='educator-p'>Login with Zoom to start integrating statistics into your student's learning</p>
-        <Button className='educator-login' variant='primary' size='lg'>Login</Button>
+        <Button className='main-btn educator-login' educator-login variant='primary' size='lg'>Login</Button>
       </div>
     </div>
   </div>
