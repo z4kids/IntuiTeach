@@ -6,6 +6,7 @@ import r_side from './images/rside.svg';
 import homeside from './images/home-side.svg';
 import statistics from './images/statistics.svg';
 import r_side_home from './images/rside_home.svg';
+import purple_side from './images/purple-side.svg';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col, Container } from 'react-bootstrap';
@@ -18,10 +19,7 @@ function App() {
       <Navigation />
       <Main />
     </div>
-
   );
-
-
 }
 
 const Students = () => (
@@ -57,13 +55,11 @@ const Students = () => (
 );
 
 const Home = () => (
-
- 
   <div className="home">
-    <header className="home-header">
-    </header>
+    <header className="home-header"></header>
     <img src={homeside} className='side-home'/>
     <img src={r_side_home} className='rside-home'/>
+    <h1 className='home-org-header'>z4kids</h1>
   </div>
 
 );
@@ -75,11 +71,12 @@ const About = () => (
 )
 
 const Educators = () => (
-
   <div className="educators">
     <header className='header'></header>
+    <img src={purple_side} className='-home'/>
+    <img src={r_side_home} className='rside-home'/>
     <h1 className='page-header'>Educators</h1>
-    <div className='container-image-text-button'>
+    <div className='container-img-txt-button eduactors-contents-layout'>
       <img src={statistics} alt='Statistics Icon'/>
       <div>
         <h2>Integration with Zoom that allows for better understanding
