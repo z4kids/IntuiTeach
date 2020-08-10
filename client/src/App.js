@@ -95,8 +95,8 @@ const About = () => (
 const Educators = () => (
   <div className="educators">
     <header className='header'></header>
-    <img src={purple_side} className='-home'/>
-    <img src={r_side_home} className='rside-home'/>
+    <img src={purple_side} className='home'/>
+    <img src={r_side} className='rside-home'/>
     <h1 className='page-header'>Educators</h1>
     <div className='container-img-txt eduactors-contents-layout'>
       <img src={statistics} alt='Statistics Icon'/>

@@ -87,7 +87,7 @@
   height: 100%;
   width: 35%;
   border-radius: 8px;
-  box-shadow: 0px 0px 50px rgba(71, 45, 112, 1);
+  box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.08), 0px 20px 32px rgba(96, 97, 112, 0.24);
   background-color: white;
   padding: 2%;
 }
@@ -236,7 +236,7 @@
 }
 
 Button {
-  box-shadow: 4px 4px 10px rgba(71, 45, 112, 1);
+  box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.08), 0px 20px 32px rgba(96, 97, 112, 0.24);
 }
 
 body{
