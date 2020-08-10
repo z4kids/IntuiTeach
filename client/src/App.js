@@ -119,8 +119,12 @@ const Dashboard = () => (
         <Col xs={1} id="left">
           <Sidebar/>
         </Col>
-        <Col xs={11}>
-
+        <Col xs={11} className="dashboard-back">
+          <Row>
+            <Col xs={4}>
+              <div></div>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>
@@ -145,7 +149,7 @@ const Navigation = () => (
       <Nav.Link as={NavLink} className="navlink" to='/about'>About</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/students'>Students</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/educators'>Educators</Nav.Link>
-      <Nav.Link as={NavLink} className="navlink" to='/dashboard'>Login</Nav.Link>
+      <Nav.Link as={NavLink} className="navlink" id = "login" to='/dashboard'>Login</Nav.Link>
     </Nav>
   </Navbar>
 );

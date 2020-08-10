@@ -83,6 +83,11 @@
   justify-content: space-between;
 }
 
+.dashboard-back{
+  background-color: #E5E5E5;
+  padding-left: 40%;
+  z-index: 40;
+}
 .container-img-txt img {
   height: 100%;
   width: 35%;
@@ -245,4 +250,9 @@ body{
 
 #left{
   padding-left: 0;
+  padding-right: 0;
+}
+
+#login{
+  padding-left: 1500px;
 }
