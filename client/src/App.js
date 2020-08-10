@@ -79,14 +79,14 @@ const Educators = () => (
   <div className="educators">
     <header className='header'></header>
     <h1 className='page-header'>Educators</h1>
-    <div className="educators-contents">
+    <div className='container-image-text-button'>
       <img src={statistics} alt='Statistics Icon'/>
       <div>
         <h2>Integration with Zoom that allows for better understanding
           of students
         </h2>
         <p>Login with Zoom to start integrating statistics into your student's learning</p>
-        <Button className="educators-login" variant='primary' size='lg'>Login</Button>
+        <Button variant='primary' size='lg'>Login</Button>
       </div>
     </div>
   </div>
