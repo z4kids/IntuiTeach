@@ -116,10 +116,10 @@ const Dashboard = () => (
   <div className="dashboard">
     <Container fluid>
       <Row>
-        <Col xs={2}>
+        <Col xs={1} id="left">
           <Sidebar/>
         </Col>
-        <Col xs={10}>
+        <Col xs={11}>
 
         </Col>
       </Row>

@@ -242,3 +242,7 @@ Button {
 body{
   overflow-x: hidden;
 }
+
+#left{
+  padding-left: 0;
+}
