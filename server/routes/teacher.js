@@ -93,22 +93,12 @@ router.post('/reward', async (req, res) => {
     res.sendStatus(200)
 })
 router.get('/meeting', async (req, res) => {
-  const {exam_id} = req.body
-  console.log(req.session.access_token)
-  let meeting = await fetch(`https://api.zoom.us/v2/users/${req.session.user.id}/meetings`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${req.session.access_token}`
-    }
-  })
-  meeting = await meeting.json()
-  const join_url = url.parse(meeting.join_url)
-  const create_url = url.parse(meeting.start_url)
+  const {exam_id, zoom_link} = req.body
+  let join_url = new url.URL(zoom_link)
+  join_url.host = 'localhost:3000'
   join_url.searchParams.append('exam', exam_id)
-  create_url.searchParams.append('exam', exam_id)
   res.json({
     join_url,
-    create_url
   })
 })
 module.exports = router;

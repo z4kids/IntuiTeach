@@ -256,3 +256,35 @@ Request body:
 
 Response:
 New reward generated with the following id: 5f2f439cc3cc88b62372c030
+
+### POST /teacher/meeting
+#### Purpose
+Creates a meeting link based on the zoom link and the exam the teacher wants to use
+#### Usage
+Request body:
+```JSON
+{
+    "exam_id": "The internal idea of the exam",
+    "zoom_link": "The join meeting link for the zoom"
+}
+```
+Response:
+```JSON
+{
+    "join_url": "The new url to join the meeting with"
+}
+```
+#### Example
+Request body
+```JSON
+{
+    "exam_id": "5f2f1e595982a2cd57b831a5",
+    "zoom_link": "https://us04web.zoom.us/j/78089432926?pwd=ZU1FVUtXU0pFSG91dUI4bEQxV1Zjdz09"
+}
+```
+Reponse:
+```JSON
+{
+    "join_url": "https://localhost:3000/j/78085232926?pwd=ZU1FVUtXU0pFSG91dUI4bEQxV1Zjdz09&exam=5f2f1e595982a2cd57b831a5"
+}
+```
