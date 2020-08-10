@@ -8,7 +8,8 @@ import statistics from './images/statistics.svg';
 import r_side_home from './images/rside_home.svg';
 import purple_side from './images/purple-side.svg';
 import home_rotate from './images/home_rotate.svg';
-import student_stats from './images/student_stats.svg'
+import student_stats from './images/student_stats.svg';
+import get_started from './images/get_started.svg';
 import Quizmaker from './Quizmaker.js';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
@@ -82,6 +83,15 @@ const Home = () => (
       </div>
       <img src={student_stats} alt='Student Pie Chart'/>
     </div>
+
+    <div className='container-img-txt home-get-started-layout'>
+      <div>
+        <h2 className='home-get-started-h2'>A better way to understand students</h2>
+        <h2 className='home-get-started-h2'>A better way to help students</h2>
+      </div>
+      <img src={get_started} alt=''/>
+    </div>
+    <Button variant='primary' size='lg' id='get-started-button'>Get Started</Button>
   </div>
 
 );
@@ -95,8 +105,8 @@ const About = () => (
 const Educators = () => (
   <div className="educators">
     <header className='header'></header>
-    <img src={purple_side} className='-home'/>
-    <img src={r_side_home} className='rside-home'/>
+    <img src={purple_side} className='side-educators'/>
+    <img src={r_side} className='rside'/>
     <h1 className='page-header'>Educators</h1>
     <div className='container-img-txt eduactors-contents-layout'>
       <img src={statistics} alt='Statistics Icon'/>
@@ -104,7 +114,7 @@ const Educators = () => (
         <h2 className='educator-h2'>Integration with Zoom that allows for 
         better understanding of students
         </h2>
-        <p className='educator-p'>Login with Zoom to start integrating statistics into your student's learning</p>
+        <p className='educator-p'>Login with Zoom and download the plugin to start integrating statistics into your student's learning</p>
         <Button className='main-button educator-login' educator-login variant='primary' size='lg'>Login</Button>
       </div>
     </div>
@@ -116,10 +126,10 @@ const Dashboard = () => (
   <div className="dashboard">
     <Container fluid>
       <Row>
-        <Col xs={2}>
+        <Col xs={1} id = "no-padding">
           <Sidebar/>
         </Col>
-        <Col xs={10}>
+        <Col xs={11}>
 
         </Col>
       </Row>
