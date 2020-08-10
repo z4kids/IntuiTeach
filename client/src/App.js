@@ -95,8 +95,8 @@ const About = () => (
 const Educators = () => (
   <div className="educators">
     <header className='header'></header>
-    <img src={purple_side} className='-home'/>
-    <img src={r_side_home} className='rside-home'/>
+    <img src={purple_side} className='home'/>
+    <img src={r_side} className='rside-home'/>
     <h1 className='page-header'>Educators</h1>
     <div className='container-img-txt eduactors-contents-layout'>
       <img src={statistics} alt='Statistics Icon'/>
@@ -116,11 +116,15 @@ const Dashboard = () => (
   <div className="dashboard">
     <Container fluid>
       <Row>
-        <Col xs={2}>
+        <Col xs={1} id="left">
           <Sidebar/>
         </Col>
-        <Col xs={10}>
-
+        <Col xs={11} className="dashboard-back">
+          <Row>
+            <Col xs={4}>
+              <div></div>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>
@@ -145,7 +149,7 @@ const Navigation = () => (
       <Nav.Link as={NavLink} className="navlink" to='/about'>About</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/students'>Students</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/educators'>Educators</Nav.Link>
-      <Nav.Link as={NavLink} className="navlink" to='/dashboard'>Login</Nav.Link>
+      <Nav.Link as={NavLink} className="navlink" id = "login" to='/dashboard'>Login</Nav.Link>
     </Nav>
   </Navbar>
 );

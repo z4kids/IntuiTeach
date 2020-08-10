@@ -83,11 +83,16 @@
   justify-content: space-between;
 }
 
+.dashboard-back{
+  background-color: #E5E5E5;
+  padding-left: 40%;
+  z-index: 40;
+}
 .container-img-txt img {
   height: 100%;
   width: 35%;
   border-radius: 8px;
-  box-shadow: 0px 0px 50px rgba(71, 45, 112, 1);
+  box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.08), 0px 20px 32px rgba(96, 97, 112, 0.24);
   background-color: white;
   padding: 2%;
 }
@@ -236,9 +241,18 @@
 }
 
 Button {
-  box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.08);
+  box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.08), 0px 20px 32px rgba(96, 97, 112, 0.24);
 }
 
 body{
   overflow-x: hidden;
+}
+
+#left{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#login{
+  padding-left: 1500px;
 }
