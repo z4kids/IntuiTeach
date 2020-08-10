@@ -4,6 +4,7 @@ import logo from './images/logo.svg';
 import add_file from './images/add_file.svg';
 import r_side from './images/rside.svg';
 import homeside from './images/home-side.svg';
+import statistics from './images/statistics.svg';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col } from 'react-bootstrap';
@@ -52,7 +53,7 @@ const Students = () => (
         </Col>
       </Row>
       
-      <Button variant = 'primary' type="submit" size='lg'>Submit</Button>
+      <Button variant='primary' type="submit" size='lg'>Submit</Button>
     </Form>
   </div>
 );
@@ -71,8 +72,15 @@ const About = () => (
 const Educators = () => (
   <div className="educators">
     <h1 className='page-header'>Educators</h1>
-    <div className="educator-page-contents">
-      <p>test</p>
+    <div className="educators-contents">
+      <img src={statistics} alt='Statistics Icon'/>
+      <div>
+        <h2>Integration with Zoom that allows for better understanding
+          of students
+        </h2>
+        <p>Login with Zoom to start integrating statistics into your student's learning</p>
+        <Button className="educators-login" variant='primary' size='lg'>Login</Button>
+      </div>
     </div>
   </div>
 )
