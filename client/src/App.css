@@ -30,10 +30,9 @@
   z-index: 100;
 }
 .rside{
-  height: 98%;
+  height: 100%;
   position: absolute;
-  left: calc(100% - 294px);
-  top: 1%;
+  left: calc(100% - 289px);
 
 }
 
@@ -45,7 +44,12 @@
   height: 30px;
   width: 30px;
 }
-
+.side-educators{
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .side-home{
   height: 223%;
   position: absolute;
@@ -279,4 +283,8 @@ body{
 #get-started-button{
   position: absolute;
   top: 200%;
+}
+
+#no-padding{
+  padding: 0;
 }
