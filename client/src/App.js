@@ -8,7 +8,8 @@ import statistics from './images/statistics.svg';
 import r_side_home from './images/rside_home.svg';
 import purple_side from './images/purple-side.svg';
 import home_rotate from './images/home_rotate.svg';
-import student_stats from './images/student_stats.svg'
+import student_stats from './images/student_stats.svg';
+import get_started from './images/get_started.svg';
 import Quizmaker from './Quizmaker.js';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
@@ -82,6 +83,15 @@ const Home = () => (
       </div>
       <img src={student_stats} alt='Student Pie Chart'/>
     </div>
+
+    <div className='container-img-txt home-get-started-layout'>
+      <div>
+        <h2 className='home-get-started-h2'>A better way to understand students</h2>
+        <h2 className='home-get-started-h2'>A better way to help students</h2>
+      </div>
+      <img src={get_started} alt=''/>
+    </div>
+    <Button variant='primary' size='lg' id='get-started-button'>Get Started</Button>
   </div>
 
 );
