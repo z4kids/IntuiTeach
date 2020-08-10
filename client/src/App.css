@@ -60,11 +60,7 @@
   color: white;
 }
 
-.students{
-  background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
-}
-
-.student-page-header{
+.page-header{
   position: absolute;
   z-index: 20;
   top: 10%;
@@ -74,7 +70,11 @@
   font-size: 2em;
 }
 
-.student-header{
+.students{
+  background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
+}
+
+.enter-meeting-header{
   position: absolute;
   z-index: 20;
   top: 10%;
@@ -89,7 +89,7 @@
   position: absolute;
   top: 30%;
   left: 20%;
-  z-index: 20;
+  z-index: 30;
   width: 60%;
   text-align: left;
 }
@@ -108,11 +108,63 @@
 .educators{
   background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
 }
+
+.educators-contents{
+  display: flex;
+  position: absolute;
+  top: 32%;
+  left: 18%;
+  width: 65%;
+  height: 35%;
+  z-index: 30;
+  background-color: transparent;
+  justify-content: space-between;
+}
+
+.educators-contents img {
+  height: 100%;
+  width: 35%;
+  border-radius: 8px;
+  box-shadow: 0px 0px 50px rgba(71, 45, 112, 1);
+  background-color: white;
+}
+
+.educators-contents > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 60%;
+  background-color: transparent;
+}
+
+.educators-contents h2, p {
+  text-align: left;
+  font-family: 'Oxygen';
+  color: white;
+}
+
+.educators-contents h2 {
+  font-size: 3em;
+  font-weight: 550;
+}
+
+.educators-contents p {
+  font-size: 1.2em;
+}
+
+.educators-login {
+  float:left;
+}
+
 .App-link {
   color: #61dafb;
 }
 
+Button {
+  box-shadow: 4px 4px 10px rgba(71, 45, 112, 1);
+}
+
 body{
   overflow-x: hidden;
-
 }
