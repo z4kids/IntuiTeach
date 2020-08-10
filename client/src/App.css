@@ -235,7 +235,7 @@
   color: #61dafb;
 }
 
-Button {
+.main-btn {
   box-shadow: 4px 4px 10px rgba(71, 45, 112, 1);
 }
 
