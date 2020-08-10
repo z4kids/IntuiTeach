@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   overflow-y: hidden;
+
 }
 
 .side{
@@ -34,13 +35,19 @@
   top: 1%;
 
 }
+
+.rside-home{
+  position: absolute;
+  left: calc(100% - 294px);
+  top: 1%;
+}
 .addfile{
   height: 30px;
   width: 30px;
 }
 
 .side-home{
-  height: 200%;
+  height: 223%;
   position: absolute;
   top: 0;
   left: 0;
@@ -48,6 +55,7 @@
 }
 #home{
   padding-left: 20px;
+  height:223%;
 }
 .App-header {
   background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
@@ -58,6 +66,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
 }
 
 .page-header{

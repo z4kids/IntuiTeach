@@ -5,6 +5,7 @@ import add_file from './images/add_file.svg';
 import r_side from './images/rside.svg';
 import homeside from './images/home-side.svg';
 import statistics from './images/statistics.svg';
+import r_side_home from './images/rside_home.svg';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col } from 'react-bootstrap';
@@ -18,8 +19,7 @@ function App() {
       <Main />
       <header className="App-header">
       </header>
-      <img src={Side} className='side' />
-      <img src={r_side} className='rside' />
+      
       
     </div>
 
@@ -31,6 +31,7 @@ function App() {
 const Students = () => (
   <div className="students">
     <img src={Side} className='side' />
+    <img src={r_side} className='rside' />
     <h1 className='page-header'>Students</h1>
     <h2 className='enter-meeting-header'>Enter the Zoom Meeting</h2>
     <Form className='student-form'>
@@ -61,7 +62,7 @@ const Students = () => (
 const Home = () => (
   <div className="home">
     <img src={homeside} className='side-home'/>
-    <img src={r_side} className='rside-home'/>
+    <img src={r_side_home} className='rside-home'/>
   </div>
 );
 
