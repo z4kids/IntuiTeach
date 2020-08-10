@@ -11,7 +11,10 @@ const Quizmaker = props => {
                 <Button variant='light' size='lg'>Add Question</Button>
                 <Button variant='primary' size='lg'>Save</Button>
             </ButtonToolbar>
-            <QuestionForm/>
+            <div className='question-list'>
+                <QuestionForm/>
+                <QuestionForm/>
+            </div>
             
         </div>
     );
