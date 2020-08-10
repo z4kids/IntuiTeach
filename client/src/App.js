@@ -2,6 +2,7 @@ import React from 'react';
 import lside from './images/Side.svg';
 import logo from './images/logo.svg';
 import add_file from './images/add_file.svg';
+import trophy from './images/trophy.svg';
 import r_side from './images/rside.svg';
 import homeside from './images/home-side.svg';
 import statistics from './images/statistics.svg';
@@ -9,6 +10,7 @@ import r_side_home from './images/rside_home.svg';
 import purple_side from './images/purple-side.svg';
 import home_rotate from './images/home_rotate.svg';
 import student_stats from './images/student_stats.svg';
+import struggling from './images/struggling.svg'
 import get_started from './images/get_started.svg';
 import Quizmaker from './Quizmaker.js';
 import './App.css';
@@ -16,6 +18,9 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col, Container } from 'react-bootstrap';
 import Sidebar from './sidebar.js';
 
+var struggle_percent = "14%";
+var average_time = "20";
+var hardest_questions = "1"
 function App() {
   
   return (
@@ -129,8 +134,29 @@ const Dashboard = () => (
         <Col xs={1} id = "no-padding">
           <Sidebar/>
         </Col>
-        <Col xs={11}>
+        <Col xs={4}>
+              <div className ='dashboard-container dashboard-card'>
+                <img className='container-img-txt' src={struggling}></img>
+                <h2 className= 'dashboard-text'>Struggling Students {struggle_percent}</h2>
 
+
+              </div>
+        </Col>
+        <Col xs ={4}>
+            <div className='dashboard-container dashboard-card'>
+              <img className='container-img-txt' src={trophy}></img>
+              <h2 className='dashboard-text'>Average Time {average_time}</h2>
+
+
+            </div>
+        </Col>
+        <Col xs={3}>
+            <div className='dashboard-container dashboard-card'>
+              <img className='container-img-txt' src={struggling}></img>
+              <h2 className='dashboard-text'>Longest to answer questions {hardest_questions}</h2>
+
+
+            </div>
         </Col>
       </Row>
     </Container>
