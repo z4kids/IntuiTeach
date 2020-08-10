@@ -52,8 +52,8 @@ const Students = () => (
           </Form.Group>
         </Col>
       </Row>
-      
-      <Button variant='primary' type="submit" size='lg'>Submit</Button>
+
+      <Button className='main-button' variant='primary' type="submit" size='lg'>Submit</Button>
     </Form>
   </div>
 );
@@ -69,8 +69,8 @@ const Home = () => (
       <div>
         <h2 className='home-feedback-h2'>Live feedback for live teaching</h2>
         <div className='home-feedback-button-container'>
-          <Button variant='primary' size='lg'>Students</Button>
-          <Button variant='primary' size='lg'>Educators</Button>
+          <Button className='main-button' variant='primary' size='lg'>Students</Button>
+          <Button className='main-button' variant='primary' size='lg'>Educators</Button>
         </div>
       </div>
     </div>
@@ -105,8 +105,8 @@ const About = () => (
 const Educators = () => (
   <div className="educators">
     <header className='header'></header>
-    <img src={purple_side} className='home'/>
-    <img src={r_side} className='rside-home'/>
+    <img src={purple_side} className='-home'/>
+    <img src={r_side_home} className='rside-home'/>
     <h1 className='page-header'>Educators</h1>
     <div className='container-img-txt eduactors-contents-layout'>
       <img src={statistics} alt='Statistics Icon'/>
@@ -115,7 +115,7 @@ const Educators = () => (
         better understanding of students
         </h2>
         <p className='educator-p'>Login with Zoom to start integrating statistics into your student's learning</p>
-        <Button className='educator-login' variant='primary' size='lg'>Login</Button>
+        <Button className='main-button educator-login' educator-login variant='primary' size='lg'>Login</Button>
       </div>
     </div>
   </div>
@@ -126,15 +126,11 @@ const Dashboard = () => (
   <div className="dashboard">
     <Container fluid>
       <Row>
-        <Col xs={1} id="left">
+        <Col xs={2}>
           <Sidebar/>
         </Col>
-        <Col xs={11} className="dashboard-back">
-          <Row>
-            <Col xs={4}>
-              <div></div>
-            </Col>
-          </Row>
+        <Col xs={10}>
+
         </Col>
       </Row>
     </Container>
@@ -159,7 +155,7 @@ const Navigation = () => (
       <Nav.Link as={NavLink} className="navlink" to='/about'>About</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/students'>Students</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/educators'>Educators</Nav.Link>
-      <Nav.Link as={NavLink} className="navlink" id = "login" to='/dashboard'>Login</Nav.Link>
+      <Nav.Link as={NavLink} className="navlink" to='/dashboard'>Login</Nav.Link>
     </Nav>
   </Navbar>
 );
