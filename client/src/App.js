@@ -6,6 +6,9 @@ import r_side from './images/rside.svg';
 import homeside from './images/home-side.svg';
 import statistics from './images/statistics.svg';
 import r_side_home from './images/rside_home.svg';
+import purple_side from './images/purple-side.svg';
+import home_rotate from './images/home_rotate.svg';
+import student_stats from './images/student_stats.svg'
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col, Container } from 'react-bootstrap';
@@ -18,10 +21,7 @@ function App() {
       <Navigation />
       <Main />
     </div>
-
   );
-
-
 }
 
 const Students = () => (
@@ -57,13 +57,30 @@ const Students = () => (
 );
 
 const Home = () => (
-
- 
   <div className="home">
-    <header className="home-header">
-    </header>
+    <header className="home-header"></header>
     <img src={homeside} className='side-home'/>
     <img src={r_side_home} className='rside-home'/>
+    <h1 className='home-org-header'>z4kids</h1>
+    <div className='container-img-txt home-feedback-layout'>
+      <img src={home_rotate} alt='Rotation Icon'/>
+      <div>
+        <h2 className='home-feedback-h2'>Live feedback for live teaching</h2>
+        <div className='home-feedback-button-container'>
+          <Button variant='primary' size='lg'>Students</Button>
+          <Button variant='primary' size='lg'>Educators</Button>
+        </div>
+      </div>
+    </div>
+
+    <div className='container-img-txt home-statistics-layout'>
+      <div>
+        <h2 className='home-statistics-h2'>Understanding Students Through Statistics</h2>
+        <p className='home-statistics-p'>Allows educators to gauge participation
+        and identify student success</p>
+      </div>
+      <img src={student_stats} alt='Student Pie Chart'/>
+    </div>
   </div>
 
 );
@@ -75,18 +92,19 @@ const About = () => (
 )
 
 const Educators = () => (
-
   <div className="educators">
     <header className='header'></header>
+    <img src={purple_side} className='-home'/>
+    <img src={r_side_home} className='rside-home'/>
     <h1 className='page-header'>Educators</h1>
-    <div className='container-image-text-button'>
+    <div className='container-img-txt eduactors-contents-layout'>
       <img src={statistics} alt='Statistics Icon'/>
       <div>
-        <h2>Integration with Zoom that allows for better understanding
-          of students
+        <h2 className='educator-h2'>Integration with Zoom that allows for 
+        better understanding of students
         </h2>
-        <p>Login with Zoom to start integrating statistics into your student's learning</p>
-        <Button variant='primary' size='lg'>Login</Button>
+        <p className='educator-p'>Login with Zoom to start integrating statistics into your student's learning</p>
+        <Button className='educator-login' variant='primary' size='lg'>Login</Button>
       </div>
     </div>
   </div>
