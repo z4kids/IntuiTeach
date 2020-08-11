@@ -11,11 +11,11 @@ const DB_NAME = "z4kidz"
 router.get('/exam', async (req, res) => {
   await client.connect()
 
-  const teacher_id = await client.db(DB_NAME).collection('teacher').findOne({zoom_id: req.session.user.id})._id
+  const teacher_id = (await client.db(DB_NAME).collection('teacher').findOne({zoom_id: req.session.user.id}))._id
 
   let teacher_exams = await client.db(DB_NAME).collection('exam').find({teacher_id: teacher_id})
 
-  teacher_exams.toArray()
+  teacher_exams = await teacher_exams.toArray()
 
   let exams = []
 
