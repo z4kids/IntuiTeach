@@ -50,3 +50,27 @@ export async function deleteQuestion(question_id, exam_id) {
 export async function createReward(reward_name, reward_cost) {
     return await modifierRequest('/teacher/reward', 'POST', {reward_name, reward_cost})
 }
+/**
+ * Gets all the exams tied to the teacher that's logged in
+ * @returns {Object[]} An array of objects with the fields "id" as a string and "name" as a string
+ */
+export async function getExams() {
+    const response = await fetch('http://localhost:3654/teacher/exam', {
+        credentials: 'include'
+    })
+    const json = await response.json()
+    return json
+}
+/**
+ * Gets all the questions for a specific exam
+ * @param {string} exam_id The id for the exam
+ * @returns {Object[]} A list of all the questions
+ */
+export async function getQuestions(exam_id) {
+    const response = await fetch('http://localhost:3654/teacher/question', {
+        credentials: 'include',
+        body: {exam_id}
+    })
+    const json = await response.json()
+    return json
+}
