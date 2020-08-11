@@ -136,7 +136,7 @@ Reponse:
 ```
 
 ## Endpoints for teachers
-
+__Note__: All endpoints with /teacher must first be authenticated using the /auth endpoint in order to properly identify the teacher
 ### POST /teacher/exam
 
 #### Purpose 
@@ -146,8 +146,7 @@ Creates new exam
 Request body:
 ```JSON
 {
-    "exam_name": "Name of exam",
-    "teacher_id": "Teacher's internal id"
+    "exam_name": "Name of exam"
 }
 ```
 Response:
@@ -158,7 +157,6 @@ Request body:
 ```JSON
 {
     "exam_name": "math",
-    "teacher_id": "5f3018874620ca4ab2b7a49e"
 }
 ```
 Response:
@@ -177,8 +175,7 @@ Request body:
     "list_of_answers": "array of answer choices", 
     "correct_answer": "the correct answer", 
     "max_time": "the max time allowed to answer the question", 
-    "points": "the point value of the question", 
-    "teacher_id": "the teacher's internal id", 
+    "points": "the point value of the question",  
     "exam_id": "the exam's internal id"
 }
 ```
