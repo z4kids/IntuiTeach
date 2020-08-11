@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, ButtonToolbar } from "react-bootstrap";
+import React from 'react';
+import { Button, ButtonToolbar } from 'react-bootstrap';
 
 const ButtonControls = (props) => {    
     function handleAddClick(e) {
@@ -7,7 +7,7 @@ const ButtonControls = (props) => {
         props.addQuestion();
     }
     return (
-        <ButtonToolbar  className='quiz-controls' aria-label="Quiz controls">
+        <ButtonToolbar className='button-toolbar' aria-label="Quiz controls">
             <Button as='input' type='submit' onClick={handleAddClick} value='Add Question' variant='light' size='lg'/>
             <Button variant='primary' size='lg'>Save</Button>
         </ButtonToolbar>
