@@ -2,6 +2,9 @@
   padding: 0;
 }
 
+.scroll {
+    overflow-y: scroll;
+}
 .quiz-controls {
     position: absolute;
     top: 15%;
