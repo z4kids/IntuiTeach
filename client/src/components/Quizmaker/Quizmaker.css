@@ -5,24 +5,27 @@
 .scroll {
     overflow-y: scroll;
 }
-.quiz-controls {
+.question-maker {
     position: absolute;
     top: 15%;
     left: 10%;
-    width: 40%;
+    width: 80%;
 }
 
-.quiz-controls > input {
+.button-toolbar > input {
     box-shadow: 0px 0px 6px grey;
     margin-right: 2vw;
 }
 
+.button-toolbar {
+    margin-bottom: 5%;
+}
+
 .question-list {
-    position: absolute;
-    top: 25%;
     left: 10%;
-    width: 80%;
+    width: 100%;
     z-index: 30;
+    margin-bottom: 5%
 }
 
 .question-form {
