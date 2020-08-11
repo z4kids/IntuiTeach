@@ -5,7 +5,7 @@ const {ObjectId} = require('mongodb')
 
 DB_NAME = "z4kidz"
 
-router.get('/stats_exam', async (req, res) => {
+router.get('/exam', async (req, res) => {
     await client.connect()
 
     const {exam_id} = req.body
@@ -22,12 +22,10 @@ router.get('/stats_exam', async (req, res) => {
     res.json(stats_exam)
 })
 
-router.get('/stats_students', async (req, res) =>  {
+router.get('/student', async (req, res) =>  {
     await client.connect()
 
-    const {teacher_id} = req.body
-
-    const teacher = await client.db(DB_NAME).collection("teacher").findOne({_id: ObjectId(teacher_id)})
+    const teacher = await client.db(DB_NAME).collection("teacher").findOne({zoom_id: req.session.user.id})
 
     let stats = []
 

@@ -74,3 +74,27 @@ export async function getQuestions(exam_id) {
     const json = await response.json()
     return json
 }
+/**
+ * Gets a list of statistics for a specified exam
+ * @param {string} exam_id The id of the exam to look at
+ * @returns {Object[]} List of statistics
+ */
+export async function getStatsByExam(exam_id) {
+    const response = await fetch('http://localhost:3654/stats/exam', {
+        credentials: 'include',
+        body: {exam_id}
+    })
+    const json = await response.json()
+    return json
+}
+/**
+ * Gets all the statistics for all the students the teacher has
+ * @returns {Object[]} List of statistics
+ */
+export async function getStatsForAllStudents() {
+    const response = await fetch('http://localhost:3654/stats/student', {
+        credentials: 'include',
+    })
+    const json = await response.json()
+    return json
+}
