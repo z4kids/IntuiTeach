@@ -3,21 +3,22 @@ const url = require('url')
 const router = express.Router();
 const client = require('../db/connection.js')
 const fetch = require('node-fetch')
-const {ObjectId} = require('mongodb')
+const {ObjectId} = require('mongodb');
+const isLoggedIn = require('../login.js');
 
 const DB_NAME = "z4kidz"
 
 //API for teacher to add new exam
-router.post('/exam', async (req, res) => {
+router.post('/exam', isLoggedIn, async (req, res) => {
     await client.connect()
+    const {exam_name} = req.body
 
-    const {exam_name, teacher_id} = req.body
+    const teacher_id = (await client.db(DB_NAME).collection('teacher').findOne({zoom_id: req.session.user.id}))._id
 
     const exam = {
         name:exam_name,
         question: [],
-        teacher_id: ObjectId(teacher_id)
-
+        teacher_id
     }
 
     const result = await client.db(DB_NAME).collection("exam").insertOne(exam)
@@ -26,7 +27,7 @@ router.post('/exam', async (req, res) => {
     res.sendStatus(200)
 })
 // API for teacher to add new question to exam
-router.post('/question', async (req, res) => {
+router.post('/question', isLoggedIn, async (req, res) => {
     await client.connect()
     // Deconstructs the prompt of the question, the list of the answers, the correct answer, and the max time to answer the question
     const {prompt, list_of_answers, correct_answer, max_time, points, teacher_id, exam_id} = req.body
@@ -57,7 +58,7 @@ router.post('/question', async (req, res) => {
   })
 
 // API for teacher to delete a question 
-router.delete('/question', async (req, res) => {
+router.delete('/question', isLoggedIn, async (req, res) => {
     await client.connect()
     // Deconstructs the question id of the question the teacher wants deleted 
     const {question_id, exam_id} = req.body
@@ -77,7 +78,7 @@ router.delete('/question', async (req, res) => {
 
 })
 
-router.post('/reward', async (req, res) => {
+router.post('/reward', isLoggedIn, async (req, res) => {
     await client.connect()
 
     const {reward_name, reward_cost} = req.body
@@ -92,7 +93,7 @@ router.post('/reward', async (req, res) => {
     console.log(`New reward created with the following id: ${result.insertedId}`);
     res.sendStatus(200)
 })
-router.get('/meeting', async (req, res) => {
+router.get('/meeting', isLoggedIn, async (req, res) => {
   const {exam_id, zoom_link} = req.body
   let join_url = new url.URL(zoom_link)
   join_url.host = 'localhost:3000'
