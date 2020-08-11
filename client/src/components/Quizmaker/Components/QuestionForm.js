@@ -1,10 +1,18 @@
 import React from 'react';
-import { Form, Row, Col } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 import AnswerChoice from './AnswerChoice'
 
+// Props: number, addQuestion, completed
 const QuestionForm = (props) => {
+    function handleAddClick(e) {
+        e.preventDefault();
+        props.addQuestion();
+        document.getElementById('form-fields').disabled = true;
+    }
+
     return (
         <Form className='question-form'>
+            <fieldset id='form-fields'>
             <h2>Question {props.number}</h2>
             <Form.Group>
                 <Form.Label srOnly>Enter a Question</Form.Label>
@@ -26,6 +34,8 @@ const QuestionForm = (props) => {
                     <AnswerChoice/>
                 </Col>
             </Row>
+            <Button as='input' type='submit' onClick={handleAddClick} value='Add Question' variant='primary' size='lg'/>
+            </fieldset>
         </Form>
     )
 }

@@ -7,10 +7,11 @@ const ButtonControls = (props) => {
         props.addQuestion();
     }
     return (
-        <ButtonToolbar className='button-toolbar' aria-label="Quiz controls">
-            <Button as='input' type='submit' onClick={handleAddClick} value='Add Question' variant='light' size='lg'/>
-            <Button variant='primary' size='lg'>Save</Button>
-        </ButtonToolbar>
+        <div id={props.id}>
+            <ButtonToolbar className='button-toolbar' aria-label="Quiz controls">
+                <Button as='input' type='submit' onClick={handleAddClick} value='Add Question' variant='light' size='lg'/>
+            </ButtonToolbar>
+        </div> 
     )
 }
 
