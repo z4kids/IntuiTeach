@@ -8,12 +8,34 @@ const isLoggedIn = require('../login.js');
 
 const DB_NAME = "z4kidz"
 
+router.get('/exam', async (req, res) => {
+  await client.connect()
+
+  const teacher_id = await client.db(DB_NAME).collection('teacher').findOne({zoom_id: req.session.user.id})._id
+
+  let teacher_exams = await client.db(DB_NAME).collection('exam').find({teacher_id: teacher_id})
+
+  teacher_exams.toArray()
+
+  let exams = []
+
+  teacher_exams.forEach(exam => {
+    exams.push({
+      name: exam.name,
+      id: exam._id
+    })
+  })
+
+
+  res.json(exams)
+
+})
 //API for teacher to add new exam
 router.post('/exam', isLoggedIn, async (req, res) => {
     await client.connect()
     const {exam_name} = req.body
 
-    const teacher_id = (await client.db(DB_NAME).collection('teacher').findOne({zoom_id: req.session.user.id}))._id
+    const teacher_id = await client.db(DB_NAME).collection('teacher').findOne({zoom_id: req.session.user.id})._id
 
     const exam = {
         name:exam_name,
@@ -26,7 +48,26 @@ router.post('/exam', isLoggedIn, async (req, res) => {
     console.log(`New exam created with the following id: ${result.insertedId}`);
     res.sendStatus(200)
 })
+
+router.get('/question', async (req, res) => {
+  await client.connect()
+
+  const {exam_id} = req.body
+
+  const exam = await client.db(DB_NAME).collection('exam').findOne({_id: ObjectId(exam_id)})
+
+  let questions = []
+
+  for (let question_id of exam.questions) {
+    question = await client.db(DB_NAME).collection('question').findOne({_id: ObjectId(question_id)})
+    questions.push(question)
+  }
+
+  res.json(questions)
+
+})
 // API for teacher to add new question to exam
+
 router.post('/question', isLoggedIn, async (req, res) => {
     await client.connect()
 
