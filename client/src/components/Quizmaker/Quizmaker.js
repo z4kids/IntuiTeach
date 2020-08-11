@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Nav } from "react-bootstrap";
 import { withRouter } from "react-router";
+import { Row, Col, Container } from 'react-bootstrap';
 import './Quizmaker.css'
 import ButtonControls from './Components/ButtonControls'
 import QuestionForm from './Components/QuestionForm'
-
+import Sidebar from '../../components/sidebar.js';
 const Quizmaker = props => {
     function addQuestion() {
         const newQuestion = { number: 1, key: 'form 1'}
@@ -19,11 +20,22 @@ const Quizmaker = props => {
     ))
 
     return (
+        
         <div>
-            <ButtonControls addQuestion={addQuestion}/>
-            <div className='question-list'>
-                {questionList}
-            </div>
+            <Container fluid>
+                <Row>
+                    <Col xs={1} id="no-padding">
+                        <Sidebar />
+                    </Col>
+                    <Col xs={11}>
+                        <ButtonControls addQuestion={addQuestion} />
+                        <div className='question-list'>
+                            {questionList}
+                        </div>
+                    </Col>
+                </Row>
+
+            </Container>
         </div>
     );
 };

@@ -1,7 +1,8 @@
 import React from "react";
 import dashicon from "../images/dashboard.svg";
 import quizicon from "../images/quizicon.svg"
-import { Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { NavLink } from 'react-router-dom';
 import { withRouter } from "react-router";
 import '../style/Dashboard.css'
 
@@ -11,13 +12,10 @@ const Side = props => {
         <>
             
             
-            <Nav className="col-md-12 d-none d-md-block bg-dark sidebar"
-                activeKey="/dashboard"
-                onSelect={selectedKey => alert(`selected ${selectedKey}`)}
-            >
+            <Nav className="col-md-12 d-none d-md-block bg-dark sidebar">
                 <div className="sidebar-sticky"></div>
                 <Nav.Item>
-                    <Nav.Link className="img"  className="first-link" eventKey="link-1">
+                    <Nav.Link as={NavLink} className="img"  className="first-link" to='/dashboard'>
                         <OverlayTrigger
                             key='right'
                             placement='right'
@@ -33,7 +31,7 @@ const Side = props => {
                     
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link className="img" eventKey="link-2">
+                    <Nav.Link as={NavLink} className="img" to='/quizmaker'>
                             <OverlayTrigger
                                 key='right'
                                 placement='right'
@@ -45,12 +43,14 @@ const Side = props => {
                             >
                                 <img src={quizicon}></img>
                             </OverlayTrigger>
-                        </Nav.Link>
+                    </Nav.Link>
                 </Nav.Item>
             </Nav>
 
         </>
     );
 };
+
+
 const Sidebar = withRouter(Side);
 export default Sidebar
