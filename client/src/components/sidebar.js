@@ -1,9 +1,9 @@
 import React from "react";
-import dashicon from "./images/dashboard.svg";
-import quizicon from "./images/quizicon.svg"
+import dashicon from "../images/dashboard.svg";
+import quizicon from "../images/quizicon.svg"
 import { Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { withRouter } from "react-router";
-import './Dashboard.css'
+import '../style/Dashboard.css'
 
 const Side = props => {
 
