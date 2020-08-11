@@ -8,6 +8,7 @@ const isLoggedIn = require('../login.js');
 
 const DB_NAME = "z4kidz"
 
+// API to get all the exams written by a teacher 
 router.get('/exam', async (req, res) => {
   await client.connect()
 
@@ -15,7 +16,7 @@ router.get('/exam', async (req, res) => {
 
   let teacher_exams = await client.db(DB_NAME).collection('exam').find({teacher_id: teacher_id})
 
-  teacher_exams = await teacher_exams.toArray()
+  teacher_exams.toArray()
 
   let exams = []
 
@@ -35,7 +36,7 @@ router.post('/exam', isLoggedIn, async (req, res) => {
     await client.connect()
     const {exam_name} = req.body
 
-    const teacher_id = await client.db(DB_NAME).collection('teacher').findOne({zoom_id: req.session.user.id})._id
+    const teacher_id = (await client.db(DB_NAME).collection('teacher').findOne({zoom_id: req.session.user.id}))._id
 
     const exam = {
         name:exam_name,
@@ -49,6 +50,7 @@ router.post('/exam', isLoggedIn, async (req, res) => {
     res.sendStatus(200)
 })
 
+//API to get all the questions of a exam
 router.get('/question', async (req, res) => {
   await client.connect()
 
@@ -66,8 +68,8 @@ router.get('/question', async (req, res) => {
   res.json(questions)
 
 })
-// API for teacher to add new question to exam
 
+// API for teacher to add new question to exam
 router.post('/question', isLoggedIn, async (req, res) => {
     await client.connect()
 
@@ -122,6 +124,7 @@ router.delete('/question', isLoggedIn, async (req, res) => {
 
 })
 
+//API to post a new reward
 router.post('/reward', isLoggedIn, async (req, res) => {
     await client.connect()
 
@@ -137,6 +140,8 @@ router.post('/reward', isLoggedIn, async (req, res) => {
     console.log(`New reward created with the following id: ${result.insertedId}`);
     res.sendStatus(200)
 })
+
+
 router.get('/meeting', isLoggedIn, async (req, res) => {
   const {exam_id, zoom_link} = req.body
   let join_url = new url.URL(zoom_link)
