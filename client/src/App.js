@@ -68,7 +68,7 @@ const Home = () => (
     <header className="home-header"></header>
     <img src={homeside} className='side-home'/>
     <img src={r_side_home} className='rside-home'/>
-    <h1 className='home-org-header'>z4kids</h1>
+    <h1 className='home-org-header'>IntuiTeach</h1>
     <div className='container-img-txt home-feedback-layout'>
       <img src={home_rotate} alt='Rotation Icon'/>
       <div>
