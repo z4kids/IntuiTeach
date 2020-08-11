@@ -5,7 +5,7 @@
     width: 40%;
 }
 
-.quiz-controls > Button {
+.quiz-controls > input {
     box-shadow: 0px 0px 6px grey;
     margin-right: 2vw;
 }
