@@ -3,7 +3,6 @@ import { Nav, Button, ButtonToolbar, Form, Row, Col, FormLabel} from "react-boot
 import { withRouter } from "react-router";
 import './Quizmaker.css'
 
-
 const Quizmaker = props => {
     return (
         <div>
@@ -12,7 +11,6 @@ const Quizmaker = props => {
                 <Button variant='primary' size='lg'>Save</Button>
             </ButtonToolbar>
             <div className='question-list'>
-                <QuestionForm/>
                 <QuestionForm/>
             </div>
             
