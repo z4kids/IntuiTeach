@@ -10,17 +10,24 @@ import Sidebar from '../../components/sidebar.js';
 let questionNum = 2;
 
 const Quizmaker = props => {
-    function addQuestion() {
+    const addQuestion = () => {
         const newQuestion = { number: questionNum }
         setQuestions([...questions, newQuestion])
+        // document.getElementById('buttons').scrollIntoView();
         questionNum++;
     }
-    const firstQuestion = [{ number: 1, key:'form-1' }];
+    
+    const firstQuestion = [
+        { number: 1 }
+    ];
     const [questions, setQuestions] = useState(firstQuestion);
+
     const questionList = questions.map((question) => (
-    <QuestionForm 
-        number={question.number}
-        key={question.key}/>
+        <QuestionForm 
+            key={question.number}
+            number={question.number}
+            addQuestion={addQuestion}
+        />
     ))
 
     return (
@@ -33,11 +40,9 @@ const Quizmaker = props => {
                     </Col>
                     <Col xs={11} className="scroll">
                         <div className='question-maker'>
-                            <ButtonControls addQuestion={addQuestion}/>
                             <div className='question-list'>
                                 {questionList}
                             </div>
-                            <ButtonControls addQuestion={addQuestion}/>
                         </div>
                     </Col>
                 </Row>
