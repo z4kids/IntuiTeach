@@ -5,7 +5,8 @@ import r_side_home from '../images/rside_home.svg';
 import home_rotate from '../images/home_rotate.svg';
 import student_stats from '../images/student_stats.svg';
 import get_started from '../images/get_started.svg';
-
+import developer from '../images/developer.svg';
+import trophy from '../images/trophy.svg';
 const Home = () => (
     <div className="home">
         <header className="home-header"></header>
@@ -15,8 +16,8 @@ const Home = () => (
         <div className='container-img-txt home-feedback-layout'>
             <img src={home_rotate} alt='Rotation Icon' />
             <div>
-                <h2 className='home-feedback-h2'>Live feedback for live teaching</h2>
-                <p className='home-statistics-p'>Plugin that allows teachers to quiz their students in real time</p>
+                <h2 className='home-container-h2'>Live feedback for live teaching</h2>
+                <p className='home-container-p'>Plugin that allows teachers to quiz their students in real time</p>
                 <div className='home-feedback-button-container'>
                     <Button className='main-button' variant='primary' size='lg'>Students</Button>
                     <Button className='main-button' variant='primary' size='lg'>Educators</Button>
@@ -26,21 +27,41 @@ const Home = () => (
 
         <div className='container-img-txt home-statistics-layout'>
             <div>
-                <h2 className='home-statistics-h2'>Understanding Students Through Statistics</h2>
-                <p className='home-statistics-p'>Allows educators to gauge participation
+                <h2 className='home-container-h2'>Understanding Students Through Statistics</h2>
+                <p className='home-container-p'>Allows educators to gauge participation
         and identify student success through a dashboard</p>
             </div>
             <img src={student_stats} alt='Student Pie Chart' />
         </div>
 
-        <div className='container-img-txt home-get-started-layout'>
+        <div className='container-img-txt home-encouraging-layout'>
             <div>
-                <h2 className='home-get-started-h2'>A better way to understand students</h2>
-                <h2 className='home-get-started-h2'>A better way to help students</h2>
+                <h2 className='home-container-h2'>Encouraging Student Engagement</h2>
+                <h2 className='home-container-p'>Point-based reward system ensures students participate
+        in the classroom</h2>
             </div>
-            <img src={get_started} alt='' />
+            <img src={trophy} alt='' />
         </div>
-        <Button variant='primary' size='lg' id='get-started-button'>Get Started</Button>
+
+        <div className='container-img-txt home-streamlining-layout'>
+            <img src={get_started} alt='' />
+            <div>
+                <h2 className='home-container-h2'>Streamlining Virtual Learning</h2>
+                <h2 className='home-container-p'>Facilitates student-teacher and peer-to-peer communication,
+        making virtual classrooms more enjoyable for students</h2>
+                <Button className='main-button' variant='primary' size='lg'>Get Started</Button>
+            </div>
+        </div>
+
+        <div className='container-img-txt home-developer-layout'>
+            <div>
+                <h2 className='home-container-h2'>Developer-Friendly API</h2>
+                <h2 className='home-container-p'>Our flexible API allows IntuiTeach to easily be integrated to
+        different platforms</h2>
+                <Button className='main-button' variant='primary' size='lg'>Documentation</Button>
+            </div>
+            <img src={developer} alt='' />
+        </div>
     </div>
 
 );
