@@ -68,11 +68,12 @@ const Home = () => (
     <header className="home-header"></header>
     <img src={homeside} className='side-home'/>
     <img src={r_side_home} className='rside-home'/>
-    <h1 className='home-org-header'>z4kids</h1>
+    <h1 className='home-org-header'>IntuiTeach</h1>
     <div className='container-img-txt home-feedback-layout'>
       <img src={home_rotate} alt='Rotation Icon'/>
       <div>
         <h2 className='home-feedback-h2'>Live feedback for live teaching</h2>
+        <p className='home-statistics-p'>Plugin that allows teachers to quiz their students in real time</p>
         <div className='home-feedback-button-container'>
           <Button className='main-button' variant='primary' size='lg'>Students</Button>
           <Button className='main-button' variant='primary' size='lg'>Educators</Button>
@@ -84,7 +85,7 @@ const Home = () => (
       <div>
         <h2 className='home-statistics-h2'>Understanding Students Through Statistics</h2>
         <p className='home-statistics-p'>Allows educators to gauge participation
-        and identify student success</p>
+        and identify student success through a dashboard</p>
       </div>
       <img src={student_stats} alt='Student Pie Chart'/>
     </div>
@@ -181,7 +182,7 @@ const Navigation = () => (
       <Nav.Link as={NavLink} className="navlink" to='/about'>About</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/students'>Students</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/educators'>Educators</Nav.Link>
-      <Nav.Link as={NavLink} className="navlink" to='/dashboard'>Login</Nav.Link>
+      <Nav.Link as={NavLink} className="navlink" id = "login" to='/dashboard'>Login</Nav.Link>
     </Nav>
   </Navbar>
 );
