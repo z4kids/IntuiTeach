@@ -28,9 +28,12 @@ const Quizmaker = props => {
                         <Sidebar />
                     </Col>
                     <Col xs={11} className="scroll">
-                        <ButtonControls addQuestion={addQuestion}/>
-                        <div className='question-list'>
-                            {questionList}
+                        <div className='question-maker'>
+                            <ButtonControls addQuestion={addQuestion}/>
+                            <div className='question-list'>
+                                {questionList}
+                            </div>
+                            <ButtonControls addQuestion={addQuestion}/>
                         </div>
                     </Col>
                 </Row>
