@@ -1,34 +1,28 @@
-import React, { useState } from 'react';
-import { Nav } from 'react-bootstrap';
-import { withRouter } from 'react-router';
+import React, { useState } from "react";
+import { Nav } from "react-bootstrap";
+import { withRouter } from "react-router";
 import './Quizmaker.css'
-import ButtonControls from './components/ButtonControls'
-import QuestionForm from './components/QuestionForm'
+import ButtonControls from './Components/ButtonControls'
+import QuestionForm from './Components/QuestionForm'
 
-let questionNum = 2;
 const Quizmaker = props => {
     function addQuestion() {
-        const newQuestion = { number: questionNum }
+        const newQuestion = { number: 1, key: 'form 1'}
         setQuestions([...questions, newQuestion])
-        questionNum++;
     }
-    const firstQuestion = [{ number: 1 }];
+    const firstQuestion = [{ number: 1, key:'form-1' }];
     const [questions, setQuestions] = useState(firstQuestion);
     const questionList = questions.map((question) => (
     <QuestionForm 
         number={question.number}
-        id={question.id}
-        key={question.id}/>
+        key={question.key}/>
     ))
 
     return (
         <div>
-            <div className='question-maker'>
-                <ButtonControls addQuestion={addQuestion}/>
-                <div className='question-list'>
-                    {questionList}
-                </div>
-                <ButtonControls addQuestion={addQuestion}/>
+            <ButtonControls addQuestion={addQuestion}/>
+            <div className='question-list'>
+                {questionList}
             </div>
         </div>
     );
