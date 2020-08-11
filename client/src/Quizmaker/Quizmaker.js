@@ -2,19 +2,7 @@ import React from "react";
 import { Nav, Button, ButtonToolbar, Form, Row, Col, FormLabel} from "react-bootstrap";
 import { withRouter } from "react-router";
 import './Quizmaker.css'
-
-const ButtonControls = (props) => {    
-    function handleAddClick(e) {
-        e.preventDefault();
-        props.addQuestion();
-    }
-    return (
-        <ButtonToolbar  className='quiz-controls' aria-label="Quiz controls">
-            <Button as='input' type='submit' onClick={handleAddClick} value='Add Question' variant='light' size='lg'/>
-            <Button variant='primary' size='lg'>Save</Button>
-        </ButtonToolbar>
-    )
-}
+import ButtonControls from './Components/ButtonControls'
 
 const AnswerChoice = (props) => (
     <Form.Group>
