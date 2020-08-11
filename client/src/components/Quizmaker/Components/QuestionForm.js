@@ -11,6 +11,11 @@ const QuestionForm = (props) => {
         props.addQuestion();
         document.getElementById(`form-fields-${number}`).disabled = true;
     }
+
+    function handleDeleteClick(e) {
+        e.preventDefault();
+        props.addQuestion();
+    }
     
     return (
         <Form className='question-form'>
@@ -36,8 +41,13 @@ const QuestionForm = (props) => {
                         <AnswerChoice/>
                     </Col>
                 </Row>
-                <Button as='input' type='submit' onClick={handleAddClick} value='Add Question' variant='primary' size='lg'/>
-                </fieldset>
+                <Row>
+                    <Col>
+                        <Button as='input' type='button' onClick={handleAddClick} value='Add Question' variant='primary' size='lg'/>
+                        <Button as='input' type='button' onClick={handleDeleteClick} value='Delete Question' variant='danger' size='lg'/>
+                    </Col>
+                </Row>
+            </fieldset>
         </Form>
     )
 }
