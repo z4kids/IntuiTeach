@@ -6,10 +6,14 @@ import './Quizmaker.css'
 import ButtonControls from './Components/ButtonControls'
 import QuestionForm from './Components/QuestionForm'
 import Sidebar from '../../components/sidebar.js';
+
+let questionNum = 2;
+
 const Quizmaker = props => {
     function addQuestion() {
-        const newQuestion = { number: 1, key: 'form 1'}
+        const newQuestion = { number: questionNum }
         setQuestions([...questions, newQuestion])
+        questionNum++;
     }
     const firstQuestion = [{ number: 1, key:'form-1' }];
     const [questions, setQuestions] = useState(firstQuestion);
