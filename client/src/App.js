@@ -1,6 +1,16 @@
 import React from 'react';
 import logo from './images/logo.svg';
-
+import add_file from './images/add_file.svg';
+import trophy from './images/trophy.svg';
+import r_side from './images/rside.svg';
+import homeside from './images/home-side.svg';
+import statistics from './images/statistics.svg';
+import r_side_home from './images/rside_home.svg';
+import purple_side from './images/purple-side.svg';
+import home_rotate from './images/home_rotate.svg';
+import student_stats from './images/student_stats.svg';
+import struggling from './images/struggling.svg'
+import get_started from './images/get_started.svg';
 import Quizmaker from './components/Quizmaker/Quizmaker.js';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';

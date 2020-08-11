@@ -1,5 +1,5 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+import React from 'react';
+import { Form } from 'react-bootstrap';
 
 const AnswerChoice = (props) => (
     <Form.Group>
