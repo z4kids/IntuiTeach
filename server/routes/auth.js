@@ -27,7 +27,6 @@ router.get('/redirect', async (req, res) => {
     })
     user = await user.json()
     req.session.access_token = response.access_token
-    console.log(req.session.access_token)
     req.session.user = user
     //Add new users to database
     let teacher = {
@@ -36,6 +35,6 @@ router.get('/redirect', async (req, res) => {
         last_name: user.last_name
     }
     await client.db(DB_NAME).collection('teacher').updateOne({zoom_id: user.id}, {$set: teacher}, {upsert: true})
-    res.sendStatus(200)
+    res.redirect('http://localhost:3000/dashboard')
 })
 module.exports = router

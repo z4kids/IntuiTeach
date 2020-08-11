@@ -105,4 +105,16 @@ router.get('/meeting', isLoggedIn, async (req, res) => {
     join_url,
   })
 })
+router.get('/info', async (req, res) => {
+  if (req.session.user) {
+    console.log(req.session.user)
+    res.json({
+      name: req.session.user.first_name + ' ' + req.session.user.last_name,
+      profile_pic: req.session.user.pic_url
+    })
+  } else {
+    console.log('No user!')
+    res.send(null)
+  }
+})
 module.exports = router;
