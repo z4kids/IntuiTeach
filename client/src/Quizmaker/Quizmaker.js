@@ -3,40 +3,8 @@ import { Nav, Button, ButtonToolbar, Form, Row, Col, FormLabel} from "react-boot
 import { withRouter } from "react-router";
 import './Quizmaker.css'
 import ButtonControls from './Components/ButtonControls'
+import QuestionForm from './Components/QuestionForm'
 
-const AnswerChoice = (props) => (
-    <Form.Group>
-        <Form.Label srOnly>Enter an Answer Choice</Form.Label>
-        <Form.Control type='text' placeholder='Possible Answer'/>
-    </Form.Group>
-)
-const QuestionForm = (props) => {
-    return (
-        <Form className='question-form'>
-            <h2>Question {props.number}</h2>
-            <Form.Group>
-                <Form.Label srOnly>Enter a Question</Form.Label>
-                <Form.Control type='text' placeholder='Enter a Question'/>
-            </Form.Group>
-            <Row>
-                <Col>
-                    <AnswerChoice/>
-                </Col>
-                <Col>
-                    <AnswerChoice/>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <AnswerChoice/>
-                </Col>
-                <Col>
-                    <AnswerChoice/>
-                </Col>
-            </Row>
-        </Form>
-    )
-}
 
 function addQuestion() {
     alert('Question added');
@@ -47,6 +15,7 @@ const questionList = questions.map((question) => (
         number={question.number}
         key={question.key} />
 ))
+
 const Quizmaker = props => {
     return (
         <div>
