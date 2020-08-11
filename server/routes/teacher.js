@@ -17,7 +17,7 @@ router.post('/exam', isLoggedIn, async (req, res) => {
 
     const exam = {
         name:exam_name,
-        question: [],
+        questions: [],
         teacher_id
     }
 
@@ -29,8 +29,11 @@ router.post('/exam', isLoggedIn, async (req, res) => {
 // API for teacher to add new question to exam
 router.post('/question', isLoggedIn, async (req, res) => {
     await client.connect()
+
+    const teacher_id = (await client.db(DB_NAME).collection('teacher').findOne({zoom_id: req.session.user.id}))._id
+
     // Deconstructs the prompt of the question, the list of the answers, the correct answer, and the max time to answer the question
-    const {prompt, list_of_answers, correct_answer, max_time, points, teacher_id, exam_id} = req.body
+    const {prompt, list_of_answers, correct_answer, max_time, points, exam_id} = req.body
 
     // writing JSON file to pass to Mongo client, making sure it is in the same JSON format on MongoDB database 
     const question = {
@@ -46,7 +49,7 @@ router.post('/question', isLoggedIn, async (req, res) => {
 
     // Updates the teacher's list of asked quesitons
 
-    const teacher = await client.db(DB_NAME).collection("exam").findOne({teacher_id:ObjectId(teacher_id)})
+    const teacher = await client.db(DB_NAME).collection("exam").findOne({_id: ObjectId(exam_id), teacher_id})
 
     const new_teacher_question = {
       questions: (teacher.questions) ? [...teacher.questions, ObjectId(String(result.insertedId))] : [ObjectId(String(result.insertedId))],
