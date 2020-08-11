@@ -12,7 +12,7 @@ import home_rotate from './images/home_rotate.svg';
 import student_stats from './images/student_stats.svg';
 import struggling from './images/struggling.svg'
 import get_started from './images/get_started.svg';
-import Quizmaker from './Quizmaker.js';
+import Quizmaker from './Quizmaker/Quizmaker.js';
 import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col, Container } from 'react-bootstrap';
