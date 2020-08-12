@@ -75,7 +75,8 @@ const Reward = (props) => {
     return (
         <ListGroup.Item className='list-item'>
             {props.content}
-            <Button variant="danger" class="right" onClick={() => { props.onDelete(props.id) }}>Delete</Button>
+            <Button variant="danger" className="right" onClick={() => { props.onDelete(props.id) }}>Delete</Button>
+
         </ListGroup.Item>
     );
 }
