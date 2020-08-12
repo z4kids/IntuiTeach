@@ -11,18 +11,18 @@ const CompletedQuestion = (props) => {
     return (
         <div className = 'question-viewer' id={props.id}>
             <Container className='question-form'>
-                <h3>{`Question ${props.number}`}</h3>
+                <h3>{`Question ${props.number}: ${props.questionVal}`}</h3>
                 <Row>
                     <Col>
                         <ul>
-                            <li>Answer 1</li>
-                            <li>Answer 1</li>
+                            <li>{`${props.answer1Val}`}</li>
+                            <li>{`${props.answer2Val}`}</li>
                         </ul>
                     </Col>
                     <Col>
                         <ul>
-                            <li>Answer 1</li>
-                            <li>Answer 1</li>
+                            <li>{`${props.answer3Val}`}</li>
+                            <li>{`${props.answer4Val}`}</li>
                         </ul>
                     </Col>
                 </Row>

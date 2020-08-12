@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Nav } from "react-bootstrap";
 import { withRouter } from "react-router";
-import { Form, Row, Col, Container } from 'react-bootstrap';
+import { Nav, Form, Row, Col, Container } from 'react-bootstrap';
 import './Quizmaker.css'
 import QuestionForm from './Components/QuestionForm';
 import CompletedQuestion from './Components/CompletedQuestion'
@@ -12,13 +11,19 @@ let questionInc = 2;
 let numQuestions = 0;
 
 const Quizmaker = props => {
-    const addQuestion = () => {
-        const newQuestion = { number: questionInc, id: `question-${questionInc}` }
+    const addQuestion = (qVal, a1Val, a2Val, a3Val, a4Val) => {
+        const newQuestion = { 
+            id: `question-${questionInc}`,
+            questionVal: qVal,
+            answer1Val: a1Val,
+            answer2Val: a2Val,
+            answer3Val: a3Val,
+            answer4Val: a4Val,
+        }
         setQuestions([...questions, newQuestion])
         // document.getElementById('buttons').scrollIntoView();
         questionInc++;
     }
-
     const deleteQuestion = (id) => {
         const remainingQuestions = questions.filter(question => id !== question.id);
         setQuestions(remainingQuestions);
@@ -27,7 +32,6 @@ const Quizmaker = props => {
     
     const firstQuestion = [{
         id: `question-${1}`,
-        number: 1
     }];
     
     const [questions, setQuestions] = useState(firstQuestion);
@@ -37,6 +41,11 @@ const Quizmaker = props => {
             id={question.id}
             key={question.id}
             number={index + 1}
+            questionVal={question.questionVal}
+            answer1Val={question.answer1Val}
+            answer2Val={question.answer2Val}
+            answer3Val={question.answer3Val}
+            answer4Val={question.answer4Val}
             deleteQuestion={deleteQuestion}
         />
     ))
