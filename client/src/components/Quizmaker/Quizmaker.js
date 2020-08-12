@@ -63,7 +63,7 @@ const Quizmaker = props => {
     ));
 
     return (
-        <div>
+        <div class="quizmaker">
             <Container fluid>
                 <Row>
                     <Col xs={1} id="no-padding">

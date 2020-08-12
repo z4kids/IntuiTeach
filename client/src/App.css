@@ -83,7 +83,9 @@
   background-color: transparent;
   justify-content: space-between;
 }
-
+.dashboard {
+  background-color: white;
+}
 .dashboard-back{
   background-color: #E5E5E5;
   padding-left: 40%;
