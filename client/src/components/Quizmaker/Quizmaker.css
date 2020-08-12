@@ -10,14 +10,6 @@
     top: 15%;
     left: 4%;
     width: 92%;
-
-}
-
-.question-list {
-    left: 10%;
-    width: 100%;
-    z-index: 30;
-    margin-bottom: 5%
 }
 
 .question-form {
@@ -27,7 +19,7 @@
     box-shadow: 0px 5px 10px gray;
 }
 
-.question-form h2 {
+.question-form h3 {
     font-family: 'Oxygen';
     font-size: x-large;
     font-weight: 600;
@@ -37,4 +29,37 @@
 
 .question-form input {
     margin-right: 2vw;
+}
+
+.question-list {
+    left: 10%;
+    width: 100%;
+    z-index: 30;
+    margin-bottom: 4%
+}
+
+.question-list h2 {
+    text-align: left;
+    font-family: 'Oxygen';
+    font-weight: 600;
+    font-size: 260%;
+    padding-top: 1%;
+    margin-bottom: 3%;
+    border-top: 2px dashed rgba(47, 125, 246, 1.0);
+}
+
+.question-viewer {
+    background-color: rgba(227, 238, 255, 1.0)
+}
+
+.question-list ul {
+    list-style-type: circle;
+}
+
+.question-list ul {
+    font-family: 'Oxygen';
+    font-size: large;
+    font-weight: 400;
+    padding-bottom: 10px;
+    color: black;
 }
