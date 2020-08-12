@@ -3,6 +3,7 @@
 }
 .fixed {
     position: fixed !important;
+    z-index: 6;
 }
 .quizmaker {
     background: white;
