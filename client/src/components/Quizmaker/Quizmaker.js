@@ -45,13 +45,16 @@ const Quizmaker = props => {
                     <Col xs={1} id="no-padding">
                         <Sidebar />
                     </Col>
-                    <Col xs={11} className="scroll">  
+                    <Col xs={11} className="scroll">
+                        
+
                         <div className='question-maker'>
+                            <Rewards />
                             <div className='question-list'>
                                 {questionList}
                             </div>
                         </div>
-                        <Rewards />
+                        
                     </Col>
                 </Row>
 

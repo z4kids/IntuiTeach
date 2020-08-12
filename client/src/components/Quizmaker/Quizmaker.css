@@ -6,8 +6,8 @@
     overflow-y: scroll;
 }
 .question-maker {
-    position: absolute;
-    top: 13%;
+    position: relative;
+    top: 15%;
     left: 4%;
     width: 92%;
 
