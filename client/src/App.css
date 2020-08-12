@@ -8,7 +8,7 @@
  position: absolute;
  top: 0;
  left: 0;
- height: 98%;
+ height: 100%;
 }
 
 .home-org-header{
@@ -32,23 +32,23 @@
 .rside{
   height: 100%;
   position: absolute;
-  left: calc(100% - 289px);
+  left: 84%;
 
 }
-
+.rside-home {
+  height: 2330px;
+}
+.side-home {
+  height: 2350px;
+}
 .rside-home{
   position: absolute;
-  left: calc(100% - 294px);
+  left: calc(100% - 206px);
 }
+
 .addfile{
   height: 30px;
   width: 30px;
-}
-.side-educators{
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 .side-home{
   position: absolute;
@@ -62,7 +62,6 @@
 }
 
 .home-header {
-  background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -70,7 +69,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding-bottom: 257%;
   width: 100%;
   top:0;
   left:0;
@@ -284,6 +282,10 @@
   box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.08), 0px 20px 32px rgba(96, 97, 112, 0.24);
 }
 
+html, body {
+  height: 100%;
+  background: linear-gradient(94.47deg, rgba(155, 81, 224, 0.85) 0.54%, #7875E3 98.53%);
+}
 body{
   overflow-x: hidden;
   background-color: #E5E5E5;

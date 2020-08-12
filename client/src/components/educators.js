@@ -7,7 +7,7 @@ import {  Button } from 'react-bootstrap';
 const Educators = () => (
     <div className="educators">
         <header className='header'></header>
-        <img src={purple_side} className='side-educators' />
+        <img src={purple_side} className='side' />
         <img src={r_side} className='rside' />
         <h1 className='page-header'>Educators</h1>
         <div className='container-img-txt eduactors-contents-layout'>
