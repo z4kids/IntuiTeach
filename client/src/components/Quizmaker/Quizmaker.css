@@ -1,17 +1,18 @@
 #no-padding{
   padding: 0;
 }
+.fixed {
+    position: fixed !important;
+}
 .quizmaker {
     background: white;
 }
-.scroll {
-    overflow-y: scroll;
-}
 .question-maker {
     position: relative;
-    top: 15%;
-    left: 4%;
-    width: 92%;
+    top: 6%;
+    left: 14%;
+    width: 85%;
+    margin-bottom: 8%;
 }
 
 .question-form {

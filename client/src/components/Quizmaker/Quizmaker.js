@@ -66,10 +66,10 @@ const Quizmaker = props => {
         <div class="quizmaker">
             <Container fluid>
                 <Row>
-                    <Col xs={1} id="no-padding">
+                    <Col xs={1} id="no-padding" className="fixed">
                         <Sidebar />
                     </Col>
-                    <Col xs={11} className="scroll">
+                    <Col xs={11}>
                         <div className='question-maker'>
                             <Rewards />
                             <div>
