@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './images/logo.svg';
 import add_file from './images/add_file.svg';
 import trophy from './images/trophy.svg';
@@ -23,10 +23,23 @@ import Dashboard from './components/dashboard.js';
 
 function App() {
   
+  let [user, setUser] = useState(null)
+
+  useEffect(() => {
+    fetch('http://localhost:3654/teacher/info', {
+      credentials: 'include'
+    })
+    .then(res => res.json())
+    .then(new_user => {
+      console.log(new_user)
+      setUser(new_user)
+    })
+  }, [])
+
   return (
     <div className="App">
-      <Navigation />
-      <Main />
+      <Navigation hasUser={user}/>
+      <Main user={user} setUser={setUser}/>
     </div>
   );
 }
@@ -40,14 +53,15 @@ function ActionLink() {
 
 }
 
-const Navigation = () => (
+
+const Navigation = (props) => (
   <Navbar className="nav" bg="light" variant="light" fixed="top">
     <Navbar.Brand as = {NavLink} to="/"> <img src={logo} className="logo" /></Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link as={NavLink} className = "navlink" id = "home" to='/'>Home</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/students'>Students</Nav.Link>
       <Nav.Link as={NavLink} className="navlink" to='/educators'>Educators</Nav.Link>
-      <Nav.Link as={NavLink} className="navlink" id = "login" to='/dashboard'>Login</Nav.Link>
+      <a class="navlink nav-link" href={(props.hasUser) ? '/dashboard' : 'http://localhost:3654/auth'} >{(props.hasUser) ? 'Dashboard' : 'Login'}</a>
     </Nav>
   </Navbar>
 );
