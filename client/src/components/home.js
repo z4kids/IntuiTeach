@@ -7,6 +7,7 @@ import student_stats from '../images/student_stats.svg';
 import get_started from '../images/get_started.svg';
 import developer from '../images/developer.svg';
 import trophy from '../images/trophy.svg';
+import { NavLink } from 'react-router-dom';
 const Home = () => (
     <div className="home">
         <header className="home-header"></header>
@@ -19,8 +20,8 @@ const Home = () => (
                 <h2 className='home-container-h2'>Live feedback for live teaching</h2>
                 <p className='home-container-p'>Plugin that allows teachers to quiz their students in real time</p>
                 <div className='home-feedback-button-container'>
-                    <Button className='main-button' variant='primary' size='lg'>Students</Button>
-                    <Button className='main-button' variant='primary' size='lg'>Educators</Button>
+                    <NavLink className="padding-right" to='/students'><Button className='main-button' variant='primary' size='lg'>Students</Button></NavLink>
+                    <NavLink to='/educators'><Button className='main-button' variant='primary' size='lg'>Educators</Button></NavLink>
                 </div>
             </div>
         </div>
@@ -49,7 +50,7 @@ const Home = () => (
                 <h2 className='home-container-h2'>Streamlining Virtual Learning</h2>
                 <h2 className='home-container-p'>Facilitates student-teacher and peer-to-peer communication,
         making virtual classrooms more enjoyable for students</h2>
-                <Button className='main-button' variant='primary' size='lg'>Get Started</Button>
+                <NavLink to="/educators"><Button className='main-button' variant='primary' size='lg'>Get Started</Button></NavLink>
             </div>
         </div>
 

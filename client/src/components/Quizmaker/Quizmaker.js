@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Nav } from "react-bootstrap";
 import { withRouter } from "react-router";
-import { Row, Col, Container } from 'react-bootstrap';
+import { Form, Row, Col, Container } from 'react-bootstrap';
 import './Quizmaker.css'
 import QuestionForm from './Components/QuestionForm'
 import Sidebar from '../../components/sidebar.js';
-
+import Rewards from '../Rewards/rewards.js'
 let questionNum = 2;
 
 const Quizmaker = props => {
@@ -46,11 +46,15 @@ const Quizmaker = props => {
                         <Sidebar />
                     </Col>
                     <Col xs={11} className="scroll">
+                        
+                        
                         <div className='question-maker'>
+                            <ButtonControls addQuestion={addQuestion}/>
                             <div className='question-list'>
                                 {questionList}
                             </div>
                         </div>
+                        <Rewards />
                     </Col>
                 </Row>
 
