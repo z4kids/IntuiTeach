@@ -13,6 +13,7 @@
     width: 100vw;
     margin-left: -1rem;
     transition: margin .25s ease-out;
+    position: sticky;
 }
 #sidebar-wrapper .sidebar-heading {
     padding: 0.875rem 1.25rem;
