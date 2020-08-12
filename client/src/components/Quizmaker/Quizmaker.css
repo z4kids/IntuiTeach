@@ -35,6 +35,12 @@
     margin-right: 2vw;
 }
 
+.form-scroll {
+    position: absolute;
+    margin-top: 1.6%;
+    right: -.5%;
+}
+
 .question-list {
     left: 10%;
     width: 100%;

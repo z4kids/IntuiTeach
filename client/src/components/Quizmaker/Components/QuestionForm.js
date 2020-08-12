@@ -34,6 +34,11 @@ const QuestionForm = (props) => {
             case 4: setAnswer4(aVal); break;
         }
     }
+
+    function handleScrollClick(e) {
+        e.preventDefault();
+        window.scrollTo(0,document.body.scrollHeight);
+    }
     
     return (
         <div id={props.id}>
@@ -67,6 +72,14 @@ const QuestionForm = (props) => {
                     variant='primary'
                     size='lg'
                     onClick={handleAddClick}/>
+                <Button
+                    className='form-scroll'
+                    as='input'
+                    type='button'
+                    value='Scroll to bottom'
+                    variant='info'
+                    size='sm'
+                    onClick={handleScrollClick}/>
             </div>
             </Form>
         </div>
