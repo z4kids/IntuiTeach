@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './images/logo.svg';
 import add_file from './images/add_file.svg';
 import trophy from './images/trophy.svg';
@@ -54,7 +54,7 @@ function ActionLink() {
 }
 
 
-const Navigation = () => (
+const Navigation = (props) => (
   <Navbar className="nav" bg="light" variant="light" fixed="top">
     <Navbar.Brand as = {NavLink} to="/"> <img src={logo} className="logo" /></Navbar.Brand>
     <Nav className="mr-auto">
