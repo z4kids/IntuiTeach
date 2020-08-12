@@ -44,7 +44,7 @@ const Quizmaker = props => {
         questionVal: 'This is an example',
         answer1Val: 'Your answers will be displayed here',
         answer2Val: 'You can add up to 4 answer choices',
-        answer3Val: 'You can add as many questions as you liike',
+        answer3Val: 'You can add as many questions as you like',
         answer4Val: 'If you need to change this question, delete this one and add a new question'
     }];
     const [questions, setQuestions] = useState(defaultQuestion);
@@ -63,7 +63,7 @@ const Quizmaker = props => {
     ));
 
     return (
-        <div class="quizmaker">
+        <div class="background">
             <Container fluid>
                 <Row>
                     <Col xs={1} id="no-padding" className="fixed">
@@ -71,7 +71,8 @@ const Quizmaker = props => {
                     </Col>
                     <Col xs={11}>
                         <div className='question-maker'>
-                            <Rewards />
+                            <Rewards/>
+                            <h1>Questions</h1>
                             <div>
                                 <QuestionForm addQuestion={addQuestion} id='question-form'/>
                             </div>
