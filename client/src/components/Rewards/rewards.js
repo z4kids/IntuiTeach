@@ -1,5 +1,5 @@
 import React, { useState, Component} from 'react';
-import './rewards.css'
+import '../../style/rewards.css'
 import { Button, Form} from 'react-bootstrap'
 import ListGroup from 'react-bootstrap/ListGroup'
 

@@ -1,15 +1,19 @@
 #no-padding{
   padding: 0;
 }
-
-.scroll {
-    overflow-y: scroll;
+.fixed {
+    position: fixed !important;
+    z-index: 6;
+}
+.quizmaker {
+    background: white;
 }
 .question-maker {
     position: relative;
-    top: 15%;
-    left: 4%;
-    width: 92%;
+    top: 6%;
+    left: 14%;
+    width: 85%;
+    margin-bottom: 8%;
 }
 
 .question-form {
