@@ -11,7 +11,7 @@ const AnswerChoice = (props) => {
     return (
         <Form.Group>
             <Form.Label srOnly>Enter an Answer Choice</Form.Label>
-            <Form.Control type='text' placeholder='Possible Answer' onChange={handleAnswerChange}/>
+            <Form.Control type='text' value={props.value} placeholder='Possible Answer' onChange={handleAnswerChange}/>
         </Form.Group>
     )
 }

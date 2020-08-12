@@ -41,22 +41,22 @@ const QuestionForm = (props) => {
                 <h3>Add a Question</h3>
                 <Form.Group>
                     <Form.Label srOnly>Enter a Question</Form.Label>
-                    <Form.Control controlId = 'question' type='text' placeholder='Enter a Question' onChange={handleQuestionChange}/>
+                    <Form.Control type='text' value={question} placeholder='Enter a Question' onChange={handleQuestionChange}/>
                 </Form.Group>
                 <Row>
                     <Col>
-                        <AnswerChoice answerNum={1} updateAnswer={updateAnswer}/>
+                        <AnswerChoice answerNum={1} value={answer1} updateAnswer={updateAnswer}/>
                     </Col>
                     <Col>
-                        <AnswerChoice answerNum={2} updateAnswer={updateAnswer}/>
+                        <AnswerChoice answerNum={2} value={answer2} updateAnswer={updateAnswer}/>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <AnswerChoice answerNum={3} updateAnswer={updateAnswer}/>
+                        <AnswerChoice answerNum={3} value={answer3} updateAnswer={updateAnswer}/>
                     </Col>
                     <Col>
-                        <AnswerChoice answerNum={4} updateAnswer={updateAnswer}/>
+                        <AnswerChoice answerNum={4} value={answer4} updateAnswer={updateAnswer}/>
                     </Col>
                 </Row>
             <div>
