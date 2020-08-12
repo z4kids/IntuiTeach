@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router";
 import { Nav, Form, Row, Col, Container } from 'react-bootstrap';
-import './Quizmaker.css'
+import '../../style/Quizmaker.css'
 import QuestionForm from './Components/QuestionForm';
 import CompletedQuestion from './Components/CompletedQuestion'
 import Sidebar from '../../components/sidebar.js';
