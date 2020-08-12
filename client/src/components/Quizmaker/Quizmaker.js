@@ -20,22 +20,34 @@ const Quizmaker = props => {
             answer3Val: a3Val,
             answer4Val: a4Val,
         }
-        setQuestions([...questions, newQuestion])
+        if (questionInc === 2) {
+            setQuestions([newQuestion])
+        } else {
+            setQuestions([...questions, newQuestion])
+        }
         // document.getElementById('buttons').scrollIntoView();
         questionInc++;
     }
     const deleteQuestion = (id) => {
         const remainingQuestions = questions.filter(question => id !== question.id);
         setQuestions(remainingQuestions);
-        console.log(id);
+        console.log(questions[0]);
     }
     
     const firstQuestion = [{
         id: `question-${1}`,
     }];
-    
-    const [questions, setQuestions] = useState(firstQuestion);
 
+    const defaultQuestion = [{
+        id: 'default',
+        number: 0,
+        questionVal: 'This is an example',
+        answer1Val: 'Your answers will be displayed here',
+        answer2Val: 'You can add up to 4 answer choices',
+        answer3Val: 'You can add as many questions as you liike',
+        answer4Val: 'If you need to change this question, delete this one and add a new question'
+    }];
+    const [questions, setQuestions] = useState(defaultQuestion);
     const questionList = questions.map((question, index) => (
         <CompletedQuestion 
             id={question.id}
@@ -48,7 +60,7 @@ const Quizmaker = props => {
             answer4Val={question.answer4Val}
             deleteQuestion={deleteQuestion}
         />
-    ))
+    ));
 
     return (
         <div>

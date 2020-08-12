@@ -48,12 +48,12 @@ const QuestionForm = (props) => {
                         <AnswerChoice answerNum={1} value={answer1} updateAnswer={updateAnswer}/>
                     </Col>
                     <Col>
-                        <AnswerChoice answerNum={2} value={answer2} updateAnswer={updateAnswer}/>
+                    <AnswerChoice answerNum={3} value={answer3} updateAnswer={updateAnswer}/>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <AnswerChoice answerNum={3} value={answer3} updateAnswer={updateAnswer}/>
+                        <AnswerChoice answerNum={2} value={answer2} updateAnswer={updateAnswer}/>
                     </Col>
                     <Col>
                         <AnswerChoice answerNum={4} value={answer4} updateAnswer={updateAnswer}/>
