@@ -46,13 +46,12 @@ const Quizmaker = props => {
                         <Sidebar />
                     </Col>
                     <Col xs={11} className="scroll">
-                        
-
                         <div className='question-maker'>
                             <Rewards />
                             <div className='question-list'>
                                 {questionList}
                             </div>
+                            <h2>Your Questions</h2>
                         </div>
                         
                     </Col>

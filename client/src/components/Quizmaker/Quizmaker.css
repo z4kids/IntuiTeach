@@ -10,14 +10,30 @@
     top: 15%;
     left: 4%;
     width: 92%;
-
 }
 
 .question-list {
     left: 10%;
     width: 100%;
     z-index: 30;
-    margin-bottom: 5%
+    margin-bottom: 4%
+}
+
+.question-maker h2 {
+    text-align: left;
+    font-family: 'Oxygen';
+    font-weight: 600;
+    font-size: 260%;
+    padding-top: 1%;
+    border-top: 2px dashed rgba(129, 88, 229, 1.0);
+}
+
+.question-list h3 {
+    text-align: left;
+    font-family: 'Oxygen';
+    font-weight: 600;
+    margin-bottom: 2%;
+    font-size: 160%;
 }
 
 .question-form {

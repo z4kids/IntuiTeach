@@ -20,7 +20,7 @@ const QuestionForm = (props) => {
         <div id={`question-${number}`}>
             <Form className='question-form'>
                 <fieldset id={`form-fields-${number}`}>
-                    <h2>Question {number}</h2>
+                    <h3>Add a Question</h3>
                     <Form.Group>
                         <Form.Label srOnly>Enter a Question</Form.Label>
                         <Form.Control type='text' placeholder='Enter a Question'/>
