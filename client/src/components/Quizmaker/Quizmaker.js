@@ -3,17 +3,20 @@ import { Nav } from "react-bootstrap";
 import { withRouter } from "react-router";
 import { Form, Row, Col, Container } from 'react-bootstrap';
 import './Quizmaker.css'
-import QuestionForm from './Components/QuestionForm'
+import QuestionForm from './Components/QuestionForm';
+import CompletedQuestion from './Components/CompletedQuestion'
 import Sidebar from '../../components/sidebar.js';
 import Rewards from '../Rewards/rewards.js'
-let questionNum = 2;
+
+let questionInc = 2;
+let numQuestions = 0;
 
 const Quizmaker = props => {
     const addQuestion = () => {
-        const newQuestion = { number: questionNum, id: `question-${questionNum}` }
+        const newQuestion = { number: questionInc, id: `question-${questionInc}` }
         setQuestions([...questions, newQuestion])
         // document.getElementById('buttons').scrollIntoView();
-        questionNum++;
+        questionInc++;
     }
 
     const deleteQuestion = (id) => {
@@ -26,14 +29,14 @@ const Quizmaker = props => {
         id: `question-${1}`,
         number: 1
     }];
+    
     const [questions, setQuestions] = useState(firstQuestion);
 
-    const questionList = questions.map((question) => (
-        <QuestionForm 
+    const questionList = questions.map((question, index) => (
+        <CompletedQuestion 
             id={question.id}
             key={question.id}
-            number={question.number}
-            addQuestion={addQuestion}
+            number={index + 1}
             deleteQuestion={deleteQuestion}
         />
     ))
@@ -48,10 +51,13 @@ const Quizmaker = props => {
                     <Col xs={11} className="scroll">
                         <div className='question-maker'>
                             <Rewards />
+                            <div>
+                                <QuestionForm addQuestion={addQuestion} id='question-form'/>
+                            </div>
                             <div className='question-list'>
+                                <h2>Your Questions</h2>
                                 {questionList}
                             </div>
-                            <h2>Your Questions</h2>
                         </div>
                         
                     </Col>

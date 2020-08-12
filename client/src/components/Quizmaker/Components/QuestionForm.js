@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Row, Col, Button, ButtonToolbar } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 import AnswerChoice from './AnswerChoice'
 
 // Props: number, addQuestion, deleteQuestion, id
@@ -11,13 +11,9 @@ const QuestionForm = (props) => {
         props.addQuestion();
         document.getElementById(`form-fields-${number}`).disabled = true;
     }
-
-    const handleDeleteClick = () => {
-        props.deleteQuestion(props.id);
-    }
     
     return (
-        <div id={`question-${number}`}>
+        <div id={props.id}>
             <Form className='question-form'>
                 <fieldset id={`form-fields-${number}`}>
                     <h3>Add a Question</h3>
@@ -43,8 +39,7 @@ const QuestionForm = (props) => {
                     </Row>
                 </fieldset>
             <div>
-                <Button as='input' type='submit' onClick={handleAddClick} value='Add Question' variant='primary' size='lg'/>
-                <Button as='input' type='button' onClick={handleDeleteClick} value='Delete Question' variant='danger' size='lg'/>
+                <Button as='input' type='submit' onClick={handleAddClick} value='Add this question' variant='primary' size='lg'/>
             </div>
             </Form>
         </div>
