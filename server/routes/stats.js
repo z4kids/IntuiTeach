@@ -19,6 +19,7 @@ router.get('/exam', async (req, res) => {
         delete stat.exam_id
         stats_exam.push(stat)
     })
+
     res.json(stats_exam)
 })
 
