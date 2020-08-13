@@ -80,9 +80,9 @@ export async function getQuestions(exam_id) {
  * @returns {Object[]} List of statistics
  */
 export async function getStatsByExam(exam_id) {
-    const response = await fetch('http://localhost:3654/stats/exam', {
+    const response = await fetch(`http://localhost:3654/stats/exam?exam_id=${exam_id}`, {
         credentials: 'include',
-        body: {exam_id}
+        //body: {exam_id}
     })
     const json = await response.json()
     return json
