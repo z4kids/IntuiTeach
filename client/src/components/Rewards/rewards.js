@@ -4,12 +4,18 @@ import { Button, Form, Container, Row, Col} from 'react-bootstrap'
 import ListGroup from 'react-bootstrap/ListGroup'
 
 class Rewards extends React.Component {
+    firstRewardAdded = false;
     state = {
         rewards: ['Example']
     };
 
     handleSubmit = reward => {
-        this.setState({ rewards: [...this.state.rewards, reward] });
+        if (!this.firstRewardAdded) {
+            this.setState({ rewards: [reward]})
+        } else {
+            this.setState({ rewards: [...this.state.rewards, reward] });
+        }
+        this.test++;
     }
 
     handleDelete = (index) => {
