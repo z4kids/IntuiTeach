@@ -34,9 +34,9 @@ const Quizmaker = props => {
         console.log(questions[0]);
     }
 
-    function handleDownScrollClick(e) {
+    function handleUpScrollClick(e) {
         e.preventDefault();
-        document.getElementById('question-form').scrollIntoView();
+        window.scrollTo(0,500);
     }
 
     const defaultQuestion = [{
@@ -88,7 +88,7 @@ const Quizmaker = props => {
                                 value='Scroll to top'
                                 variant='info'
                                 size='sm'
-                                onClick={handleDownScrollClick}/>
+                                onClick={handleUpScrollClick}/>
                         </div>
                     </Col>
                 </Row>
