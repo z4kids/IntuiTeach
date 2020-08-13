@@ -123,19 +123,30 @@ router.delete('/question', isLoggedIn, async (req, res) => {
     res.sendStatus(200)
 
 })
+router.get('/reward', isLoggedIn, async (req, res) => {
+  await client.connect()
 
+  const {exam_id} = req.query
+
+  let rewards = client.db(DB_NAME).collection('reward').find({exam_id: ObjectId(exam_id)})
+
+  rewards = await rewards.toArray()
+
+  res.json(rewards)
+})
 //API to post a new reward
 router.post('/reward', isLoggedIn, async (req, res) => {
     await client.connect()
 
-    const {reward_name, reward_cost} = req.body
+    const {reward_name, reward_cost, exam_id} = req.body
 
     const reward = {
       name: reward_name,
-      cost: reward_cost
+      cost: reward_cost,
+      exam_id: ObjectId(exam_id)
     }
 
-    const result = await client.db(DB_NAME).collection("rewards").insertOne(reward)
+    const result = await client.db(DB_NAME).collection("reward").insertOne(reward)
 
     console.log(`New reward created with the following id: ${result.insertedId}`);
     res.json({id: result.insertedId})

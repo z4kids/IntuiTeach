@@ -2,20 +2,31 @@ import React, { useState, Component} from 'react';
 import '../../style/rewards.css'
 import { Button, Form, Container, Row, Col} from 'react-bootstrap'
 import ListGroup from 'react-bootstrap/ListGroup'
+import { getRewards, createReward } from "../../api/link";
 
 class Rewards extends React.Component {
-    firstRewardAdded = false;
     state = {
-        rewards: ['Example']
+        rewards: []
     };
-
+    componentDidMount() {
+        getRewards(this.props.exam_id)
+        .then(rewards => {
+            console.log(rewards)
+            this.setState({
+                rewards
+            })
+        })
+    }
     handleSubmit = reward => {
-        if (!this.firstRewardAdded) {
-            this.setState({ rewards: [reward]})
-        } else {
-            this.setState({ rewards: [...this.state.rewards, reward] });
+        createReward(reward, 0, this.props.exam_id)
+        const full_reward = {
+            name: reward,
+            points: 0, 
+            exam_id: this.props.exam_id
         }
-        this.firstRewardAdded = true;
+        this.setState({
+            rewards: [...this.state.rewards, full_reward]
+        })
     }
 
     handleDelete = (index) => {
@@ -66,7 +77,7 @@ class SubmitForm extends React.Component {
 
 const RewardsList = (props) => {
     const rewards = props.rewards.map((reward, index) => {
-        return <Reward content={reward} key={index} id={index} onDelete={props.onDelete} />
+        return <Reward content={reward.name} key={reward._id} id={reward._id} onDelete={props.onDelete} />
     })
     return (
         <div className="reward-list">

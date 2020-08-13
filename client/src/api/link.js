@@ -51,8 +51,15 @@ export async function deleteQuestion(question_id, exam_id) {
  * @param {string} reward_name The name of the reward
  * @param {number} reward_cost How many points the reward costs
  */
-export async function createReward(reward_name, reward_cost) {
-    return await modifierRequest('/teacher/reward', 'POST', {reward_name, reward_cost})
+export async function createReward(reward_name, reward_cost, exam_id) {
+    return await modifierRequest('/teacher/reward', 'POST', {reward_name, reward_cost, exam_id})
+}
+export async function getRewards(exam_id) {
+    const response = await fetch(`http://localhost:3654/teacher/reward?exam_id=${exam_id}`, {
+        credentials: 'include'
+    })
+    const json = await response.json()
+    return json
 }
 /**
  * Gets all the exams tied to the teacher that's logged in

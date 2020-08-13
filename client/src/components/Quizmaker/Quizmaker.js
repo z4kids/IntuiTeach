@@ -95,7 +95,7 @@ const Quizmaker = props => {
                     </Col>
                     <Col xs={11}>
                         <div className='question-maker'>
-                            <Rewards/>
+                            <Rewards exam_id={exam_id}/>
                             <h1>Questions</h1>
                             <div>
                                 <QuestionForm addQuestion={addQuestion} id='question-form'/>
