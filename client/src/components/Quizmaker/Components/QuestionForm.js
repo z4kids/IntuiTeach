@@ -35,7 +35,7 @@ const QuestionForm = (props) => {
         }
     }
 
-    function handleScrollClick(e) {
+    function handleUpScrollClick(e) {
         e.preventDefault();
         window.scrollTo(0,document.body.scrollHeight);
     }
@@ -73,13 +73,13 @@ const QuestionForm = (props) => {
                     size='lg'
                     onClick={handleAddClick}/>
                 <Button
-                    className='form-scroll'
+                    className='form-down-scroll'
                     as='input'
                     type='button'
                     value='Scroll to bottom'
                     variant='info'
                     size='sm'
-                    onClick={handleScrollClick}/>
+                    onClick={handleUpScrollClick}/>
             </div>
             </Form>
         </div>
