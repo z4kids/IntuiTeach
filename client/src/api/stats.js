@@ -11,12 +11,21 @@ export async function calculateStats() {
     let student_longest_time_on_exam
     let total_correct = 0
     let correct_answers = []
+    let questions = []
+    let most_missed_question
+    let most_misses = 0
 
     stats_jsons.forEach(json => {
+        for (let question of json.question_names) {
+            if (!(questions.includes(question))) {
+                questions.push(question)
+            }
+        }
         for (let time of json.times) {
             times.push(time)
-            if (time > longest_time) {
-                longest_time = time
+            let average_time = times.reduce((a, b) => a + b, 0)
+            if (average_time > longest_time) {
+                longest_time = average_time
                 student_longest_time_on_exam = json.student_name
 
             }
@@ -37,9 +46,19 @@ export async function calculateStats() {
             }
         }
 
+        for (let i = 0; i < questions.length; i ++) {
+            let number_times_missed = 0
+            if (json.answers[i] != json.correct_answers[i]) {
+                number_times_missed += 1
+
+                if (number_times_missed > most_misses) {
+                    most_missed_question = json.question_names[i]
+                }
+            }
+        }
+
     })
-    console.log(answers)
-    console.log(correct_answers)
+
     let average_percentage_correct_for_exam  = (total_correct / answers.length) * 100 + "%"
     let average_time_for_exam = 0
 
@@ -48,16 +67,19 @@ export async function calculateStats() {
     }
 
     average_time_for_exam /= times.length
-
+    console.log(times)
     console.log(average_time_for_exam)
     console.log(student_longest_time_on_exam)
     console.log(average_percentage_correct_for_exam)
+    console.log(most_missed_question)
 
 
     const stats = {
         average_time_for_exam: average_time_for_exam,
         student_longest_time_on_exam: student_longest_time_on_exam,
         student_with_least_points: student_with_least_points,
+        average_percentage_correct_for_exam: average_percentage_correct_for_exam,
+        most_missed_question: most_missed_question  
     }
 
     //return JSON.stringify(stats)
