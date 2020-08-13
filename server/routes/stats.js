@@ -21,7 +21,9 @@ router.get('/exam', async (req, res) => {
     })
     for (let i = 0; i < results.length; i++) {
         s_id = stats_exam[i].student_id
+        q_id = stats_exam[i].question_id
         let student = await client.db(DB_NAME).collection("student").findOne({_id: s_id})
+
         stats_exam[i] = {
             ...stats_exam[i],
             student_name: student.name
