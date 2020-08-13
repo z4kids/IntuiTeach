@@ -2,7 +2,7 @@ import {getStatsByExam, getStatsForAllStudents} from "./link.js"
 
 
 export async function calculateStats() {
-    const stats_jsons = await getStatsByExam("5f2f1e595982a2cd57b831a5")
+    const stats_jsons = await getStatsByExam()
 
     let times = []
     let answers = []
@@ -82,6 +82,6 @@ export async function calculateStats() {
         most_missed_question: most_missed_question  
     }
 
-    //return JSON.stringify(stats)
+    return JSON.stringify(stats)
 }
 
