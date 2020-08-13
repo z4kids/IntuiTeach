@@ -27,14 +27,25 @@
     box-shadow: 0px 5px 10px gray;
 }
 
-.question-form input {
-    margin-right: 2vw;
+.question-form-answer-selector {
+    width: 100%;
+    margin-bottom: 1.5%;
+}
+
+.question-form-answer-selector p {
+    text-align: left;
+    font-family: 'Oxygen';
+    color: black;
+}
+
+.test {
+    background-color: black;
 }
 
 .form-down-scroll {
     position: absolute;
     margin-top: 1.6%;
-    right: -.5%;
+    right: 2%;
 }
 
 .form-up-scroll {
@@ -89,6 +100,10 @@
 
 .question-list ul {
     list-style-type: circle;
+}
+
+.correct-answer {
+    list-style-type: '✓  ';
 }
 
 .question-list ul {

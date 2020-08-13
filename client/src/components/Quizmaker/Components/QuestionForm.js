@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-import AnswerChoice from './AnswerChoice'
+import AnswerChoice from './AnswerChoice';
+import CorrectAnswerSelector from './CorrectAnswerSelector';
 
 // Props: number, addQuestion, deleteQuestion, id
 const QuestionForm = (props) => {
@@ -11,19 +12,25 @@ const QuestionForm = (props) => {
     const [answer2, setAnswer2] = useState('');
     const [answer3, setAnswer3] = useState('');
     const [answer4, setAnswer4] = useState('');
+    const [correctAnswer, setCorrectAnswer] = useState(1);
 
     function handleQuestionChange(e) {
         setQuestion(e.target.value);
     }
 
+    function selectCorrectAnswer(aNum) {
+        setCorrectAnswer(aNum);
+    }
+
     function handleAddClick(e) {
         e.preventDefault();
-        props.addQuestion(question, answer1, answer2, answer3, answer4);
+        props.addQuestion(question, answer1, answer2, answer3, answer4, correctAnswer);
         setQuestion('');
         setAnswer1('');
         setAnswer2('');
         setAnswer3('');
         setAnswer4('');
+        setCorrectAnswer(1);
     }
 
     function updateAnswer(aVal, aNum) {
@@ -53,7 +60,7 @@ const QuestionForm = (props) => {
                         <AnswerChoice answerNum={1} value={answer1} updateAnswer={updateAnswer}/>
                     </Col>
                     <Col>
-                    <AnswerChoice answerNum={3} value={answer3} updateAnswer={updateAnswer}/>
+                        <AnswerChoice answerNum={3} value={answer3} updateAnswer={updateAnswer}/>
                     </Col>
                 </Row>
                 <Row>
@@ -64,6 +71,7 @@ const QuestionForm = (props) => {
                         <AnswerChoice answerNum={4} value={answer4} updateAnswer={updateAnswer}/>
                     </Col>
                 </Row>
+                    <CorrectAnswerSelector selectCorrectAnswer={selectCorrectAnswer}/>
             <div>
                 <Button
                     as='input'
@@ -71,7 +79,8 @@ const QuestionForm = (props) => {
                     value='Add this question'
                     variant='primary'
                     size='lg'
-                    onClick={handleAddClick}/>
+                    onClick={handleAddClick}
+                />
                 <Button
                     className='form-down-scroll'
                     as='input'
@@ -79,7 +88,8 @@ const QuestionForm = (props) => {
                     value='Scroll to bottom'
                     variant='info'
                     size='sm'
-                    onClick={handleDownScrollClick}/>
+                    onClick={handleDownScrollClick}
+                />
             </div>
             </Form>
         </div>
