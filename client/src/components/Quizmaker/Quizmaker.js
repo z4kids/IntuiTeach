@@ -6,7 +6,7 @@ import QuestionForm from './Components/QuestionForm';
 import CompletedQuestion from './Components/CompletedQuestion'
 import Sidebar from '../../components/sidebar.js';
 import Rewards from '../Rewards/rewards.js'
-import { getQuestions, createQuestion } from "../../api/link";
+import { getQuestions, createQuestion, deleteQuestion as delQ } from "../../api/link";
 
 let questionInc = 2;
 let numQuestions = 0;
@@ -28,9 +28,11 @@ const Quizmaker = props => {
 
     }
     const deleteQuestion = (id) => {
-        const remainingQuestions = questions.filter(question => id !== question.id);
-        setQuestions(remainingQuestions);
-        console.log(questions[0]);
+        if (delQ(id, exam_id)) {
+            const remainingQuestions = questions.filter(question => id !== question.id);
+            setQuestions(remainingQuestions);
+            console.log(questions[0]);
+        }
     }
 
     function handleDownScrollClick(e) {
