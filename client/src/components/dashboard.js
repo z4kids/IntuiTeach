@@ -2,11 +2,11 @@ import React from 'react';
 import Sidebar from './sidebar.js';
 import trophy from '../images/trophy.svg';
 import struggling from '../images/struggling.svg'
-import { Row, Col, Container } from 'react-bootstrap';
-
-var struggle_percent = "14%";
-var average_time = "20";
-var hardest_questions = "1";
+import { Row, Col, Container, DropdownButton, Dropdown } from 'react-bootstrap';
+import '../style/Dashboard.css'
+var student = "afdafdsafds";
+var average_percentage= "80%";
+var hardest_question = "What is the answer to life";
 const Dashboard = () => (
     <div className="dashboard">
         <Container fluid>
@@ -15,28 +15,36 @@ const Dashboard = () => (
                     <Sidebar />
                 </Col>
                 <Col xs={4}>
+                    <DropdownButton className="dropdown" id="dropdown-basic-button" title="Quizzes">
+                        <Dropdown.Item href="#/action-1">Quiz 1</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">Quiz 2</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">Quiz 3</Dropdown.Item>
+                    </DropdownButton>
                     <div className='dashboard-container dashboard-card'>
                         <img className='container-img-txt' src={struggling}></img>
-                        <h2 className='dashboard-text'>Struggling Students {struggle_percent}</h2>
-
+                        <h2 className='dashboard-text'>Struggling Students</h2>
+                        <p className='dashboard-content'>{student}</p>
 
                     </div>
                 </Col>
                 <Col xs={4}>
                     <div className='dashboard-container dashboard-card'>
-                        <img className='container-img-txt' src={trophy}></img>
-                        <h2 className='dashboard-text'>Average Time {average_time}</h2>
-
+                        <img className='container-img-txt' src={struggling}></img>
+                        <h2 className='dashboard-text'>Most Missed Question</h2>
+                        <p className='dashboard-content'>{hardest_question}</p>
 
                     </div>
+                    
+
+
+                  
                 </Col>
                 <Col xs={3}>
-                    <div className='dashboard-container dashboard-card'>
-                        <img className='container-img-txt' src={struggling}></img>
-                        <h2 className='dashboard-text'>Longest to answer questions {hardest_questions}</h2>
-
-
-                    </div>
+                <div className='dashboard-container dashboard-card'>
+                    <img className='container-img-txt' src={trophy}></img>
+                    <h3 id = "percentage" className='dashboard-text'>Average Percentage</h3>
+                    <p className='dashboard-content'>{average_percentage}</p>
+                </div>
                 </Col>
             </Row>
         </Container>
