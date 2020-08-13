@@ -1,15 +1,21 @@
 import React, { useState, Component} from 'react';
-import './rewards.css'
-import { Button, Form} from 'react-bootstrap'
+import '../../style/rewards.css'
+import { Button, Form, Container, Row, Col} from 'react-bootstrap'
 import ListGroup from 'react-bootstrap/ListGroup'
 
 class Rewards extends React.Component {
+    firstRewardAdded = false;
     state = {
-        rewards: ['test1']
+        rewards: ['Example']
     };
 
     handleSubmit = reward => {
-        this.setState({ rewards: [...this.state.rewards, reward] });
+        if (!this.firstRewardAdded) {
+            this.setState({ rewards: [reward]})
+        } else {
+            this.setState({ rewards: [...this.state.rewards, reward] });
+        }
+        this.firstRewardAdded = true;
     }
 
     handleDelete = (index) => {
@@ -22,14 +28,14 @@ class Rewards extends React.Component {
         return (
             <div className='wrapper'>
                 <div className='reward-form'>
-                    <RewardsList rewards={this.state.rewards} onDelete={this.handleDelete} />
                     <SubmitForm onFormSubmit={this.handleSubmit} />
                 </div>
+                <h2>Your Rewards</h2>
+                <RewardsList rewards={this.state.rewards} onDelete={this.handleDelete} />
             </div>
         );
     }
 }
-
 
 class SubmitForm extends React.Component {
     state = { term: '' };
@@ -44,6 +50,7 @@ class SubmitForm extends React.Component {
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
+                <h3>Add Rewards</h3>
                 <Form.Control
                     type='text'
                     className='input'
@@ -51,33 +58,29 @@ class SubmitForm extends React.Component {
                     value={this.state.term}
                     onChange={(e) => this.setState({ term: e.target.value })}
                 />
-                <Button type="submit">Submit</Button>
+                <Button type="submit">Add this reward</Button>
             </Form>
         );
     }
 }
-
-
-
 
 const RewardsList = (props) => {
     const rewards = props.rewards.map((reward, index) => {
         return <Reward content={reward} key={index} id={index} onDelete={props.onDelete} />
     })
     return (
-        <ListGroup>
+        <div className="reward-list">
             {rewards}
-        </ListGroup>
+        </div>
     );
 }
 
 const Reward = (props) => {
     return (
-        <ListGroup.Item className='list-item'>
+        <div className='list-item'>
             {props.content}
-            <Button variant="danger" className="right" onClick={() => { props.onDelete(props.id) }}>Delete</Button>
-
-        </ListGroup.Item>
+            <Button variant="danger" className="right" size ='sm' onClick={() => { props.onDelete(props.id) }}>Delete</Button>
+        </div>
     );
 }
 

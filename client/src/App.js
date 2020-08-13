@@ -16,6 +16,7 @@ import './App.css';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 
+import Quizzes from './components/Quizzes/quizzes.js';
 import Students from './components/students.js';
 import Home from './components/home.js';
 import Educators from './components/educators.js';
@@ -73,6 +74,7 @@ const Main = () => (
     <Route exact path='/educators' component={Educators}></Route>
     <Route exact path='/dashboard' component={Dashboard}></Route>
     <Route exact path='/quizmaker' component={Quizmaker}></Route>
+    <Route exact path='/quizzes' component={Quizzes}></Route>
   </Switch>
 );
 
