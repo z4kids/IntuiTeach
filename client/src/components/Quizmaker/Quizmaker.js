@@ -38,7 +38,7 @@ const Quizmaker = props => {
 
     function handleUpScrollClick(e) {
         e.preventDefault();
-        document.getElementById('question-form').scrollIntoView();
+        window.scrollTo(0,500);
     }
 
     const defaultQuestion = [{
