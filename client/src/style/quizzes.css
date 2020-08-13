@@ -1,4 +1,22 @@
 .create-quiz{
     position: relative;
     padding: 5%;
+
+}
+
+.quiz-wrapper{
+    flex-wrap: wrap;
+    flex-direction: row;
+    display: flex;
+    flex-grow: 4;
+}
+
+.quiz-card{
+    margin: 4%;
+    position: relative;
+}
+
+.form-div{
+    margin-top: 5%;
+    place-items: center;
 }
