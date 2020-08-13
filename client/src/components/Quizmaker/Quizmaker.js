@@ -57,13 +57,20 @@ const Quizmaker = props => {
         getQuestions(exam_id)
         .then(qs => {
             let new_questions = []
-            qs.map(question => {
-                const new_question = {
-                    id: question._id,
-                    questionVal: question.prompt,
-
-                }
-            })
+            if (qs.length > 0) {
+                qs.forEach(question => {
+                    const new_question = {
+                        id: question._id,
+                        questionVal: question.prompt,
+                        answer1Val: question.options[0],
+                        answer2Val: question.options[1],
+                        answer3Val: question.options[2],
+                        answer4Val: question.options[3]
+                    }
+                    new_questions.push(new_question)
+                })
+            setQuestions(new_questions)
+            }
         })
     }, [])
 

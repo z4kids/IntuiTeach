@@ -159,7 +159,7 @@ router.get('/info', async (req, res) => {
     })
   } else {
     console.log('No user!')
-    res.send(null)
+    res.json(null)
   }
 })
 module.exports = router;

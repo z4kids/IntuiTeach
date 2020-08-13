@@ -71,9 +71,9 @@ export async function getExams() {
  * @returns {Object[]} A list of all the questions
  */
 export async function getQuestions(exam_id) {
-    const response = await fetch('http://localhost:3654/teacher/question', {
+    const response = await fetch(`http://localhost:3654/teacher/question?exam_id=${exam_id}`, {
         credentials: 'include',
-        body: {exam_id}
+        //body: {exam_id}
     })
     const json = await response.json()
     return json

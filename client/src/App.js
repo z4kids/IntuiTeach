@@ -28,7 +28,10 @@ function App() {
 
   useEffect(() => {
     fetch('http://localhost:3654/teacher/info', {
-      credentials: 'include'
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
     .then(res => res.json())
     .then(new_user => {
