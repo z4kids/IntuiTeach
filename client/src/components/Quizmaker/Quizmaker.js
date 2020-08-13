@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router";
+import { withRouter, useParams } from "react-router";
 import { Nav, Button, Row, Col, Container } from 'react-bootstrap';
 import '../../style/Quizmaker.css'
 import QuestionForm from './Components/QuestionForm';
@@ -11,6 +11,8 @@ let questionInc = 2;
 let numQuestions = 0;
 
 const Quizmaker = props => {
+    const {id: exam_id} = useParams()
+    
     const addQuestion = (qVal, a1Val, a2Val, a3Val, a4Val) => {
         const newQuestion = { 
             id: `question-${questionInc}`,
