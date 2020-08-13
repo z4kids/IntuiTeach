@@ -8,7 +8,7 @@ DB_NAME = "z4kidz"
 router.get('/exam', async (req, res) => {
     await client.connect()
 
-    const {exam_id} = req.body
+    const {exam_id} = req.query
 
     const stats = await client.db(DB_NAME).collection("stats").find({exam_id: ObjectId(exam_id)})
 
@@ -19,6 +19,7 @@ router.get('/exam', async (req, res) => {
         delete stat.exam_id
         stats_exam.push(stat)
     })
+
     res.json(stats_exam)
 })
 
