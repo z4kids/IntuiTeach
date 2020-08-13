@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter, useParams } from "react-router";
 import { Nav, Button, Row, Col, Container } from 'react-bootstrap';
 import '../../style/Quizmaker.css'
@@ -6,6 +6,7 @@ import QuestionForm from './Components/QuestionForm';
 import CompletedQuestion from './Components/CompletedQuestion'
 import Sidebar from '../../components/sidebar.js';
 import Rewards from '../Rewards/rewards.js'
+import { getQuestions } from "../../api/link";
 
 let questionInc = 2;
 let numQuestions = 0;
@@ -43,7 +44,6 @@ const Quizmaker = props => {
 
     const defaultQuestion = [{
         id: 'default',
-        number: 0,
         questionVal: 'This is an example',
         answer1Val: 'Your answers will be displayed here',
         answer2Val: 'You can add up to 4 answer choices',
@@ -51,6 +51,22 @@ const Quizmaker = props => {
         answer4Val: 'If you need to change this question, delete this one and add a new question'
     }];
     const [questions, setQuestions] = useState(defaultQuestion);
+
+    //Get all the questions for this exam
+    useEffect(() => {
+        getQuestions(exam_id)
+        .then(qs => {
+            let new_questions = []
+            qs.map(question => {
+                const new_question = {
+                    id: question._id,
+                    questionVal: question.prompt,
+
+                }
+            })
+        })
+    }, [])
+
     const questionList = questions.map((question, index) => (
         <CompletedQuestion 
             id={question.id}
