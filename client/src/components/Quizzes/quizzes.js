@@ -2,30 +2,41 @@ import React, {Component} from 'react';
 import Quiz from './quiz.js'
 import {Button, Card, Form } from 'react-bootstrap'
 import '../../style/quizzes.css'
+import { getExams, createExam } from "../../api/link";
 
 class Quizzes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            change: [],
+            quizzes: [],
             value:  ''
         }
         this.quiz = this.quiz.bind(this);
     }
+    componentDidMount() {
+        getExams()
+        .then(exams => {
+            console.log(exams)
+            this.setState({
+                quizzes: exams
+            })
+        })
+    }
     onChange = (event) => this.setState({ value: event.target.value });
 
 
-    quiz = (element) => {
+    quiz = async () => {
 
         // This is the element which creates the card. 
-        let components = this.state.change;
+        let components = this.state.quizzes;
 
-        element = <Quiz data={this.state.value}/>
+        //let element = <Quiz data={this.state.value}/>
+        const id = await createExam(this.state.value)
 
-        components.push(element);
+        components.push({id, name: this.state.value});
 
         this.setState({
-            change: components
+            quizzes: components
         });
     }
 
@@ -44,7 +55,7 @@ class Quizzes extends Component {
                     </Card>
                 </div>
                 <div className="quiz-wrapper">
-                    {this.state.change.map(comp => (comp))}
+                    {this.state.quizzes.map(comp => (<Quiz data={comp.name} key={comp.id} id={comp.id}/>))}
                 </div>
             </div>
         );

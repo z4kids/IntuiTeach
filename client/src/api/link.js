@@ -10,12 +10,12 @@ async function modifierRequest(route, method, body) {
         credentials: 'include',
         body
     })
-    return response.status === 200
+    return await response.json()
 }
 /**
  * Creates an exam with the given name
  * @param {string} exam_name 
- * @returns {boolean} true if the exam creation was successful, false if it failed
+ * @returns {Object} Object with "id" field for new exam
  */
 export async function createExam(exam_name) {
     return await modifierRequest('/teacher/exam', 'POST', {exam_name})
@@ -28,7 +28,7 @@ export async function createExam(exam_name) {
  * @param {number} max_time The maximum amound of time a user can spend on the question in seconds.
  * @param {number} points The number of points this question should be worth
  * @param {string} exam_id The unique id of each exam
- * @returns {boolean} true if the question creation was successful, false if it failed
+ * @returns {Object} Object with "id" field for new question
  */
 export async function createQuestion(prompt, list_of_answers, correct_answer, max_time, points, exam_id) {
     return await modifierRequest('/teacher/question', 'POST', {prompt, list_of_answers, correct_answer, max_time, points, exam_id})

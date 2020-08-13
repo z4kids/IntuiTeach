@@ -1,8 +1,9 @@
 import React from 'react';
 import '../../style/quizzes.css'
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap';
+import {NavLink} from 'react-router-dom';
 
-const AnswerChoice = (props) => {
+const Quiz = (props) => {
     const answerNum = props.answerNum;
 
     function handleAnswerChange(e) {
@@ -19,6 +20,6 @@ const AnswerChoice = (props) => {
     )
 }
 
-export default AnswerChoice;
+export default Quiz;
 
 

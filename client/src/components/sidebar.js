@@ -31,7 +31,7 @@ const Side = props => {
                     
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link as={NavLink} className="img" to='/quizmaker'>
+                    <Nav.Link as={NavLink} className="img" to='/quizzes'>
                             <OverlayTrigger
                                 key='right'
                                 placement='right'

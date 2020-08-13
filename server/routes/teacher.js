@@ -16,7 +16,7 @@ router.get('/exam', async (req, res) => {
 
   let teacher_exams = await client.db(DB_NAME).collection('exam').find({teacher_id: teacher_id})
 
-  teacher_exams.toArray()
+  teacher_exams = await teacher_exams.toArray()
 
   let exams = []
 
@@ -26,7 +26,6 @@ router.get('/exam', async (req, res) => {
       id: exam._id
     })
   })
-
 
   res.json(exams)
 
@@ -47,7 +46,7 @@ router.post('/exam', isLoggedIn, async (req, res) => {
     const result = await client.db(DB_NAME).collection("exam").insertOne(exam)
 
     console.log(`New exam created with the following id: ${result.insertedId}`);
-    res.sendStatus(200)
+    res.json({id: result.insertedId})
 })
 
 //API to get all the questions of a exam
@@ -100,7 +99,7 @@ router.post('/question', isLoggedIn, async (req, res) => {
     await client.db(DB_NAME).collection("exam").updateOne({_id: ObjectId(exam_id)}, {$set: new_teacher_question})
 
     console.log(`New question created with the following id: ${result.insertedId}`);
-    res.sendStatus(200)
+    res.json({id: result.insertedId})
   })
 
 // API for teacher to delete a question 
@@ -138,7 +137,7 @@ router.post('/reward', isLoggedIn, async (req, res) => {
     const result = await client.db(DB_NAME).collection("rewards").insertOne(reward)
 
     console.log(`New reward created with the following id: ${result.insertedId}`);
-    res.sendStatus(200)
+    res.json({id: result.insertedId})
 })
 
 
@@ -153,7 +152,6 @@ router.get('/meeting', isLoggedIn, async (req, res) => {
 })
 router.get('/info', async (req, res) => {
   if (req.session.user) {
-    console.log(req.session.user)
     res.json({
       name: req.session.user.first_name + ' ' + req.session.user.last_name,
       profile_pic: req.session.user.pic_url
