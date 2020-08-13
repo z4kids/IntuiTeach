@@ -1,8 +1,8 @@
-import {getStatsByExam, getStatsForAllStudents} from "./link.js"
+import {getStatsByExam, getStatsForAllStudents} from "./link"
 
 
-export async function calculateStats() {
-    const stats_jsons = await getStatsByExam()
+export async function calculateStatsByExam(exam_id) {
+    const stats_jsons = await getStatsByExam(exam_id)
 
     let times = []
     let answers = []
@@ -67,6 +67,7 @@ export async function calculateStats() {
     }
 
     average_time_for_exam /= times.length
+    //All the statistics
     console.log(times)
     console.log(average_time_for_exam)
     console.log(student_longest_time_on_exam)
@@ -75,13 +76,13 @@ export async function calculateStats() {
 
 
     const stats = {
-        average_time_for_exam: average_time_for_exam,
-        student_longest_time_on_exam: student_longest_time_on_exam,
-        student_with_least_points: student_with_least_points,
-        average_percentage_correct_for_exam: average_percentage_correct_for_exam,
-        most_missed_question: most_missed_question  
+        average_time_for_exam,
+        student_longest_time_on_exam,
+        student_with_least_points,
+        average_percentage_correct_for_exam,
+        most_missed_question  
     }
 
-    return JSON.stringify(stats)
+    return stats
 }
 
