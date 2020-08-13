@@ -4,11 +4,6 @@ import { Card, Button } from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 
 const Quiz = (props) => {
-    const answerNum = props.answerNum;
-
-    function handleAnswerChange(e) {
-        props.updateAnswer(e.target.value, answerNum);
-    }
 
     return (
         <Card clasName="quiz-card" style={{ width: '18rem' }}>

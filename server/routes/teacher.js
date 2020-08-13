@@ -33,8 +33,9 @@ router.get('/exam', async (req, res) => {
 //API for teacher to add new exam
 router.post('/exam', isLoggedIn, async (req, res) => {
     await client.connect()
+    console.log(req.body)
     const {exam_name} = req.body
-
+    console.log(exam_name)
     const teacher_id = (await client.db(DB_NAME).collection('teacher').findOne({zoom_id: req.session.user.id}))._id
 
     const exam = {
