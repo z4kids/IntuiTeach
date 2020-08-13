@@ -15,7 +15,7 @@ class Rewards extends React.Component {
         } else {
             this.setState({ rewards: [...this.state.rewards, reward] });
         }
-        this.test++;
+        this.firstRewardAdded = true;
     }
 
     handleDelete = (index) => {
