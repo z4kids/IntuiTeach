@@ -6,7 +6,7 @@ import QuestionForm from './Components/QuestionForm';
 import CompletedQuestion from './Components/CompletedQuestion'
 import Sidebar from '../../components/sidebar.js';
 import Rewards from '../Rewards/rewards.js'
-import { getQuestions } from "../../api/link";
+import { getQuestions, createQuestion } from "../../api/link";
 
 let questionInc = 2;
 let numQuestions = 0;
@@ -14,22 +14,18 @@ let numQuestions = 0;
 const Quizmaker = props => {
     const {id: exam_id} = useParams()
     
-    const addQuestion = (qVal, a1Val, a2Val, a3Val, a4Val) => {
-        const newQuestion = { 
-            id: `question-${questionInc}`,
+    const addQuestion = async (qVal, a1Val, a2Val, a3Val, a4Val) => {
+        let newQuestion = { 
             questionVal: qVal,
             answer1Val: a1Val,
             answer2Val: a2Val,
             answer3Val: a3Val,
             answer4Val: a4Val,
         }
-        if (questionInc === 2) {
-            setQuestions([newQuestion])
-        } else {
-            setQuestions([...questions, newQuestion])
-        }
-        // document.getElementById('buttons').scrollIntoView();
-        questionInc++;
+        const response = await createQuestion(qVal, [a1Val, a2Val, a3Val, a4Val], "", 0, 0, exam_id)
+        newQuestion.id = response.id
+        setQuestions([...questions, newQuestion])
+
     }
     const deleteQuestion = (id) => {
         const remainingQuestions = questions.filter(question => id !== question.id);
