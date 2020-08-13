@@ -34,3 +34,28 @@
     padding-left: 0;
     padding-right:0;
 }
+
+.dashboard-text{
+    margin: 10px;
+    margin-left: 30px;
+}
+
+.dashboard-content{
+    color: black;
+    margin: 40px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.dashboard-card{
+    height: 30%;
+}
+
+#percentage{
+    margin-left: 20%;
+}
+.dropdown{
+    position: absolute;
+    top: 10%;
+    left: -40%;
+}
