@@ -9,23 +9,10 @@ const AnswerChoice = (props) => {
     }
 
     return (
-        <Row>
-            <Col xs={1}>
-                <Form.Check
-                    aria-label=''
-                    type="checkbox"
-                    id={props.answerNum}
-                    label=""
-                    custom
-                />
-            </Col>
-            <Col>
-                <Form.Group>
-                    <Form.Label srOnly>Enter an Answer Choice</Form.Label>
-                    <Form.Control type='text' value={props.value} placeholder='Possible Answer' onChange={handleAnswerChange}/>
-                </Form.Group>
-            </Col>
-        </Row>
+        <Form.Group>
+            <Form.Label srOnly>{`Enter Answer Choice ${answerNum}`}</Form.Label>
+            <Form.Control type='text' value={props.value} placeholder={`Answer Choice ${answerNum}`} onChange={handleAnswerChange}/>
+        </Form.Group>
 )
 }
 
