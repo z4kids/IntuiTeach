@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import AnswerChoice from './AnswerChoice';
-import CorrectAnswerDropdown from './CorrectAnswerDropdown';
+import CorrectAnswerSelector from './CorrectAnswerSelector';
 
 // Props: number, addQuestion, deleteQuestion, id
 const QuestionForm = (props) => {
@@ -71,7 +71,7 @@ const QuestionForm = (props) => {
                         <AnswerChoice answerNum={4} value={answer4} updateAnswer={updateAnswer}/>
                     </Col>
                 </Row>
-                <CorrectAnswerDropdown selectCorrectAnswer={selectCorrectAnswer}/>
+                    <CorrectAnswerSelector selectCorrectAnswer={selectCorrectAnswer}/>
             <div>
                 <Button
                     as='input'
