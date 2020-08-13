@@ -11,7 +11,7 @@ let questionInc = 2;
 let numQuestions = 0;
 
 const Quizmaker = props => {
-    const addQuestion = (qVal, a1Val, a2Val, a3Val, a4Val) => {
+    const addQuestion = (qVal, a1Val, a2Val, a3Val, a4Val, corAns) => {
         const newQuestion = { 
             id: `question-${questionInc}`,
             questionVal: qVal,
@@ -19,7 +19,9 @@ const Quizmaker = props => {
             answer2Val: a2Val,
             answer3Val: a3Val,
             answer4Val: a4Val,
+            correctAnswer: corAns
         }
+
         if (questionInc === 2) {
             setQuestions([newQuestion])
         } else {
@@ -45,8 +47,9 @@ const Quizmaker = props => {
         questionVal: 'This is an example',
         answer1Val: 'Your answers will be displayed here',
         answer2Val: 'You can add up to 4 answer choices',
-        answer3Val: 'You can add as many questions as you like',
-        answer4Val: 'If you need to change this question, delete this one and add a new question'
+        answer3Val: 'Ever question has one correct answer, indicated by a checkmark',
+        answer4Val: 'If you need to change this question, delete this one and add a new question',
+        correctAnswer: 3
     }];
     const [questions, setQuestions] = useState(defaultQuestion);
     const questionList = questions.map((question, index) => (
@@ -59,6 +62,7 @@ const Quizmaker = props => {
             answer2Val={question.answer2Val}
             answer3Val={question.answer3Val}
             answer4Val={question.answer4Val}
+            correctAnswer={question.correctAnswer}
             deleteQuestion={deleteQuestion}
         />
     ));
@@ -75,7 +79,9 @@ const Quizmaker = props => {
                             <Rewards/>
                             <h1>Questions</h1>
                             <div>
-                                <QuestionForm addQuestion={addQuestion} id='question-form'/>
+                                <QuestionForm
+                                    addQuestion={addQuestion}
+                                    id='question-form'/>
                             </div>
                             <div className='question-list'>
                                 <h2>Your Questions</h2>
@@ -88,7 +94,8 @@ const Quizmaker = props => {
                                 value='Scroll to top'
                                 variant='info'
                                 size='sm'
-                                onClick={handleDownScrollClick}/>
+                                onClick={handleDownScrollClick}
+                            />
                         </div>
                     </Col>
                 </Row>
