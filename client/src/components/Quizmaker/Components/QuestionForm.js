@@ -50,6 +50,7 @@ const QuestionForm = (props) => {
                 </Form.Group>
                 <Row>
                     <Col>
+                    
                         <AnswerChoice answerNum={1} value={answer1} updateAnswer={updateAnswer}/>
                     </Col>
                     <Col>

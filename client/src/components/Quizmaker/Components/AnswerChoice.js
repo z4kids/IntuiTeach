@@ -11,6 +11,12 @@ const AnswerChoice = (props) => {
     return (
         <Form.Group>
             <Form.Label srOnly>Enter an Answer Choice</Form.Label>
+            <Form.Check
+                type="checkbox"
+                id={props.answerNum}
+                label=""
+                custom
+            />
             <Form.Control type='text' value={props.value} placeholder='Possible Answer' onChange={handleAnswerChange}/>
         </Form.Group>
     )
