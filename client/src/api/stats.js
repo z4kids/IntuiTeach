@@ -3,7 +3,6 @@ import {getStatsByExam, getStatsForAllStudents} from "./link.js"
 
 export async function calculateStats() {
     const stats_jsons = await getStatsByExam("5f2f1e595982a2cd57b831a5");
-    console.log(stats_jsons)
 
     let times = []
     let answers = []
@@ -18,13 +17,9 @@ export async function calculateStats() {
             answers.push(answer)
         }
         if (json.points < student_with_least_points) {
-            student_with_least_points = json.student_id
+            student_with_least_points = json.student_name
         }
     })
-
-    console.log(times)
-    console.log(answers)
-    console.log(student_with_least_points)
 
     let average_time_for_exam = 0
 
