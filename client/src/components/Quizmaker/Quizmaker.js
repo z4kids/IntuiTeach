@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router";
-import { Nav, Form, Row, Col, Container } from 'react-bootstrap';
+import { Nav, Button, Row, Col, Container } from 'react-bootstrap';
 import '../../style/Quizmaker.css'
 import QuestionForm from './Components/QuestionForm';
 import CompletedQuestion from './Components/CompletedQuestion'
@@ -33,10 +33,11 @@ const Quizmaker = props => {
         setQuestions(remainingQuestions);
         console.log(questions[0]);
     }
-    
-    const firstQuestion = [{
-        id: `question-${1}`,
-    }];
+
+    function handleDownScrollClick(e) {
+        e.preventDefault();
+        document.getElementById('question-form').scrollIntoView();
+    }
 
     const defaultQuestion = [{
         id: 'default',
@@ -80,8 +81,15 @@ const Quizmaker = props => {
                                 <h2>Your Questions</h2>
                                 {questionList}
                             </div>
+                            <Button
+                                className='form-up-scroll'
+                                as='input'
+                                type='button'
+                                value='Scroll to top'
+                                variant='info'
+                                size='sm'
+                                onClick={handleDownScrollClick}/>
                         </div>
-                        
                     </Col>
                 </Row>
 

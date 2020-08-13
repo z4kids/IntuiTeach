@@ -31,17 +31,15 @@
     margin-right: 2vw;
 }
 
-.form-scroll {
+.form-down-scroll {
     position: absolute;
     margin-top: 1.6%;
     right: -.5%;
 }
 
-.question-list {
-    left: 10%;
-    width: 100%;
-    z-index: 30;
-    margin-bottom: 4%
+.form-up-scroll {
+    position: relative;
+    margin-bottom: 1%;
 }
 
 .question-maker h1 {
@@ -50,7 +48,7 @@
     font-weight: bolder;
     font-size: 260%;
     padding-top: 1%;
-    margin-top: 4%;
+    margin-top: 2%;
     margin-bottom: 3%;
     border-top: 3px solid rgba(129, 88, 229, 1.0);
 }
@@ -75,6 +73,13 @@
 
 .question-viewer {
     background-color: rgba(227, 238, 255, 1.0)
+}
+
+.question-list {
+    left: 10%;
+    width: 100%;
+    z-index: 30;
+    margin-bottom: 4%;
 }
 
 .question-list ul {
