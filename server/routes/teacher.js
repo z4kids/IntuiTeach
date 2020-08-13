@@ -33,6 +33,7 @@ router.get('/exam', async (req, res) => {
 //API for teacher to add new exam
 router.post('/exam', isLoggedIn, async (req, res) => {
     await client.connect()
+
     const {exam_name} = req.body
 
     const teacher_id = (await client.db(DB_NAME).collection('teacher').findOne({zoom_id: req.session.user.id}))._id
@@ -53,7 +54,7 @@ router.post('/exam', isLoggedIn, async (req, res) => {
 router.get('/question', async (req, res) => {
   await client.connect()
 
-  const {exam_id} = req.body
+  const {exam_id} = req.query
 
   const exam = await client.db(DB_NAME).collection('exam').findOne({_id: ObjectId(exam_id)})
 
@@ -142,7 +143,7 @@ router.post('/reward', isLoggedIn, async (req, res) => {
 
 
 router.get('/meeting', isLoggedIn, async (req, res) => {
-  const {exam_id, zoom_link} = req.body
+  const {exam_id, zoom_link} = req.query
   let join_url = new url.URL(zoom_link)
   join_url.host = 'localhost:3000'
   join_url.searchParams.append('exam', exam_id)
