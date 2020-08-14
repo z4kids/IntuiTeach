@@ -16,7 +16,8 @@ class Quizzes extends Component {
 
 
     quiz = (element) => {
-
+        //prevents page from refreshing
+        element.preventDefault()
         // This is the element which creates the card. 
         let components = this.state.change;
 
@@ -35,11 +36,11 @@ class Quizzes extends Component {
                 <div className="form-div">
                     <Card style={{ width: '20rem' }}>
                         <Card.Body>
-                        <Form onSubmit={this.handleSubmit}>
+                        <Form>
                             <Form.Label className="form-label">Enter Quiz Name</Form.Label>
                             <Form.Control type="text" value={this.state.value} onChange={this.onChange}/>
+                            <Button type='submit' onClick={this.quiz} className="form-btn">Create this quiz</Button>
                         </Form>
-                        <Button onClick={this.quiz} className="form-btn">Create this quiz</Button>
                         </Card.Body>
                     </Card>
                 </div>
