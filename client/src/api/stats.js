@@ -79,8 +79,8 @@ export async function calculateStatsByExam(exam_id) {
 
     return stats
 }
-
-export async function calculateStatsForStudentsOfTeacher(exam_id) {
+// Function to calculate stats of teacher's students when a fetch call is made to the API
+export async function calculateStatsForStudentsOfTeacher() {
     const stats_jsons = await getStatsForAllStudents()
 
     let times = []
