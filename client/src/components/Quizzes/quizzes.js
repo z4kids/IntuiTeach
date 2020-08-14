@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Quiz from './quiz.js'
 import {Button, Card, Form } from 'react-bootstrap'
 import '../../style/quizzes.css'
-import { getExams, createExam } from "../../api/link";
+import { getExams, createExam, deleteExam } from "../../api/link";
 
 class Quizzes extends Component {
     constructor(props) {
@@ -34,7 +34,7 @@ class Quizzes extends Component {
         let components = this.state.quizzes;
 
         //let element = <Quiz data={this.state.value}/>
-        const id = await createExam(this.state.value)
+        const {id} = await createExam(this.state.value)
 
         components.push({id, name: this.state.value});
 
@@ -44,11 +44,13 @@ class Quizzes extends Component {
         });
         this.quizInc++;
     }
-    deleteQuiz = (id) => {
+    deleteQuiz = async (id) => {
         console.log(0);
-        let components = this.state.change;
-        let remainingComponents = components.filter(element => id !== element.props.id);
-        this.setState({change: remainingComponents});
+        let components = this.state.quizzes;
+        await deleteExam(id)
+        console.log(components)
+        let remainingComponents = components.filter(element => id !== element.id);
+        this.setState({quizzes: remainingComponents});
     }
     
     render() {

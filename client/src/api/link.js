@@ -16,6 +16,17 @@ async function modifierRequest(route, method, body) {
     console.log(body)
     return await response.json()
 }
+async function deleteRequest(route, method, body) {
+    const response = await fetch(`http://localhost:3654${route}`, {
+        method,
+        credentials: 'include',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    return response.status === 200
+}
 /**
  * Creates an exam with the given name
  * @param {string} exam_name 
@@ -23,6 +34,13 @@ async function modifierRequest(route, method, body) {
  */
 export async function createExam(exam_name) {
     return await modifierRequest('/teacher/exam', 'POST', {exam_name})
+}
+/**
+ * Deletes the specfied exam
+ * @param {string} exam_id The id of the exam to be deleted
+ */
+export async function deleteExam(exam_id) {
+    return await deleteRequest('/teacher/exam', 'DELETE', {exam_id})
 }
 /**
  * Creates a question with configuration options
@@ -44,7 +62,7 @@ export async function createQuestion(prompt, list_of_answers, correct_answer, ma
  * @returns {boolean} true if the question deletion was successful, false if it failed
  */
 export async function deleteQuestion(question_id, exam_id) {
-    return await modifierRequest('/teacher/question', 'DELETE', {question_id, exam_id})
+    return await deleteRequest('/teacher/question', 'DELETE', {question_id, exam_id})
 }
 /**
  * Creates a new reward for the teacher
@@ -66,7 +84,7 @@ export async function getRewards(exam_id) {
  * @param {string} reward_id The id of the reward to be deleted
  */
 export async function deleteReward(reward_id) {
-    return await modifierRequest('/teacher/reward', 'DELETE', {reward_id})
+    return await deleteRequest('/teacher/reward', 'DELETE', {reward_id})
 }
 /**
  * Gets all the exams tied to the teacher that's logged in

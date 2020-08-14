@@ -49,7 +49,22 @@ router.post('/exam', isLoggedIn, async (req, res) => {
     console.log(`New exam created with the following id: ${result.insertedId}`);
     res.json({id: result.insertedId})
 })
+router.delete('/exam', isLoggedIn, async (req, res) => {
+    await client.connect()
+    // Deconstructs the exam id of the reward the teacher wants deleted 
+    const {exam_id} = req.body
 
+    // Constructs JSON file to pass into client 
+    const exam_deleted = {
+      _id: ObjectId(exam_id)
+    }
+
+    // Finds the exam id sent by the request and deletes it 
+    const result = await client.db(DB_NAME).collection("exam").deleteOne(exam_deleted)
+
+    console.log(`${result.deletedCount} document(s) was/were deleted.`)
+    res.sendStatus(200)
+})
 //API to get all the questions of a exam
 router.get('/question', async (req, res) => {
   await client.connect()
