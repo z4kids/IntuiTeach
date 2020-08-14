@@ -5,4 +5,20 @@ IntuiTeach is a web app combined with Zoom that allows teachers to write of seri
 To use any API keys, you should create a .env file in the server folder. Go to the server directory for more information on how to use our APIs and their endpoints
 
 ## Get started locally
-To get our website running on your local machine, you can clone this repo, cd into the client directory and to npm run start to start hosting on your local machine. Go to the client directory for more information on how you can run our web app locally on your machine.
+To get our web app running on your local machine, first clone the repo
+``` bash
+git clone https://github.com/z4kids/IntuiTeach.git
+```
+
+Once cloned, you want to make sure the server and the client are both running for the web app to function
+
+``` bash
+cd /client
+npm install
+npm run start
+
+cd /server
+npm install 
+npm run start
+```
+This should get you running on your local machine on a port of your choosing. There are respective READMEs in both the client and server directory for more information on how ot run the web app and the functionality of our APIs.

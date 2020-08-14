@@ -8,8 +8,8 @@ import Sidebar from '../../components/sidebar.js';
 import Rewards from '../Rewards/rewards.js'
 import { getQuestions, createQuestion, deleteQuestion as delQ } from "../../api/link";
 
+//Increments to create unique form ids
 let questionInc = 2;
-let numQuestions = 0;
 
 const Quizmaker = props => {
     const {id: exam_id} = useParams()
@@ -38,11 +38,13 @@ const Quizmaker = props => {
         }
     }
 
+    //Scrolls up to the question form
     function handleUpScrollClick(e) {
         e.preventDefault();
         window.scrollTo(0,500);
     }
 
+    //Displays a default question, with instructions for the user
     const defaultQuestion = [{
         id: 'default',
         questionVal: 'This is an example',
