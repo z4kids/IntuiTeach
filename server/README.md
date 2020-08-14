@@ -299,6 +299,8 @@ Request body
 ```
 Response:
 An array of JSONs of the stats for the specific exam
+
+#### Example response
 ```JSON
 [
     {
@@ -358,6 +360,8 @@ Retrieves all the stats of the teacher's students
 No body needed. We take the teacher's zoom ID when the teacher makes an account as the request
 #### Response
 An array of JSONs containing stats for all students of a specific teacher
+
+#### Example response
 ```JSON
 [
     {
