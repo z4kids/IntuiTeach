@@ -18,7 +18,7 @@ const AnswerChoice = (props) => {
             <Card.Body>
                 <Card.Title>{props.data}</Card.Title>
                     <Button variant="primary">Go to Quiz</Button>
-                    <Button type='button' onClick={handleDeleteClick} variant='danger'>Delete</Button>
+                    <Button variant='danger' type='button' onClick={handleDeleteClick}>Delete</Button>
             </Card.Body>
         </Card>
     )

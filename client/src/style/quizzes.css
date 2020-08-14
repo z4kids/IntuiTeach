@@ -21,6 +21,11 @@
     position: relative;
 }
 
+.quiz-card Button{
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
 .form-div{
     position: absolute;
     margin-top: 5%;
