@@ -7,6 +7,7 @@ cd client/
 npm install
 npm run start
 ```
+With this, the client should be running on your machine port.
 ## Available Scripts
 
 In the project directory, you can run:
