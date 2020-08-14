@@ -4,6 +4,8 @@ import AnswerChoice from './AnswerChoice'
 
 // Props: number, addQuestion, deleteQuestion, id
 const CompletedQuestion = (props) => {
+    //Complete questions appear at the bottom of the page
+    //Every completed question contains a delete button
     const handleDeleteClick = () => {
         props.deleteQuestion(props.id);
     }

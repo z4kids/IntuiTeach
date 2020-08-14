@@ -4,6 +4,7 @@ import { Form, Col} from 'react-bootstrap';
 const AnswerChoice = (props) => {
     const answerNum = props.answerNum; 
 
+    //Changes state of QuestionForm whenever answer input value is changed
     function handleAnswerChange(e) {
         props.updateAnswer(e.target.value, answerNum);
     }

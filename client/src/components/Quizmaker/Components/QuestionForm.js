@@ -14,17 +14,21 @@ const QuestionForm = (props) => {
     const [answer4, setAnswer4] = useState('');
     const [correctAnswer, setCorrectAnswer] = useState(1);
 
+    //Updates state when input value is changed
     function handleQuestionChange(e) {
         setQuestion(e.target.value);
     }
 
+    //Updates correct answer when button on CorrectAnswerSelector is pressed
     function selectCorrectAnswer(aNum) {
         setCorrectAnswer(aNum);
     }
 
+    //Used when Add Question button is pressed
     function handleAddClick(e) {
         e.preventDefault();
         props.addQuestion(question, answer1, answer2, answer3, answer4, correctAnswer);
+        //Reset input values to allow for new question
         setQuestion('');
         setAnswer1('');
         setAnswer2('');
@@ -33,6 +37,7 @@ const QuestionForm = (props) => {
         setCorrectAnswer(1);
     }
 
+    //Changes state based on changes to AnswerChoice component
     function updateAnswer(aVal, aNum) {
         switch(aNum) {
             case 1: setAnswer1(aVal); break;
@@ -42,6 +47,7 @@ const QuestionForm = (props) => {
         }
     }
 
+    //Scrolls to bottom of page. Allows user to see last question
     function handleDownScrollClick(e) {
         e.preventDefault();
         window.scrollTo(0,document.body.scrollHeight);

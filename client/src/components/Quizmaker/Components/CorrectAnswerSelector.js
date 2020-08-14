@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import { Button, ToggleButton, ButtonGroup,  Col, Row } from 'react-bootstrap';
 
-const CorrectAnswerSelector = (props) => {  
+const CorrectAnswerSelector = (props) => {
+    //Button toolbar. Let's user select the correct answer
     const [buttonValue, setButtonValue] = useState(1);
 
     const buttons = [
