@@ -2,7 +2,7 @@ import React, { useState, Component} from 'react';
 import '../../style/rewards.css'
 import { Button, Form, Container, Row, Col} from 'react-bootstrap'
 import ListGroup from 'react-bootstrap/ListGroup'
-import { getRewards, createReward } from "../../api/link";
+import { getRewards, createReward, deleteReward } from "../../api/link";
 
 class Rewards extends React.Component {
     state = {
@@ -17,13 +17,15 @@ class Rewards extends React.Component {
             })
         })
     }
-    handleSubmit = reward => {
-        createReward(reward, 0, this.props.exam_id)
+    handleSubmit = async reward => {
+        const {id} = await createReward(reward, 0, this.props.exam_id)
         const full_reward = {
+            _id: id.toString(),
             name: reward,
             points: 0, 
             exam_id: this.props.exam_id
         }
+        console.log(full_reward)
         this.setState({
             rewards: [...this.state.rewards, full_reward]
         })
@@ -31,6 +33,7 @@ class Rewards extends React.Component {
 
     handleDelete = (index) => {
         const newArr = [...this.state.rewards];
+        deleteReward(this.state.rewards[index]._id)
         newArr.splice(index, 1);
         this.setState({ rewards: newArr });
     }
@@ -77,7 +80,7 @@ class SubmitForm extends React.Component {
 
 const RewardsList = (props) => {
     const rewards = props.rewards.map((reward, index) => {
-        return <Reward content={reward.name} key={reward._id} id={reward._id} onDelete={props.onDelete} />
+        return <Reward content={reward.name} key={reward._id} index={index} onDelete={props.onDelete} />
     })
     return (
         <div className="reward-list">
@@ -90,7 +93,7 @@ const Reward = (props) => {
     return (
         <div className='list-item'>
             {props.content}
-            <Button variant="danger" className="right" size ='sm' onClick={() => { props.onDelete(props.id) }}>Delete</Button>
+            <Button variant="danger" className="right" size ='sm' onClick={() => { props.onDelete(props.index) }}>Delete</Button>
         </div>
     );
 }

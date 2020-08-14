@@ -62,6 +62,13 @@ export async function getRewards(exam_id) {
     return json
 }
 /**
+ * Deletes the specfied reward
+ * @param {string} reward_id The id of the reward to be deleted
+ */
+export async function deleteReward(reward_id) {
+    return await modifierRequest('/teacher/reward', 'DELETE', {reward_id})
+}
+/**
  * Gets all the exams tied to the teacher that's logged in
  * @returns {Object[]} An array of objects with the fields "id" as a string and "name" as a string
  */
