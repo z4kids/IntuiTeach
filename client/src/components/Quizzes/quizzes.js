@@ -14,6 +14,8 @@ class Quizzes extends Component {
     }
     onChange = (event) => this.setState({ value: event.target.value });
 
+    //cretes new id for new quizzes
+    quizInc = 1;
 
     quiz = (element) => {
         //prevents page from refreshing
@@ -21,7 +23,11 @@ class Quizzes extends Component {
         // This is the element which creates the card. 
         let components = this.state.change;
 
-        element = <Quiz data={this.state.value}/>
+        element = <Quiz 
+            data={this.state.value}
+            id={`quiz-${this.quizInc}`}
+            deleteQuiz={this.deleteQuiz}
+        />
 
         components.push(element);
 
@@ -29,8 +35,15 @@ class Quizzes extends Component {
             change: components,
             value: ''
         });
+        this.quizInc++;
     }
-
+    deleteQuiz = (id) => {
+        console.log(0);
+        let components = this.state.change;
+        let remainingComponents = components.filter(element => id !== element.props.id);
+        this.setState({change: remainingComponents});
+    }
+    
     render() {
         return (
             <div>

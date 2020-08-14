@@ -33,7 +33,6 @@ const Quizmaker = props => {
     const deleteQuestion = (id) => {
         const remainingQuestions = questions.filter(question => id !== question.id);
         setQuestions(remainingQuestions);
-        console.log(questions[0]);
     }
 
     function handleUpScrollClick(e) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../style/quizzes.css'
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button, Row } from 'react-bootstrap'
 
 const AnswerChoice = (props) => {
     const answerNum = props.answerNum;
@@ -9,11 +9,16 @@ const AnswerChoice = (props) => {
         props.updateAnswer(e.target.value, answerNum);
     }
 
+    function handleDeleteClick() {
+        props.deleteQuiz(props.id)
+    }
+
     return (
         <Card className="quiz-card" style={{ width: '18rem' }}>
             <Card.Body>
                 <Card.Title>{props.data}</Card.Title>
-                <Button variant="primary">Go to Quiz</Button>
+                    <Button variant="primary">Go to Quiz</Button>
+                    <Button type='button' onClick={handleDeleteClick} variant='danger'>Delete</Button>
             </Card.Body>
         </Card>
     )
