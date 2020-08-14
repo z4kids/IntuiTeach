@@ -26,7 +26,8 @@ class Quizzes extends Component {
         components.push(element);
 
         this.setState({
-            change: components
+            change: components,
+            value: ''
         });
     }
 
