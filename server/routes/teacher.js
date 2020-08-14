@@ -151,7 +151,22 @@ router.post('/reward', isLoggedIn, async (req, res) => {
     console.log(`New reward created with the following id: ${result.insertedId}`);
     res.json({id: result.insertedId})
 })
+router.delete('/reward', isLoggedIn, async (req, res) => {
+  await client.connect()
+    // Deconstructs the reward id of the reward the teacher wants deleted 
+    const {reward_id} = req.body
 
+    // Constructs JSON file to pass into client 
+    const reward_deleted = {
+      _id: ObjectId(reward_id)
+    }
+
+    // Finds the quesiton id sent by the request and deletes it 
+    const result = await client.db(DB_NAME).collection("reward").deleteOne(reward_deleted)
+
+    console.log(`${result.deletedCount} document(s) was/were deleted.`)
+    res.sendStatus(200)
+})
 
 router.get('/meeting', isLoggedIn, async (req, res) => {
   const {exam_id, zoom_link} = req.query
