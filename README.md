@@ -3,3 +3,6 @@ IntuiTeach is a web app combined with Zoom that allows teachers to write of seri
 
 ## The API
 To use any API keys, you should create a .env file in the server folder. Go to the server directory for more information on how to use our APIs and their endpoints
+
+## Get started locally
+To get our website running on your local machine, you can clone this repo, cd into the client directory and to npm run start to start hosting on your local machine. Go to the client directory for more information on how you can run our web app locally on your machine.
