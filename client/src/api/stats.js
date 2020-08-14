@@ -52,6 +52,7 @@ export async function calculateStatsByExam(exam_id) {
                 number_times_missed += 1
 
                 if (number_times_missed > most_misses) {
+                    most_misses = number_times_missed
                     most_missed_question = json.question_names[i]
                 }
             }
