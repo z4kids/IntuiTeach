@@ -24,7 +24,8 @@ const Quizmaker = props => {
             answer4Val: a4Val,
             correctAnswer: corAns
         }
-        const response = await createQuestion(qVal, [a1Val, a2Val, a3Val, a4Val], "", 0, 0, exam_id)
+        const options = [a1Val, a2Val, a3Val, a4Val]
+        const response = await createQuestion(qVal, options, options[corAns-1], 0, 0, exam_id)
         newQuestion.id = response.id
         setQuestions([...questions, newQuestion])
 
@@ -66,7 +67,8 @@ const Quizmaker = props => {
                         answer1Val: question.options[0],
                         answer2Val: question.options[1],
                         answer3Val: question.options[2],
-                        answer4Val: question.options[3]
+                        answer4Val: question.options[3],
+                        correctAnswer: question.options.indexOf(question.correct)+1
                     }
                     new_questions.push(new_question)
                 })
