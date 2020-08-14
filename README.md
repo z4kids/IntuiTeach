@@ -5,7 +5,7 @@ IntuiTeach is a web app combined with Zoom that allows teachers to write of seri
 To use any API keys, you should create a .env file in the server folder. Go to the server directory for more information on how to use our APIs and their endpoints
 
 ## Get started locally
-To get our website running on your local machine, first clone the repo
+To get our web app running on your local machine, first clone the repo
 ``` bash
 git clone https://github.com/z4kids/IntuiTeach.git
 ```
