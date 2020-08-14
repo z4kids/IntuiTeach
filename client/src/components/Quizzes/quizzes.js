@@ -39,7 +39,7 @@ class Quizzes extends Component {
                             <Form.Label className="form-label">Enter Quiz Name</Form.Label>
                             <Form.Control type="text" value={this.state.value} onChange={this.onChange}/>
                         </Form>
-                        <Button onClick={this.quiz} className="form-btn">CREATE</Button>
+                        <Button onClick={this.quiz} className="form-btn">Create this quiz</Button>
                         </Card.Body>
                     </Card>
                 </div>

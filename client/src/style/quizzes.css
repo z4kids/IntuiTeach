@@ -17,6 +17,12 @@
 }
 
 .form-div{
+    position: absolute;
     margin-top: 5%;
+    margin-left: 3%;
     place-items: center;
+}
+
+.form-btn{
+    margin-top: 5%;
 }
