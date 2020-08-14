@@ -14,7 +14,7 @@ let numQuestions = 0;
 const Quizmaker = props => {
     const {id: exam_id} = useParams()
     
-    const addQuestion = (qVal, a1Val, a2Val, a3Val, a4Val, corAns) => {
+    const addQuestion = async (qVal, a1Val, a2Val, a3Val, a4Val, corAns) => {
         const newQuestion = { 
             id: `question-${questionInc}`,
             questionVal: qVal,
