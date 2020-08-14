@@ -55,7 +55,7 @@ class Quizzes extends Component {
         return (
             <div>
                 <div className="form-div">
-                    <Card style={{ width: '20rem' }}>
+                    <Card className='form' style={{ width: '20rem' }}>
                         <Card.Body>
                         <Form>
                             <Form.Label className="form-label">Enter Quiz Name</Form.Label>
