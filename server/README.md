@@ -240,7 +240,7 @@ Request body:
 }
 ```
 Response:
-Addes reward with its own internal id
+Adds reward with its own internal id
 
 #### Example
 Request body:
@@ -285,3 +285,129 @@ Reponse:
     "join_url": "https://localhost:3000/j/78085232926?pwd=ZU1FVUtXU0pFSG91dUI4bEQxV1Zjdz09&exam=5f2f1e595982a2cd57b831a5"
 }
 ```
+
+## Endpoint for retrieving statistics 
+### GET /stats/exam
+#### Purpose
+Gets the stats of all the students who have taken that quiz
+#### Usage
+Request body
+```JSON
+{
+    "exam_id":"5f2f1e595982a2cd57b831a5"
+}
+```
+Response:
+An array of JSONs of the stats for the specific exam
+```JSON
+[
+    {
+        "_id": "5f2f26cb0c40c908879e6590",
+        "exam_id": "5f2f1e595982a2cd57b831a5",
+        "student_id": "5f3013cb0c40c90887be1f0c",
+        "teacher_id": "5f3018874620ca4ab2b7a49e",
+        "answers": [
+            9,
+            "Liu"
+        ],
+        "points": 30,
+        "times": [
+            5.4
+        ],
+        "student_name": "Bucky",
+        "correct_answers": [
+            9,
+            "Wolf"
+        ],
+        "question_names": [
+            "What is 3*3",
+            "What is Ryan's last name?"
+        ]
+    },
+    {
+        "_id": "5f2f4feb0c40c90887a495c0",
+        "exam_id": "5f2f1e595982a2cd57b831a5",
+        "student_id": "5f3013cb0c40c90887be1f0c",
+        "teacher_id": "5f3018874620ca4ab2b7a49e",
+        "answers": [
+            8,
+            "Wolf"
+        ],
+        "points": 20,
+        "times": [
+            10.4,
+            54
+        ],
+        "student_name": "Bucky",
+        "correct_answers": [
+            9,
+            "Wolf"
+        ],
+        "question_names": [
+            "What is 3*3",
+            "What is Ryan's last name?"
+        ]
+    }
+]
+```
+
+### GET /stats/students
+#### Purpose
+Retrieves all the stats of the teacher's students
+#### Usage
+No body needed. We take the teacher's zoom ID when the teacher makes an account as the request
+#### Response
+An array of JSONs containing stats for all students of a specific teacher
+```JSON
+[
+    {
+        "_id": "5f2f26cb0c40c908879e6590",
+        "exam_id": "5f2f1e595982a2cd57b831a5",
+        "student_id": "5f3013cb0c40c90887be1f0c",
+        "teacher_id": "5f3018874620ca4ab2b7a49e",
+        "answers": [
+            9,
+            "Liu"
+        ],
+        "points": 30,
+        "times": [
+            5.4,
+            10
+        ],
+        "student_name": "Bucky",
+        "correct_answers": [
+            9,
+            "Wolf"
+        ],
+        "question_names": [
+            "What is 3*3",
+            "What is Ryan's last name?"
+        ]
+    },
+    {
+        "_id": "5f3026a20c40c90887c0aae1",
+        "exam_id": "5f2f4270247649b5ed3a8b23",
+        "student_id": "5f3013cb0c40c90887be1f0c",
+        "answers": [
+            "Wolf"
+        ],
+        "points": 60,
+        "teacher_id": "5f3018874620ca4ab2b7a49e",
+        "times": [
+            54
+        ],
+        "student_name": "Bucky",
+        "correct_answers": [
+            9,
+            "Wolf"
+        ],
+        "question_names": [
+            "What is 3*3",
+            "What is Ryan's last name?"
+        ]
+    }
+]
+```
+
+
+    
