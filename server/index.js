@@ -11,7 +11,9 @@ const app = express();
 
 const PORT = 3654
 
+//Use the bodyParser to get the information from the request body
 app.use(bodyParser.json())
+//Start a session to keep track of when a teacher is logged in
 app.use(session({
     saveUninitialized: true,
     secret: process.env.SESSION_SECRET,
