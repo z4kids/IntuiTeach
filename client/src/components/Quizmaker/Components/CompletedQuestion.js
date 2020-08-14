@@ -15,12 +15,12 @@ const CompletedQuestion = (props) => {
                 <Col>
                     <ul>
                         <li className={props.correctAnswer === 1 ? 'correct-answer' : undefined}>{`${props.answer1Val}`}</li>
-                        <li className={props.correctAnswer === 2 ? 'correct-answer' : undefined}>{`${props.answer2Val}`}</li>
+                        <li className={props.correctAnswer === 3 ? 'correct-answer' : undefined}>{`${props.answer3Val}`}</li>
                     </ul>
                 </Col>
                 <Col>
                     <ul>
-                        <li className={props.correctAnswer === 3 ? 'correct-answer' : undefined}>{`${props.answer3Val}`}</li>
+                        <li className={props.correctAnswer === 2 ? 'correct-answer' : undefined}>{`${props.answer2Val}`}</li>
                         <li className={props.correctAnswer === 4 ? 'correct-answer' : undefined}>{`${props.answer4Val}`}</li>
                     </ul>
                 </Col>
