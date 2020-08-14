@@ -1,9 +1,19 @@
-import React from 'react';
-import { Button, Col, Row, ButtonGroup } from 'react-bootstrap';
+import React, {useState} from 'react';
+import { Button, ToggleButton, ButtonGroup,  Col, Row } from 'react-bootstrap';
 
-const CorrectAnswerSelector = (props) => {    
-    function handleSelectClick(num) {
+const CorrectAnswerSelector = (props) => {  
+    const [buttonValue, setButtonValue] = useState(1);
+
+    const buttons = [
+        { value: 1 },
+        { value: 2 },
+        { value: 3 },
+        { value: 4 },
+    ]
+
+    function handleSelectChange(num) {
         props.selectCorrectAnswer(num);
+        setButtonValue(num);
     }
 
     return (
@@ -13,14 +23,19 @@ const CorrectAnswerSelector = (props) => {
             </Col>
             <Col xs='auto'>
                 <ButtonGroup
-                    id='button-group'
-                    label='Select correst answer'
-                    variant='secondary'>
-
-                    <Button as='input' type='button' value='1' onClick={() => handleSelectClick(1)}/>
-                    <Button as='input' type='button' value='2' onClick={() => handleSelectClick(2)}/>
-                    <Button as='input' type='button' value='3' onClick={() => handleSelectClick(3)}/>
-                    <Button as='input' type='button' value='4' onClick={() => handleSelectClick(4)}/>
+                    toggle
+                    id='button-group'>
+                    {buttons.map((button, index) => (
+                        <ToggleButton
+                            key={index}
+                            type='radio'
+                            variant='secondary'
+                            name='answer-choices'
+                            value={button.value}
+                            checked={buttonValue === button.value}
+                            onChange={() => {handleSelectChange(button.value)}}
+                        >{button.value}</ToggleButton>
+                    ))}
                 </ButtonGroup>
             </Col>
         </Row>

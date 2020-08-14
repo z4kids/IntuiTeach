@@ -45,7 +45,7 @@ const Quizmaker = props => {
         number: 0,
         questionVal: 'This is an example',
         answer1Val: 'Your answers will be displayed here',
-        answer2Val: 'Ever question has one correct answer, indicated by a checkmark',
+        answer2Val: 'Every question has one correct answer, indicated by a checkmark',
         answer3Val: 'You can add up to 4 answer choices',
         answer4Val: 'If you need to change this question, delete this one and add a new question',
         correctAnswer: 2

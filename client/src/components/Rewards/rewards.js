@@ -6,7 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 class Rewards extends React.Component {
     firstRewardAdded = false;
     state = {
-        rewards: ['Example']
+        rewards: []
     };
 
     handleSubmit = reward => {
