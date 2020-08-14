@@ -1,6 +1,6 @@
 import {getStatsByExam, getStatsForAllStudents} from "./link"
 
-
+// Function to calculate stats by exam when a fetch call is made to the API
 export async function calculateStatsByExam(exam_id) {
     const stats_jsons = await getStatsByExam(exam_id)
 
@@ -67,14 +67,8 @@ export async function calculateStatsByExam(exam_id) {
     }
 
     average_time_for_exam /= times.length
+
     //All the statistics
-    console.log(times)
-    console.log(average_time_for_exam)
-    console.log(student_longest_time_on_exam)
-    console.log(average_percentage_correct_for_exam)
-    console.log(most_missed_question)
-
-
     const stats = {
         average_time_for_exam,
         student_longest_time_on_exam,
