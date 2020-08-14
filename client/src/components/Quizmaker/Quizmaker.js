@@ -60,6 +60,7 @@ const Quizmaker = props => {
     useEffect(() => {
         getQuestions(exam_id)
         .then(qs => {
+            console.log(qs)
             let new_questions = []
             if (qs.length > 0) {
                 qs.forEach(question => {

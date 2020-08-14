@@ -133,6 +133,34 @@ Reponse:
 
 ## Endpoints for teachers
 __Note__: All endpoints with /teacher must first be authenticated using the /auth endpoint in order to properly identify the teacher
+### GET /teacher/exam
+#### Purpose
+Gets all the exams for a teacher
+#### Usage
+Response:
+```JSON
+[
+    {
+        "id": "The id of the exam",
+        "name": "The name of the exam"
+    }
+]
+```
+#### Example
+Response:
+```JSON
+[
+    {
+        "id": "a324089ugsdgjldsgre",
+        "name": "Chapter 1"
+    },
+    {
+        "id": "a324089ugsdgjldshmdr",
+        "name": "Chapter 2"
+    }
+]
+```
+
 ### POST /teacher/exam
 
 #### Purpose 
@@ -157,7 +185,64 @@ Request body:
 ```
 Response:
 New exam generated with the following id: 5f30253fd2e184c09fef08a1
-
+### DELETE /teacher/exam
+#### Purpose
+Deletes a specified exam
+#### Usage
+Request body:
+```JSON
+{
+    "exam_id": "The id of the exam to be deleted"
+}
+```
+Response: status code
+#### Example
+Request body:
+```JSON
+{
+    "exam_id": "24392uhfdsafkdjsf9834"
+}
+```
+Response: `200`
+### GET /teacher/question
+#### Purpose
+Gets all the questions for a specific exam
+#### Usage
+Request query parameters:
+```
+exam_id="The id of the exam to get questions for"
+```
+Response:
+```JSON
+[
+    {
+        "correct": "The correct answer",
+        "max_time": The max time in seconds that is allowed for the question,
+        "options": ["An array of answers, including the correct one"],
+        "points": The number of points the question is worth,
+        "prompt": "The question itself",
+        "_id": "The id of the question"
+    }
+]
+```
+#### Example
+Request query parameters:
+```
+exam_id="fdsaf982432khlfsaf"
+```
+Response:
+```JSON
+[
+    {
+        "correct": "Orange",
+        "max_time": 60,
+        "options": ["Apple", "Orange", "Pear", "Blueberry"],
+        "points": 10,
+        "prompt": "Which food is orange?",
+        "_id": "i2407045u4iohfd0y7n"
+    }
+]
+```
 ### POST /teacher/question
 
 #### Purpose 
@@ -221,7 +306,41 @@ Request body:
 ```
 Response:
 Question deleted with the following id: 5f2e1418db60fd3013468aa4
-
+### GET /teacher/reward
+#### Purpose
+Gets a list of rewards for the exam
+#### Usage
+Request query parameters
+```
+exam_id="The id of the exam you want rewards for"
+```
+Reponse:
+```JSON
+[
+    {
+        "cost": The number of points the reward is worth,
+        "exam_id": "The id of the exam",
+        "name": "The name of the reward",
+        "_id": "The id of the reward",
+    }
+]
+```
+#### Example
+Request query parameters
+```
+exam_id="5439hfjkdsalf9384uh"
+```
+Reponse:
+```JSON
+[
+    {
+        "cost": 100,
+        "exam_id": "5439hfjkdsalf9384uh",
+        "name": "Extra credit",
+        "_id": "459hofds9ahf89i34",
+    }
+]
+```
 ### POST /teacher/reward
 
 #### Purpose
