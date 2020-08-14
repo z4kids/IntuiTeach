@@ -10,7 +10,7 @@
 }
 .question-maker {
     position: relative;
-    top: 6%;
+    top: 5em;
     left: 14%;
     width: 85%;
     margin-bottom: 8%;
@@ -27,14 +27,31 @@
     box-shadow: 0px 5px 10px gray;
 }
 
-.question-form input {
-    margin-right: 2vw;
+.question-form-answer-number {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: black;
+    padding-top: 45%;
+}
+
+.question-form-answer-selector {
+    width: 100%;
+    margin-bottom: 1.5%;
+}
+
+.question-form-answer-selector p {
+    text-align: left;
+    font-family: 'Oxygen';
+    color: black;
+}
+
+.test {
+    background-color: black;
 }
 
 .form-down-scroll {
     position: absolute;
     margin-top: 1.6%;
-    right: -.5%;
+    right: 2%;
 }
 
 .form-up-scroll {
@@ -72,6 +89,11 @@
 }
 
 .question-viewer {
+    width: 100%;
+    text-align: left;
+    padding: 1.5%;
+    margin-bottom: 3%;
+    box-shadow: 0px 5px 10px gray;
     background-color: rgba(227, 238, 255, 1.0)
 }
 
@@ -84,6 +106,10 @@
 
 .question-list ul {
     list-style-type: circle;
+}
+
+.correct-answer {
+    list-style-type: '✓  ';
 }
 
 .question-list ul {

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Col} from 'react-bootstrap';
 
 const AnswerChoice = (props) => {
     const answerNum = props.answerNum; 
@@ -9,11 +9,16 @@ const AnswerChoice = (props) => {
     }
 
     return (
-        <Form.Group>
-            <Form.Label srOnly>Enter an Answer Choice</Form.Label>
-            <Form.Control type='text' value={props.value} placeholder='Possible Answer' onChange={handleAnswerChange}/>
-        </Form.Group>
-    )
+    <Form.Row>
+        <Col xs='auto'><p className='question-form-answer-number'>{`${answerNum}.`}</p></Col>
+        <Col>
+            <Form.Group>
+                <Form.Label srOnly>{`Enter Answer Choice ${answerNum}`}</Form.Label>
+                <Form.Control type='text' value={props.value} placeholder={`Answer Choice ${answerNum}`} onChange={handleAnswerChange}/>
+            </Form.Group>
+        </Col>
+    </Form.Row>    
+)
 }
 
 export default AnswerChoice;

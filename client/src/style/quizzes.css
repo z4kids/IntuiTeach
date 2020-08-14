@@ -1,10 +1,13 @@
 .create-quiz{
     position: relative;
     padding: 5%;
-
 }
 
 .quiz-wrapper{
+    position: absolute;
+    top: 30%;
+    left: 3%;
+    width: 94%;
     flex-wrap: wrap;
     flex-direction: row;
     display: flex;
@@ -12,11 +15,25 @@
 }
 
 .quiz-card{
-    margin: 4%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    box-shadow: 0px 5px 10px rgba(81, 56, 115, 1.0);
     position: relative;
 }
 
+.quiz-card Button{
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
 .form-div{
+    position: absolute;
     margin-top: 5%;
+    margin-left: 3%;
     place-items: center;
+    box-shadow: 0px 5px 10px rgba(81, 56, 115, 1.0);
+}
+
+.form-btn{
+    margin-top: 5%;
 }

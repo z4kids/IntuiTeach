@@ -24,9 +24,12 @@ class Quizzes extends Component {
     }
     onChange = (event) => this.setState({ value: event.target.value });
 
+    //cretes new id for new quizzes
+    quizInc = 1;
 
-    quiz = async () => {
-
+    quiz = async (element) => {
+        //prevents page from refreshing
+        element.preventDefault()
         // This is the element which creates the card. 
         let components = this.state.quizzes;
 
@@ -36,26 +39,34 @@ class Quizzes extends Component {
         components.push({id, name: this.state.value});
 
         this.setState({
-            quizzes: components
+            quizzes: components,
+            value: ''
         });
+        this.quizInc++;
     }
-
+    deleteQuiz = (id) => {
+        console.log(0);
+        let components = this.state.change;
+        let remainingComponents = components.filter(element => id !== element.props.id);
+        this.setState({change: remainingComponents});
+    }
+    
     render() {
         return (
             <div>
                 <div className="form-div">
                     <Card style={{ width: '20rem' }}>
                         <Card.Body>
-                        <Form onSubmit={this.handleSubmit}>
+                        <Form>
                             <Form.Label className="form-label">Enter Quiz Name</Form.Label>
                             <Form.Control type="text" value={this.state.value} onChange={this.onChange}/>
+                            <Button type='submit' onClick={this.quiz} className="form-btn">Create this quiz</Button>
                         </Form>
-                        <Button onClick={this.quiz} className="form-btn">CREATE</Button>
                         </Card.Body>
                     </Card>
                 </div>
                 <div className="quiz-wrapper">
-                    {this.state.quizzes.map(comp => (<Quiz data={comp.name} key={comp.id} id={comp.id}/>))}
+                    {this.state.quizzes.map(comp => (<Quiz data={comp.name} key={comp.id} id={comp.id} deleteQuiz={this.deleteQuiz}/>))}
                 </div>
             </div>
         );

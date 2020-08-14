@@ -14,13 +14,15 @@ let numQuestions = 0;
 const Quizmaker = props => {
     const {id: exam_id} = useParams()
     
-    const addQuestion = async (qVal, a1Val, a2Val, a3Val, a4Val) => {
-        let newQuestion = { 
+    const addQuestion = (qVal, a1Val, a2Val, a3Val, a4Val, corAns) => {
+        const newQuestion = { 
+            id: `question-${questionInc}`,
             questionVal: qVal,
             answer1Val: a1Val,
             answer2Val: a2Val,
             answer3Val: a3Val,
             answer4Val: a4Val,
+            correctAnswer: corAns
         }
         const response = await createQuestion(qVal, [a1Val, a2Val, a3Val, a4Val], "", 0, 0, exam_id)
         newQuestion.id = response.id
@@ -35,18 +37,19 @@ const Quizmaker = props => {
         }
     }
 
-    function handleDownScrollClick(e) {
+    function handleUpScrollClick(e) {
         e.preventDefault();
-        document.getElementById('question-form').scrollIntoView();
+        window.scrollTo(0,500);
     }
 
     const defaultQuestion = [{
         id: 'default',
         questionVal: 'This is an example',
         answer1Val: 'Your answers will be displayed here',
-        answer2Val: 'You can add up to 4 answer choices',
-        answer3Val: 'You can add as many questions as you like',
-        answer4Val: 'If you need to change this question, delete this one and add a new question'
+        answer2Val: 'Every question has one correct answer, indicated by a checkmark',
+        answer3Val: 'You can add up to 4 answer choices',
+        answer4Val: 'If you need to change this question, delete this one and add a new question',
+        correctAnswer: 2
     }];
     const [questions, setQuestions] = useState(defaultQuestion);
 
@@ -82,6 +85,7 @@ const Quizmaker = props => {
             answer2Val={question.answer2Val}
             answer3Val={question.answer3Val}
             answer4Val={question.answer4Val}
+            correctAnswer={question.correctAnswer}
             deleteQuestion={deleteQuestion}
         />
     ));
@@ -98,7 +102,9 @@ const Quizmaker = props => {
                             <Rewards exam_id={exam_id}/>
                             <h1>Questions</h1>
                             <div>
-                                <QuestionForm addQuestion={addQuestion} id='question-form'/>
+                                <QuestionForm
+                                    addQuestion={addQuestion}
+                                    id='question-form'/>
                             </div>
                             <div className='question-list'>
                                 <h2>Your Questions</h2>
@@ -111,7 +117,8 @@ const Quizmaker = props => {
                                 value='Scroll to top'
                                 variant='info'
                                 size='sm'
-                                onClick={handleDownScrollClick}/>
+                                onClick={handleUpScrollClick}
+                            />
                         </div>
                     </Col>
                 </Row>
