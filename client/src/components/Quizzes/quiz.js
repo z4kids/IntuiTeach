@@ -10,7 +10,7 @@ const AnswerChoice = (props) => {
     }
 
     return (
-        <Card clasName="quiz-card" style={{ width: '18rem' }}>
+        <Card className="quiz-card" style={{ width: '18rem' }}>
             <Card.Body>
                 <Card.Title>{props.data}</Card.Title>
                 <Button variant="primary">Go to Quiz</Button>
