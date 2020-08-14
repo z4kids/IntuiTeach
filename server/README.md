@@ -88,11 +88,9 @@ Response:
 #### Purpose
 Gets the list of questions for a specific exam
 #### Usage
-Request body:
-```JSON
-{
-    "exam_id": "The internal id of the exam"
-}
+Request query parameters:
+```
+exam_id="The internal id of the exam"
 ```
 Reponse:
 ```JSON
@@ -109,11 +107,9 @@ Reponse:
 }
 ```
 #### Example
-Request body:
-```JSON
-{
-    "exam_id": "5f2f1e595982a2cd57b831a5"
-}
+Request query parameters:
+```
+exam_id=5f2f1e595982a2cd57b831a5
 ```
 Reponse:
 ```JSON
@@ -291,11 +287,9 @@ Reponse:
 #### Purpose
 Gets the stats of all the students who have taken that quiz
 #### Usage
-Request body
-```JSON
-{
-    "exam_id":"5f2f1e595982a2cd57b831a5"
-}
+Request query parameters
+```
+exam_id=5f2f1e595982a2cd57b831a5
 ```
 Response:
 An array of JSONs of the stats for the specific exam

@@ -117,7 +117,7 @@ router.post('/submit', async (req, res) => {
  */
 router.get('/questions', async (req, res) => {
     await client.connect();
-    const {exam_id} = req.body;
+    const {exam_id} = req.query;
     //Get the exam
     const exam = await client.db(DB_NAME).collection('exam').findOne({_id: ObjectId(exam_id)})
     //Fill up the aray of questions
