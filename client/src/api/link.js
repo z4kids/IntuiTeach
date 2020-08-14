@@ -38,6 +38,7 @@ export async function createExam(exam_name) {
 /**
  * Deletes the specfied exam
  * @param {string} exam_id The id of the exam to be deleted
+ * @returns {boolean} true if the deletion was successful, false if it failed
  */
 export async function deleteExam(exam_id) {
     return await deleteRequest('/teacher/exam', 'DELETE', {exam_id})
@@ -59,7 +60,7 @@ export async function createQuestion(prompt, list_of_answers, correct_answer, ma
  * Deletes the specfied question
  * @param {string} question_id The id of the question to be deleted
  * @param {string} exam_id The id the question was a part of
- * @returns {boolean} true if the question deletion was successful, false if it failed
+ * @returns {boolean} true if the deletion was successful, false if it failed
  */
 export async function deleteQuestion(question_id, exam_id) {
     return await deleteRequest('/teacher/question', 'DELETE', {question_id, exam_id})
@@ -82,6 +83,7 @@ export async function getRewards(exam_id) {
 /**
  * Deletes the specfied reward
  * @param {string} reward_id The id of the reward to be deleted
+ * @returns {boolean} true if the deletion was successful, false if it failed
  */
 export async function deleteReward(reward_id) {
     return await deleteRequest('/teacher/reward', 'DELETE', {reward_id})
