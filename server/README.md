@@ -217,9 +217,9 @@ Response:
 [
     {
         "correct": "The correct answer",
-        "max_time": The max time in seconds that is allowed for the question,
+        "max_time": "The max time in seconds that is allowed for the question",
         "options": ["An array of answers, including the correct one"],
-        "points": The number of points the question is worth,
+        "points": "The number of points the question is worth",
         "prompt": "The question itself",
         "_id": "The id of the question"
     }
@@ -318,7 +318,7 @@ Reponse:
 ```JSON
 [
     {
-        "cost": The number of points the reward is worth,
+        "cost": "The number of points the reward is worth",
         "exam_id": "The id of the exam",
         "name": "The name of the reward",
         "_id": "The id of the reward",
